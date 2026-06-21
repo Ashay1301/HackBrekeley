@@ -209,7 +209,7 @@ async def login(request: "Request", form: OAuth2PasswordRequestForm = Depends())
     user = db.get_user_by_email(form.username)
     if not user or not auth_module.verify_password(form.password, user["password_hash"]):
         raise HTTPException(status_code=401, detail="Incorrect email or password.")
-    if not user.get("email_verified"):
+    if not user.get("email_verified") and user.get("role") != "provider":
         raise HTTPException(status_code=403, detail="check_email")
     token = auth_module.create_access_token(user["id"], user["role"])
     return {
