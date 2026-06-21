@@ -156,6 +156,35 @@ def _rate_limit(limit_str: str):
     return decorator
 
 
+def _sentiment_from_claude(text: str, api_key: str) -> dict:
+    """Return {"label": "positive|neutral|negative", "score": 0-100} for the given text."""
+    if not text or not text.strip():
+        return {"label": "neutral", "score": 50}
+    try:
+        import anthropic, json as _json
+        client = anthropic.Anthropic(api_key=api_key)
+        resp = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=60,
+            messages=[{
+                "role": "user",
+                "content": (
+                    "Analyse the sentiment of this text and reply with ONLY valid JSON "
+                    'in the form {"label":"positive|neutral|negative","score":0-100} '
+                    "where score = positivity (0 very negative, 50 neutral, 100 very positive).\n\n"
+                    f'Text: """{text[:800]}"""'
+                ),
+            }],
+        )
+        raw = resp.content[0].text.strip()
+        # strip markdown fences if present
+        if raw.startswith("```"):
+            raw = raw.split("```")[1].lstrip("json").strip()
+        return _json.loads(raw)
+    except Exception:
+        return {"label": "neutral", "score": 50}
+
+
 @app.post("/api/auth/register")
 @_rate_limit("5/minute")
 async def register(req: RegisterRequest, request: "Request"):
@@ -607,6 +636,12 @@ async def voice_check(file: UploadFile = File(...), session_id: str = ""):
 
     result["interpretation"] = interpretation
 
+    # Sentiment analysis on transcript
+    if api_key and result.get("transcript", "").strip():
+        result["sentiment"] = _sentiment_from_claude(result["transcript"], api_key)
+    else:
+        result["sentiment"] = {"label": "neutral", "score": 50}
+
     # Persist voice result so the ASI:One agent can retrieve it
     sid = session_id or "latest-voice"
     session_store.save_voice_result(sid, result)
@@ -923,7 +958,9 @@ async def submit_dream(req: DreamRequest):
     try:
         correlation = dream_module.analyze_dream(req.text, analysis, voice_result=voice_result)
         dream_module.save_dream(req.session_id, req.text, correlation)
-        return {"analysis": correlation}
+        api_key = os.environ.get("ANTHROPIC_API_KEY")
+        sentiment = _sentiment_from_claude(req.text, api_key) if api_key else {"label": "neutral", "score": 50}
+        return {"analysis": correlation, "sentiment": sentiment}
     except RuntimeError as e:
         raise HTTPException(status_code=503, detail=str(e))
     except Exception as e:

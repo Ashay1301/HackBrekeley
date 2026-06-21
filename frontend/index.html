@@ -764,6 +764,10 @@
           <button id="voiceRecordBtn">⏺ Start Recording</button>
           <span id="voiceTimer"></span>
         </div>
+        <div id="voiceLiveTranscript" style="display:none; margin:10px 0 4px;
+          min-height:36px; padding:8px 12px; background:rgba(77,255,210,0.04);
+          border:1px solid var(--border); border-radius:2px; font-size:12px;
+          color:var(--muted); line-height:1.6; font-style:italic;"></div>
         <div id="voiceResults" style="display:none">
           <div class="voice-gauges">
             <div class="voice-gauge" id="fatigueGauge">
@@ -784,6 +788,11 @@
               <div class="gauge-unit">/100</div>
               <div class="gauge-bar"><div class="gauge-fill" id="cogLoadFill"></div></div>
             </div>
+          </div>
+          <div id="voiceSentimentRow" style="display:none; margin:10px 0; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em;">Sentiment</span>
+            <span id="voiceSentimentBadge" style="font-size:12px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid currentColor;"></span>
+            <span id="voiceSentimentScore" style="font-size:11px; color:var(--muted);"></span>
           </div>
           <div class="voice-interpretation" id="voiceInterpretation"></div>
         </div>
@@ -816,6 +825,11 @@
           <div id="dreamOriginalText" style="
             font-size:12px; color:var(--muted); font-style:italic;
             border-left:2px solid var(--border); padding-left:12px; margin-bottom:14px;"></div>
+          <div id="dreamSentimentRow" style="display:none; margin-bottom:10px; display:flex; align-items:center; gap:10px;">
+            <span style="font-size:11px; color:var(--muted); text-transform:uppercase; letter-spacing:0.07em;">Dream Tone</span>
+            <span id="dreamSentimentBadge" style="font-size:12px; font-weight:700; padding:3px 10px; border-radius:20px; border:1px solid currentColor;"></span>
+            <span id="dreamSentimentScore" style="font-size:11px; color:var(--muted);"></span>
+          </div>
           <div id="dreamAnalysisText" style="
             font-size:13px; color:var(--text); line-height:1.7;
             background:rgba(77,255,210,0.04); border:1px solid var(--border);
@@ -1385,6 +1399,7 @@ async function loadWeeklyTrends() {
 
 // ── Voice Health Check ────────────────────────────────────────────────────────────
 let voiceRecorder, voiceChunks = [], voiceTimerInterval, isVoiceRecording = false;
+let _voiceSpeechRec = null;
 
 document.getElementById('voiceRecordBtn').addEventListener('click', async () => {
   if (!isVoiceRecording) {
@@ -1406,6 +1421,28 @@ document.getElementById('voiceRecordBtn').addEventListener('click', async () => 
     btn.textContent = '⏹ Stop & Analyse';
     btn.classList.add('recording');
 
+    // Live transcript via Web Speech API
+    const liveEl = document.getElementById('voiceLiveTranscript');
+    if (liveEl) { liveEl.textContent = ''; liveEl.style.display = 'block'; }
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRec) {
+      _voiceSpeechRec = new SpeechRec();
+      _voiceSpeechRec.continuous = true;
+      _voiceSpeechRec.interimResults = true;
+      _voiceSpeechRec.onresult = e => {
+        if (!liveEl) return;
+        let interim = '', final = '';
+        for (const r of e.results) {
+          if (r.isFinal) final += r[0].transcript;
+          else interim += r[0].transcript;
+        }
+        liveEl.innerHTML = final
+          ? `<span style="color:var(--text)">${final}</span><span style="color:var(--muted)"> ${interim}</span>`
+          : `<span style="color:var(--muted)">${interim}</span>`;
+      };
+      _voiceSpeechRec.start();
+    }
+
     let secs = 0;
     voiceTimerInterval = setInterval(() => {
       secs++;
@@ -1414,6 +1451,7 @@ document.getElementById('voiceRecordBtn').addEventListener('click', async () => 
     }, 1000);
   } else {
     voiceRecorder.stop();
+    if (_voiceSpeechRec) { _voiceSpeechRec.stop(); _voiceSpeechRec = null; }
   }
 });
 
@@ -1464,6 +1502,24 @@ function renderVoiceResults(data) {
     document.getElementById(g.fill).style.width = `${v}%`;
     document.getElementById(g.fill).style.background = c;
   });
+
+  // Sentiment
+  const sent = data.sentiment;
+  if (sent) {
+    const labelColors = { positive: '#4DFFD2', neutral: '#FFB347', negative: '#FF7059' };
+    const label = (sent.label || 'neutral').toLowerCase();
+    const col = labelColors[label] || '#FFB347';
+    const badge = document.getElementById('voiceSentimentBadge');
+    badge.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+    badge.style.color = col;
+    badge.style.borderColor = col;
+    document.getElementById('voiceSentimentScore').textContent = `${sent.score ?? '—'}/100`;
+    document.getElementById('voiceSentimentRow').style.display = 'flex';
+  }
+
+  // Hide live transcript box once results appear
+  const liveEl = document.getElementById('voiceLiveTranscript');
+  if (liveEl) liveEl.style.display = 'none';
 
   const interp = document.getElementById('voiceInterpretation');
   interp.textContent = data.interpretation || 'Analysis complete.';
@@ -1636,7 +1692,7 @@ document.getElementById('dreamSubmitBtn').addEventListener('click', async () => 
     });
     if (!res.ok) { showToast('Dream analysis failed — check server logs.'); return; }
     const data = await res.json();
-    showDreamResult(text, data.analysis);
+    showDreamResult(text, data.analysis, data.sentiment);
   } catch(e) {
     showToast('Dream analysis failed.');
   } finally {
@@ -1645,11 +1701,23 @@ document.getElementById('dreamSubmitBtn').addEventListener('click', async () => 
   }
 });
 
-function showDreamResult(dreamText, analysisText) {
+function showDreamResult(dreamText, analysisText, sentiment) {
   document.getElementById('dreamInputArea').style.display = 'none';
   document.getElementById('dreamResult').style.display = 'block';
-  document.getElementById('dreamOriginalText').textContent = '“' + dreamText + '”';
+  document.getElementById('dreamOriginalText').textContent = '”' + dreamText + '”';
   document.getElementById('dreamAnalysisText').textContent = analysisText;
+
+  if (sentiment) {
+    const labelColors = { positive: '#4DFFD2', neutral: '#FFB347', negative: '#FF7059' };
+    const label = (sentiment.label || 'neutral').toLowerCase();
+    const col = labelColors[label] || '#FFB347';
+    const badge = document.getElementById('dreamSentimentBadge');
+    badge.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+    badge.style.color = col;
+    badge.style.borderColor = col;
+    document.getElementById('dreamSentimentScore').textContent = `${sentiment.score ?? '—'}/100`;
+    document.getElementById('dreamSentimentRow').style.display = 'flex';
+  }
 }
 
 document.getElementById('dreamNewEntry').addEventListener('click', () => {
@@ -1658,33 +1726,77 @@ document.getElementById('dreamNewEntry').addEventListener('click', () => {
   document.getElementById('dreamText').value = '';
 });
 
-// Dream mic — transcribe via Deepgram then fill textarea
+// Dream mic — live transcript via Web Speech API; Deepgram as fallback
+let _dreamSpeechRec = null;
 document.getElementById('dreamMicBtn').addEventListener('click', async () => {
   const btn = document.getElementById('dreamMicBtn');
-  if (btn.dataset.recording === '1') return;
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true }).catch(() => null);
-  if (!stream) { showToast('Microphone access denied.'); return; }
-  const chunks = [];
-  const rec = new MediaRecorder(stream);
-  rec.ondataavailable = e => chunks.push(e.data);
-  rec.onstop = async () => {
+  const textarea = document.getElementById('dreamText');
+
+  if (btn.dataset.recording === '1') {
+    // Stop
+    if (_dreamSpeechRec) { _dreamSpeechRec.stop(); _dreamSpeechRec = null; }
     btn.textContent = '🎤 Speak';
     btn.dataset.recording = '0';
-    stream.getTracks().forEach(t => t.stop());
-    const fd = new FormData();
-    fd.append('file', new Blob(chunks, { type:'audio/webm' }), 'dream.webm');
-    try {
-      const res = await fetch('/api/transcribe', { method:'POST', body:fd });
-      if (res.ok) {
-        const { transcript } = await res.json();
-        if (transcript) document.getElementById('dreamText').value = transcript;
+    btn.style.borderColor = '';
+    return;
+  }
+
+  const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SpeechRec) {
+    // Live path — no audio upload needed
+    _dreamSpeechRec = new SpeechRec();
+    _dreamSpeechRec.continuous = true;
+    _dreamSpeechRec.interimResults = true;
+    let finalText = textarea.value;
+    _dreamSpeechRec.onresult = e => {
+      let interim = '';
+      let newFinal = '';
+      for (const r of e.results) {
+        if (r.isFinal) newFinal += r[0].transcript;
+        else interim += r[0].transcript;
       }
-    } catch(_) {}
-  };
-  rec.start();
-  btn.textContent = '⏹ Stop';
-  btn.dataset.recording = '1';
-  btn.onclick = () => rec.stop();
+      if (newFinal) finalText = (finalText + ' ' + newFinal).trim();
+      textarea.value = finalText + (interim ? ' ' + interim : '');
+    };
+    _dreamSpeechRec.onend = () => {
+      textarea.value = finalText;
+      btn.textContent = '🎤 Speak';
+      btn.dataset.recording = '0';
+      btn.style.borderColor = '';
+      _dreamSpeechRec = null;
+    };
+    _dreamSpeechRec.start();
+    btn.textContent = '⏹ Stop';
+    btn.dataset.recording = '1';
+    btn.style.borderColor = 'var(--red)';
+  } else {
+    // Fallback — MediaRecorder + Deepgram
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true }).catch(() => null);
+    if (!stream) { showToast('Microphone access denied.'); return; }
+    const chunks = [];
+    const rec = new MediaRecorder(stream);
+    rec.ondataavailable = e => chunks.push(e.data);
+    rec.onstop = async () => {
+      btn.textContent = '🎤 Speak';
+      btn.dataset.recording = '0';
+      btn.style.borderColor = '';
+      stream.getTracks().forEach(t => t.stop());
+      const fd = new FormData();
+      fd.append('file', new Blob(chunks, { type:'audio/webm' }), 'dream.webm');
+      try {
+        const res = await fetch('/api/transcribe', { method:'POST', body:fd });
+        if (res.ok) {
+          const { transcript } = await res.json();
+          if (transcript) textarea.value = transcript;
+        }
+      } catch(_) {}
+    };
+    rec.start();
+    btn.textContent = '⏹ Stop';
+    btn.dataset.recording = '1';
+    btn.style.borderColor = 'var(--red)';
+    btn.onclick = () => rec.stop();
+  }
 });
 
 // Mark session when voice check is done (so dream journal shows the voice hint)
