@@ -2,7 +2,10 @@ fastapi>=0.110.0
 uvicorn[standard]>=0.29.0
 python-multipart>=0.0.9
 anthropic>=0.25.0
-tensorflow>=2.13.0
+# tensorflow excluded from Railway deploy — 450MB RAM exceeds hobby tier limit.
+# Models load gracefully as unavailable; demo mode + chat + voice still work.
+# To enable live EEG/wrist inference, upgrade to Railway Pro (8GB RAM) and add:
+#   tensorflow>=2.13.0
 numpy>=1.23.0
 pyedflib>=0.1.22
 scikit-learn>=1.1.0
