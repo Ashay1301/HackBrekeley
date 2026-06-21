@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SleepSense AI — Provider Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0b1120; --surface: #131e30; --border: #1e2d42;
+    --text: #c9d1d9; --muted: #6e7681; --accent: #388bfd;
+    --green: #3fb950; --yellow: #d29922; --red: #f85149; --purple: #bc8cff;
+  }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
+
+  /* ── Header ── */
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
+  .brand { display: flex; align-items: center; gap: 10px; }
+  .brand-name { font-size: 1.1rem; font-weight: 700; color: #fff; }
+  .brand-tag { font-size: 0.7rem; background: rgba(188,140,255,0.15); color: var(--purple); padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(188,140,255,0.3); letter-spacing: 0.05em; }
+  .back-link { font-size: 0.8rem; color: var(--muted); text-decoration: none; border: 1px solid var(--border); padding: 5px 12px; border-radius: 6px; transition: color 0.15s; }
+  .back-link:hover { color: var(--text); }
+
+  /* ── Layout ── */
+  main { max-width: 1100px; margin: 32px auto; padding: 0 24px; }
+  h1 { font-size: 1.25rem; font-weight: 600; color: #fff; margin-bottom: 6px; }
+  .subtitle { font-size: 0.8rem; color: var(--muted); margin-bottom: 28px; }
+
+  /* ── Stats bar ── */
+  .stats-bar { display: flex; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+  .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 20px; flex: 1; min-width: 140px; }
+  .stat-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
+  .stat-value { font-size: 1.5rem; font-weight: 700; color: #fff; }
+  .stat-value.red { color: var(--red); }
+  .stat-value.yellow { color: var(--yellow); }
+  .stat-value.green { color: var(--green); }
+
+  /* ── Table ── */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 12px 16px; text-align: left; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 600; }
+  tbody tr { border-bottom: 1px solid rgba(30,45,66,0.6); cursor: pointer; transition: background 0.15s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: rgba(56,139,253,0.05); }
+  td { padding: 14px 16px; font-size: 0.85rem; vertical-align: middle; }
+  .patient-name { font-weight: 600; color: #fff; }
+  .patient-sub  { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── Risk badge ── */
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .badge-none     { background: rgba(63,185,80,0.12); color: var(--green); border: 1px solid rgba(63,185,80,0.3); }
+  .badge-low      { background: rgba(56,139,253,0.12); color: var(--accent); border: 1px solid rgba(56,139,253,0.3); }
+  .badge-moderate { background: rgba(210,153,34,0.12); color: var(--yellow); border: 1px solid rgba(210,153,34,0.3); }
+  .badge-high     { background: rgba(248,81,73,0.12); color: var(--red); border: 1px solid rgba(248,81,73,0.3); }
+
+  /* ── Sparkline ── */
+  .spark { display: block; }
+
+  /* ── Expand row ── */
+  .expand-row { display: none; background: rgba(19,30,48,0.6); }
+  .expand-row.open { display: table-row; }
+  .expand-inner { padding: 16px 20px; }
+  .signals-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .signals-list li { font-size: 0.8rem; color: var(--text); padding-left: 16px; position: relative; line-height: 1.5; }
+  .signals-list li::before { content: '↳'; position: absolute; left: 0; color: var(--muted); }
+  .expand-actions { display: flex; gap: 10px; margin-top: 14px; }
+  .btn-sm { padding: 6px 14px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; cursor: pointer; border: none; text-decoration: none; display: inline-block; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+  .no-signals { font-size: 0.8rem; color: var(--muted); font-style: italic; }
+
+  /* ── Disclaimer ── */
+  .disclaimer { margin-top: 32px; padding: 14px 18px; background: rgba(30,45,66,0.4); border: 1px solid var(--border); border-radius: 8px; font-size: 0.75rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── Loading ── */
+  .loading { text-align: center; padding: 60px; color: var(--muted); font-size: 0.9rem; }
+
+  /* ── Score color ── */
+  .score-a { color: var(--green); }
+  .score-b { color: #4dffd2; }
+  .score-c { color: var(--yellow); }
+  .score-d { color: var(--red); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="10" stroke="#388bfd" stroke-width="1.5"/>
+      <path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4-1.8 4-4 4" stroke="#bc8cff" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+    <span class="brand-name">SleepSense AI</span>
+    <span class="brand-tag">Provider View</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:8px">
+    <span id="prov-user-name" style="font-size:0.78rem;color:var(--muted)"></span>
+    <button onclick="provLogout()" id="prov-logout-btn" style="display:none;padding:4px 10px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;cursor:pointer;font-size:0.72rem">Log out</button>
+    <a href="/" class="back-link">← Patient App</a>
+  </div>
+</header>
+
+<!-- ── Provider login gate ── -->
+<div id="prov-auth-gate" style="display:none;position:fixed;inset:0;background:rgba(11,17,32,0.95);z-index:200;align-items:center;justify-content:center">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;width:380px;max-width:calc(100vw - 32px);padding:28px">
+    <p style="font-size:1rem;font-weight:700;color:#fff;margin-bottom:4px">Provider login required</p>
+    <p style="font-size:0.8rem;color:var(--muted);margin-bottom:20px">Sign in with your provider account to view the dashboard.</p>
+    <div id="prov-auth-error" style="display:none;background:rgba(248,81,73,0.12);border:1px solid rgba(248,81,73,0.3);color:#f85149;padding:8px 12px;border-radius:6px;font-size:0.8rem;margin-bottom:14px"></div>
+    <form onsubmit="provLogin(event)">
+      <div style="margin-bottom:12px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Email</label>
+        <input id="prov-email" type="email" required placeholder="provider@clinic.com"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Password</label>
+        <input id="prov-password" type="password" required
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <button type="submit" style="width:100%;padding:10px;background:var(--accent);border:none;color:#0b1120;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer">Sign in</button>
+      <p style="text-align:center;margin-top:10px;margin-bottom:0">
+        <a href="/?next=/provider" onclick="window.location.href='/?next=/provider#forgot';return false" style="font-size:0.78rem;color:var(--muted);text-decoration:none">Forgot password? Reset on main app →</a>
+      </p>
+    </form>
+    <p style="font-size:0.75rem;color:var(--muted);margin-top:14px">Don't have an account? <a href="/" style="color:var(--accent)">Sign up on the patient app</a>.</p>
+  </div>
+</div>
+
+<main style="display:none">
+  <h1>Patient Overview</h1>
+  <p class="subtitle">Sleep quality, voice health, and psychiatric risk indicators — updated on each patient sync</p>
+
+  <div class="stats-bar" id="statsBar">
+    <div class="stat-card"><div class="stat-label">Total Patients</div><div class="stat-value" id="statTotal">—</div></div>
+    <div class="stat-card"><div class="stat-label">High Risk</div><div class="stat-value red" id="statHigh">—</div></div>
+    <div class="stat-card"><div class="stat-label">Moderate Risk</div><div class="stat-value yellow" id="statMod">—</div></div>
+    <div class="stat-card"><div class="stat-label">No Concerns</div><div class="stat-value green" id="statNone">—</div></div>
+  </div>
+
+  <div class="table-wrap">
+    <div class="loading" id="loadingMsg">Loading patient data…</div>
+    <table id="patientTable" style="display:none">
+      <thead>
+        <tr>
+          <th>Patient</th>
+          <th>Last Check-in</th>
+          <th>Sleep Score</th>
+          <th>Efficiency</th>
+          <th>REM %</th>
+          <th>Voice Fatigue</th>
+          <th>7-Night Trend</th>
+          <th>Risk</th>
+        </tr>
+      </thead>
+      <tbody id="patientBody"></tbody>
+    </table>
+  </div>
+
+  <div class="disclaimer">
+    <strong>Clinical Decision Support Tool — Not a Diagnostic Instrument.</strong>
+    Risk indicators are derived from acoustic and wearable sleep biomarkers and correlate with
+    published depression/mood disorder markers. They are not equivalent to a PHQ-9 or clinical
+    assessment. Always consult a qualified healthcare professional before acting on these indicators.
+    Data is session-scoped and stored with a 7-day TTL.
+  </div>
+</main>
+
+<script>
+// ── Provider auth ──────────────────────────────────────────────────────────────
+function getProvToken() { return localStorage.getItem('sleepToken'); }
+
+async function checkProvAuth() {
+  const token = getProvToken();
+  if (!token) { showGate(); return false; }
+  try {
+    const r = await fetch('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } });
+    if (!r.ok) { showGate(); return false; }
+    const user = await r.json();
+    if (user.role !== 'provider') { showGateMsg('Your account is a patient account. Provider access required.'); return false; }
+    document.getElementById('prov-user-name').textContent = user.name;
+    document.getElementById('prov-logout-btn').style.display = 'inline-block';
+    return true;
+  } catch { showGate(); return false; }
+}
+
+function showGate(msg) {
+  document.getElementById('prov-auth-gate').style.display = 'flex';
+  document.querySelector('main').style.display = 'none';
+}
+function showGateMsg(msg) {
+  showGate();
+  const el = document.getElementById('prov-auth-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+async function provLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('prov-email').value;
+  const pw    = document.getElementById('prov-password').value;
+  const body  = new URLSearchParams({ username: email, password: pw });
+  try {
+    const r = await fetch('/api/auth/login', { method: 'POST', body });
+    const d = await r.json();
+    if (r.status === 403 && d.detail === 'check_email') {
+      const el = document.getElementById('prov-auth-error');
+      el.style.background = 'rgba(210,153,34,0.12)';
+      el.style.borderColor = 'rgba(210,153,34,0.3)';
+      el.style.color = '#d29922';
+      el.textContent = 'Check your inbox to verify your email before logging in.';
+      el.style.display = 'block';
+      return;
+    }
+    if (!r.ok) {
+      const el = document.getElementById('prov-auth-error');
+      el.textContent = d.detail || 'Login failed';
+      el.style.display = 'block';
+      return;
+    }
+    if (d.user.role !== 'provider') {
+      const el = document.getElementById('prov-auth-error');
+      el.textContent = 'This account is a patient account. Provider access required.';
+      el.style.display = 'block';
+      return;
+    }
+    localStorage.setItem('sleepToken', d.access_token);
+    document.getElementById('prov-auth-gate').style.display = 'none';
+    document.querySelector('main').style.display = 'block';
+    document.getElementById('prov-user-name').textContent = d.user.name;
+    document.getElementById('prov-logout-btn').style.display = 'inline-block';
+    load();
+  } catch {
+    const el = document.getElementById('prov-auth-error');
+    el.textContent = 'Network error — is the server running?';
+    el.style.display = 'block';
+  }
+}
+
+function provLogout() {
+  localStorage.removeItem('sleepToken');
+  localStorage.removeItem('sleepUser');
+  showGate();
+}
+
+// ── Main dashboard ──────────────────────────────────────────────────────────────
+const RISK_ORDER = { high: 0, moderate: 1, low: 2, none: 3 };
+
+function badge(level) {
+  const labels = { none: 'No Concern', low: 'Low', moderate: 'Moderate', high: 'High Risk' };
+  return `<span class="badge badge-${level}">${labels[level] || level}</span>`;
+}
+
+function scoreColor(grade) {
+  return { A: 'score-a', B: 'score-b', C: 'score-c', D: 'score-d' }[grade] || '';
+}
+
+function sparkline(trend) {
+  if (!trend || trend.length < 2) return '<span style="color:var(--muted);font-size:0.75rem">—</span>';
+  const w = 80, h = 28, pad = 3;
+  const vals = trend.filter(v => v != null);
+  if (vals.length < 2) return '';
+  const min = Math.min(...vals) - 5;
+  const max = Math.max(...vals) + 5;
+  const xStep = (w - pad * 2) / (vals.length - 1);
+  const yScale = (h - pad * 2) / (max - min || 1);
+  const pts = vals.map((v, i) =>
+    `${(pad + i * xStep).toFixed(1)},${(h - pad - (v - min) * yScale).toFixed(1)}`
+  ).join(' ');
+  const last = vals[vals.length - 1];
+  const prev = vals[vals.length - 2];
+  const color = last >= prev ? '#3fb950' : last >= prev - 5 ? '#d29922' : '#f85149';
+  return `<svg class="spark" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="${(pad + (vals.length-1)*xStep).toFixed(1)}" cy="${(h-pad-(last-min)*yScale).toFixed(1)}" r="2.5" fill="${color}"/>
+  </svg>`;
+}
+
+function fmt(v, unit = '') {
+  if (v == null) return '<span style="color:var(--muted)">—</span>';
+  return `${typeof v === 'number' ? v.toFixed(v % 1 === 0 ? 0 : 1) : v}${unit}`;
+}
+
+async function load() {
+  try {
+    const r = await fetch('/api/provider/patients');
+    const { patients } = await r.json();
+
+    // Sort by risk severity
+    patients.sort((a, b) => (RISK_ORDER[a.risk_level] ?? 9) - (RISK_ORDER[b.risk_level] ?? 9));
+
+    // Stats
+    document.getElementById('statTotal').textContent = patients.length;
+    document.getElementById('statHigh').textContent  = patients.filter(p => p.risk_level === 'high').length;
+    document.getElementById('statMod').textContent   = patients.filter(p => p.risk_level === 'moderate').length;
+    document.getElementById('statNone').textContent  = patients.filter(p => p.risk_level === 'none' || p.risk_level === 'low').length;
+
+    const tbody = document.getElementById('patientBody');
+    tbody.innerHTML = '';
+
+    patients.forEach((p, idx) => {
+      // Main row
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-idx', idx);
+      tr.onclick = () => toggleExpand(idx);
+      tr.innerHTML = `
+        <td>
+          <div class="patient-name">${p.name}</div>
+          <div class="patient-sub">${p.id.startsWith('demo') ? 'Demo patient' : 'Live sync'}</div>
+        </td>
+        <td>${p.last_date || '—'}</td>
+        <td><span class="${scoreColor(p.quality_grade)}" style="font-weight:700">${fmt(p.quality_score)} ${p.quality_grade ? `<small>${p.quality_grade}</small>` : ''}</span></td>
+        <td>${fmt(p.efficiency, '%')}</td>
+        <td>${fmt(p.rem_pct, '%')}</td>
+        <td>${fmt(p.voice_fatigue)}</td>
+        <td>${sparkline(p.trend_7d)}</td>
+        <td>${badge(p.risk_level)}</td>
+      `;
+      tbody.appendChild(tr);
+
+      // Expand row
+      const expand = document.createElement('tr');
+      expand.className = 'expand-row';
+      expand.id = `expand-${idx}`;
+      const signals = p.signals && p.signals.length > 0
+        ? `<ul class="signals-list">${p.signals.map(s => `<li>${s}</li>`).join('')}</ul>`
+        : `<p class="no-signals">No risk signals detected for this patient.</p>`;
+
+      const sessionLink = p.session_id && !p.id.startsWith('demo')
+        ? `<a href="/?session=${p.session_id}" class="btn-sm btn-primary">View Full Report →</a>`
+        : `<span class="btn-sm btn-secondary" style="opacity:0.5;cursor:default">Demo patient — no live session</span>`;
+
+      expand.innerHTML = `<td colspan="8">
+        <div class="expand-inner">
+          <div style="font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px">
+            Risk signals (${p.risk_score || 0} of 10)
+          </div>
+          ${signals}
+          <div class="expand-actions">${sessionLink}</div>
+        </div>
+      </td>`;
+      tbody.appendChild(expand);
+    });
+
+    document.getElementById('loadingMsg').style.display = 'none';
+    document.getElementById('patientTable').style.display = 'table';
+  } catch (e) {
+    document.getElementById('loadingMsg').textContent = 'Failed to load patient data. Is the server running?';
+  }
+}
+
+function toggleExpand(idx) {
+  const row = document.getElementById(`expand-${idx}`);
+  if (!row) return;
+  row.classList.toggle('open');
+}
+
+// On page load: check auth, then load patients if authorised
+(async () => {
+  const ok = await checkProvAuth();
+  if (ok) {
+    document.querySelector('main').style.display = 'block';
+    load();
+  }
+})();
+</script>
+</body>
+</html>

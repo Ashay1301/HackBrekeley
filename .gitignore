@@ -1,0 +1,61 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ── Virtual environments ─────────────────────────────────────────────────────
+bin/
+venv/
+.venv/
+env/
+ENV/
+
+# ── Database — contains hashed passwords and user data ───────────────────────
+*.db
+*.sqlite
+*.sqlite3
+
+# ── Environment / secrets ────────────────────────────────────────────────────
+.env
+.env.*
+*.env
+secrets.json
+credentials.json
+
+# ── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ── Logs ─────────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ── Temporary / scratchpad ────────────────────────────────────────────────────
+*.tmp
+*.swp
+*.swo
+*~
+
+# ── TensorFlow / training artefacts ──────────────────────────────────────────
+# Keep model checkpoints (needed for inference) but drop TF event logs
+final_model_45F1/logs/
+wrist_model/checkpoints/training.log
+
+# ── Data directories (raw/processed DREAMT dataset — too large for git) ──────
+data/
+
+# ── Claude session design docs (internal) ────────────────────────────────────
+compass_artifact_wf-*.md
+
+# ── IDE / editor ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.code-workspace

@@ -1,0 +1,7162 @@
+{
+  "session_id": "demo-session",
+  "metadata": {
+    "analysis_type": "eeg",
+    "channel": "EEG Fpz-Cz",
+    "sampling_rate_hz": 100,
+    "n_epochs": 509,
+    "recording_start": "2024-01-15 22:30:00",
+    "source_edf_file": "demo_patient.edf"
+  },
+  "sleep_summary": {
+    "quality_score": 72,
+    "quality_grade": "B",
+    "efficiency_pct": 87.2,
+    "latency_min": 15.0,
+    "awakenings": 3,
+    "total_recording_min": 254.5,
+    "total_sleep_min": 222.0,
+    "time_in_stage_min": {
+      "W": 32.5,
+      "N1": 10.0,
+      "N2": 100.0,
+      "N3": 36.0,
+      "REM": 76.0
+    },
+    "pct_in_stage": {
+      "W": 12.8,
+      "N1": 3.9,
+      "N2": 39.3,
+      "N3": 14.1,
+      "REM": 29.9
+    }
+  },
+  "epoch_by_epoch_data": [
+    {
+      "epoch_number": 1,
+      "timestamp": "2024-01-15 22:30:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.792,
+      "probabilities": {
+        "W": 0.792,
+        "N1": 0.022,
+        "N2": 0.096,
+        "N3": 0.011,
+        "REM": 0.079
+      }
+    },
+    {
+      "epoch_number": 2,
+      "timestamp": "2024-01-15 22:30:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.801,
+      "probabilities": {
+        "W": 0.801,
+        "N1": 0.011,
+        "N2": 0.098,
+        "N3": 0.007,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 3,
+      "timestamp": "2024-01-15 22:31:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.736,
+      "probabilities": {
+        "W": 0.736,
+        "N1": 0.016,
+        "N2": 0.077,
+        "N3": 0.149,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 4,
+      "timestamp": "2024-01-15 22:31:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.769,
+      "probabilities": {
+        "W": 0.769,
+        "N1": 0.057,
+        "N2": 0.086,
+        "N3": 0.052,
+        "REM": 0.036
+      }
+    },
+    {
+      "epoch_number": 5,
+      "timestamp": "2024-01-15 22:32:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.935,
+      "probabilities": {
+        "W": 0.935,
+        "N1": 0.002,
+        "N2": 0.042,
+        "N3": 0.014,
+        "REM": 0.007
+      }
+    },
+    {
+      "epoch_number": 6,
+      "timestamp": "2024-01-15 22:32:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.746,
+      "probabilities": {
+        "W": 0.746,
+        "N1": 0.042,
+        "N2": 0.11,
+        "N3": 0.024,
+        "REM": 0.078
+      }
+    },
+    {
+      "epoch_number": 7,
+      "timestamp": "2024-01-15 22:33:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.861,
+      "probabilities": {
+        "W": 0.861,
+        "N1": 0.05,
+        "N2": 0.073,
+        "N3": 0.008,
+        "REM": 0.008
+      }
+    },
+    {
+      "epoch_number": 8,
+      "timestamp": "2024-01-15 22:33:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.765,
+      "probabilities": {
+        "W": 0.765,
+        "N1": 0.08,
+        "N2": 0.05,
+        "N3": 0.037,
+        "REM": 0.068
+      }
+    },
+    {
+      "epoch_number": 9,
+      "timestamp": "2024-01-15 22:34:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.819,
+      "probabilities": {
+        "W": 0.819,
+        "N1": 0.027,
+        "N2": 0.07,
+        "N3": 0.062,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 10,
+      "timestamp": "2024-01-15 22:34:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.847,
+      "probabilities": {
+        "W": 0.847,
+        "N1": 0.033,
+        "N2": 0.056,
+        "N3": 0.046,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 11,
+      "timestamp": "2024-01-15 22:35:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.935,
+      "probabilities": {
+        "W": 0.935,
+        "N1": 0.005,
+        "N2": 0.019,
+        "N3": 0.034,
+        "REM": 0.007
+      }
+    },
+    {
+      "epoch_number": 12,
+      "timestamp": "2024-01-15 22:35:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.829,
+      "probabilities": {
+        "W": 0.829,
+        "N1": 0.003,
+        "N2": 0.056,
+        "N3": 0.064,
+        "REM": 0.048
+      }
+    },
+    {
+      "epoch_number": 13,
+      "timestamp": "2024-01-15 22:36:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.912,
+      "probabilities": {
+        "W": 0.912,
+        "N1": 0.013,
+        "N2": 0.028,
+        "N3": 0.024,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 14,
+      "timestamp": "2024-01-15 22:36:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.82,
+      "probabilities": {
+        "W": 0.82,
+        "N1": 0.052,
+        "N2": 0.058,
+        "N3": 0.029,
+        "REM": 0.041
+      }
+    },
+    {
+      "epoch_number": 15,
+      "timestamp": "2024-01-15 22:37:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.733,
+      "probabilities": {
+        "W": 0.733,
+        "N1": 0.059,
+        "N2": 0.055,
+        "N3": 0.084,
+        "REM": 0.069
+      }
+    },
+    {
+      "epoch_number": 16,
+      "timestamp": "2024-01-15 22:37:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.783,
+      "probabilities": {
+        "W": 0.783,
+        "N1": 0.055,
+        "N2": 0.094,
+        "N3": 0.003,
+        "REM": 0.065
+      }
+    },
+    {
+      "epoch_number": 17,
+      "timestamp": "2024-01-15 22:38:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.757,
+      "probabilities": {
+        "W": 0.757,
+        "N1": 0.027,
+        "N2": 0.013,
+        "N3": 0.174,
+        "REM": 0.029
+      }
+    },
+    {
+      "epoch_number": 18,
+      "timestamp": "2024-01-15 22:38:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.774,
+      "probabilities": {
+        "W": 0.774,
+        "N1": 0.049,
+        "N2": 0.11,
+        "N3": 0.01,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 19,
+      "timestamp": "2024-01-15 22:39:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.841,
+      "probabilities": {
+        "W": 0.841,
+        "N1": 0.049,
+        "N2": 0.046,
+        "N3": 0.048,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 20,
+      "timestamp": "2024-01-15 22:39:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.811,
+      "probabilities": {
+        "W": 0.811,
+        "N1": 0.029,
+        "N2": 0.071,
+        "N3": 0.077,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 21,
+      "timestamp": "2024-01-15 22:40:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.759,
+      "probabilities": {
+        "W": 0.759,
+        "N1": 0.036,
+        "N2": 0.037,
+        "N3": 0.076,
+        "REM": 0.092
+      }
+    },
+    {
+      "epoch_number": 22,
+      "timestamp": "2024-01-15 22:40:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.777,
+        "N1": 0.001,
+        "N2": 0.069,
+        "N3": 0.06,
+        "REM": 0.093
+      }
+    },
+    {
+      "epoch_number": 23,
+      "timestamp": "2024-01-15 22:41:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.93,
+        "N1": 0.019,
+        "N2": 0.015,
+        "N3": 0.017,
+        "REM": 0.019
+      }
+    },
+    {
+      "epoch_number": 24,
+      "timestamp": "2024-01-15 22:41:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.732,
+      "probabilities": {
+        "W": 0.732,
+        "N1": 0.072,
+        "N2": 0.062,
+        "N3": 0.07,
+        "REM": 0.064
+      }
+    },
+    {
+      "epoch_number": 25,
+      "timestamp": "2024-01-15 22:42:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.807,
+      "probabilities": {
+        "W": 0.807,
+        "N1": 0.064,
+        "N2": 0.017,
+        "N3": 0.102,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 26,
+      "timestamp": "2024-01-15 22:42:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.736,
+      "probabilities": {
+        "W": 0.736,
+        "N1": 0.072,
+        "N2": 0.056,
+        "N3": 0.118,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 27,
+      "timestamp": "2024-01-15 22:43:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.72,
+      "probabilities": {
+        "W": 0.72,
+        "N1": 0.066,
+        "N2": 0.044,
+        "N3": 0.159,
+        "REM": 0.011
+      }
+    },
+    {
+      "epoch_number": 28,
+      "timestamp": "2024-01-15 22:43:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.912,
+      "probabilities": {
+        "W": 0.912,
+        "N1": 0.04,
+        "N2": 0.01,
+        "N3": 0.016,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 29,
+      "timestamp": "2024-01-15 22:44:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.8,
+      "probabilities": {
+        "W": 0.8,
+        "N1": 0.01,
+        "N2": 0.07,
+        "N3": 0.082,
+        "REM": 0.038
+      }
+    },
+    {
+      "epoch_number": 30,
+      "timestamp": "2024-01-15 22:44:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.826,
+      "probabilities": {
+        "W": 0.826,
+        "N1": 0.019,
+        "N2": 0.022,
+        "N3": 0.075,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 31,
+      "timestamp": "2024-01-15 22:45:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.903,
+      "probabilities": {
+        "W": 0.009,
+        "N1": 0.903,
+        "N2": 0.001,
+        "N3": 0.056,
+        "REM": 0.031
+      }
+    },
+    {
+      "epoch_number": 32,
+      "timestamp": "2024-01-15 22:45:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.065,
+        "N1": 0.752,
+        "N2": 0.003,
+        "N3": 0.063,
+        "REM": 0.117
+      }
+    },
+    {
+      "epoch_number": 33,
+      "timestamp": "2024-01-15 22:46:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.91,
+      "probabilities": {
+        "W": 0.042,
+        "N1": 0.91,
+        "N2": 0.016,
+        "N3": 0.022,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 34,
+      "timestamp": "2024-01-15 22:46:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.891,
+      "probabilities": {
+        "W": 0.031,
+        "N1": 0.891,
+        "N2": 0.046,
+        "N3": 0.019,
+        "REM": 0.013
+      }
+    },
+    {
+      "epoch_number": 35,
+      "timestamp": "2024-01-15 22:47:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.898,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.898,
+        "N2": 0.025,
+        "N3": 0.024,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 36,
+      "timestamp": "2024-01-15 22:47:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.882,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.054,
+        "N2": 0.882,
+        "N3": 0.037,
+        "REM": 0.003
+      }
+    },
+    {
+      "epoch_number": 37,
+      "timestamp": "2024-01-15 22:48:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.726,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.032,
+        "N2": 0.726,
+        "N3": 0.087,
+        "REM": 0.12
+      }
+    },
+    {
+      "epoch_number": 38,
+      "timestamp": "2024-01-15 22:48:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.82,
+      "probabilities": {
+        "W": 0.052,
+        "N1": 0.055,
+        "N2": 0.82,
+        "N3": 0.053,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 39,
+      "timestamp": "2024-01-15 22:49:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.769,
+      "probabilities": {
+        "W": 0.042,
+        "N1": 0.036,
+        "N2": 0.769,
+        "N3": 0.038,
+        "REM": 0.115
+      }
+    },
+    {
+      "epoch_number": 40,
+      "timestamp": "2024-01-15 22:49:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.918,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.014,
+        "N2": 0.918,
+        "N3": 0.019,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 41,
+      "timestamp": "2024-01-15 22:50:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.738,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.077,
+        "N2": 0.738,
+        "N3": 0.066,
+        "REM": 0.063
+      }
+    },
+    {
+      "epoch_number": 42,
+      "timestamp": "2024-01-15 22:50:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.824,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.066,
+        "N2": 0.824,
+        "N3": 0.028,
+        "REM": 0.067
+      }
+    },
+    {
+      "epoch_number": 43,
+      "timestamp": "2024-01-15 22:51:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.934,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.011,
+        "N2": 0.934,
+        "N3": 0.025,
+        "REM": 0.019
+      }
+    },
+    {
+      "epoch_number": 44,
+      "timestamp": "2024-01-15 22:51:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.759,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.018,
+        "N2": 0.759,
+        "N3": 0.11,
+        "REM": 0.098
+      }
+    },
+    {
+      "epoch_number": 45,
+      "timestamp": "2024-01-15 22:52:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.086,
+        "N2": 0.752,
+        "N3": 0.058,
+        "REM": 0.031
+      }
+    },
+    {
+      "epoch_number": 46,
+      "timestamp": "2024-01-15 22:52:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.84,
+      "probabilities": {
+        "W": 0.012,
+        "N1": 0.001,
+        "N2": 0.84,
+        "N3": 0.088,
+        "REM": 0.059
+      }
+    },
+    {
+      "epoch_number": 47,
+      "timestamp": "2024-01-15 22:53:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.836,
+      "probabilities": {
+        "W": 0.05,
+        "N1": 0.023,
+        "N2": 0.836,
+        "N3": 0.047,
+        "REM": 0.044
+      }
+    },
+    {
+      "epoch_number": 48,
+      "timestamp": "2024-01-15 22:53:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.766,
+      "probabilities": {
+        "W": 0.043,
+        "N1": 0.05,
+        "N2": 0.766,
+        "N3": 0.041,
+        "REM": 0.1
+      }
+    },
+    {
+      "epoch_number": 49,
+      "timestamp": "2024-01-15 22:54:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.778,
+      "probabilities": {
+        "W": 0.051,
+        "N1": 0.016,
+        "N2": 0.778,
+        "N3": 0.112,
+        "REM": 0.043
+      }
+    },
+    {
+      "epoch_number": 50,
+      "timestamp": "2024-01-15 22:54:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.821,
+      "probabilities": {
+        "W": 0.037,
+        "N1": 0.057,
+        "N2": 0.821,
+        "N3": 0.027,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 51,
+      "timestamp": "2024-01-15 22:55:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.06,
+        "N1": 0.059,
+        "N2": 0.83,
+        "N3": 0.002,
+        "REM": 0.049
+      }
+    },
+    {
+      "epoch_number": 52,
+      "timestamp": "2024-01-15 22:55:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.76,
+      "probabilities": {
+        "W": 0.001,
+        "N1": 0.132,
+        "N2": 0.76,
+        "N3": 0.029,
+        "REM": 0.078
+      }
+    },
+    {
+      "epoch_number": 53,
+      "timestamp": "2024-01-15 22:56:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.88,
+      "probabilities": {
+        "W": 0.034,
+        "N1": 0.02,
+        "N2": 0.88,
+        "N3": 0.032,
+        "REM": 0.034
+      }
+    },
+    {
+      "epoch_number": 54,
+      "timestamp": "2024-01-15 22:56:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.892,
+      "probabilities": {
+        "W": 0.01,
+        "N1": 0.051,
+        "N2": 0.892,
+        "N3": 0.022,
+        "REM": 0.025
+      }
+    },
+    {
+      "epoch_number": 55,
+      "timestamp": "2024-01-15 22:57:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.889,
+      "probabilities": {
+        "W": 0.02,
+        "N1": 0.023,
+        "N2": 0.889,
+        "N3": 0.031,
+        "REM": 0.037
+      }
+    },
+    {
+      "epoch_number": 56,
+      "timestamp": "2024-01-15 22:57:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.818,
+      "probabilities": {
+        "W": 0.048,
+        "N1": 0.04,
+        "N2": 0.818,
+        "N3": 0.04,
+        "REM": 0.054
+      }
+    },
+    {
+      "epoch_number": 57,
+      "timestamp": "2024-01-15 22:58:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.819,
+      "probabilities": {
+        "W": 0.036,
+        "N1": 0.033,
+        "N2": 0.819,
+        "N3": 0.064,
+        "REM": 0.048
+      }
+    },
+    {
+      "epoch_number": 58,
+      "timestamp": "2024-01-15 22:58:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.914,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.008,
+        "N2": 0.914,
+        "N3": 0.018,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 59,
+      "timestamp": "2024-01-15 22:59:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.905,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.015,
+        "N2": 0.905,
+        "N3": 0.054,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 60,
+      "timestamp": "2024-01-15 22:59:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.773,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.063,
+        "N2": 0.773,
+        "N3": 0.073,
+        "REM": 0.084
+      }
+    },
+    {
+      "epoch_number": 61,
+      "timestamp": "2024-01-15 23:00:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.754,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.068,
+        "N2": 0.754,
+        "N3": 0.015,
+        "REM": 0.09
+      }
+    },
+    {
+      "epoch_number": 62,
+      "timestamp": "2024-01-15 23:00:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.933,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.031,
+        "N2": 0.933,
+        "N3": 0.013,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 63,
+      "timestamp": "2024-01-15 23:01:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.937,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.005,
+        "N2": 0.937,
+        "N3": 0.014,
+        "REM": 0.017
+      }
+    },
+    {
+      "epoch_number": 64,
+      "timestamp": "2024-01-15 23:01:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.795,
+      "probabilities": {
+        "W": 0.032,
+        "N1": 0.052,
+        "N2": 0.795,
+        "N3": 0.118,
+        "REM": 0.003
+      }
+    },
+    {
+      "epoch_number": 65,
+      "timestamp": "2024-01-15 23:02:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.842,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.002,
+        "N2": 0.842,
+        "N3": 0.037,
+        "REM": 0.07
+      }
+    },
+    {
+      "epoch_number": 66,
+      "timestamp": "2024-01-15 23:02:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.832,
+      "probabilities": {
+        "W": 0.004,
+        "N1": 0.059,
+        "N2": 0.832,
+        "N3": 0.047,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 67,
+      "timestamp": "2024-01-15 23:03:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.743,
+      "probabilities": {
+        "W": 0.05,
+        "N1": 0.008,
+        "N2": 0.743,
+        "N3": 0.148,
+        "REM": 0.051
+      }
+    },
+    {
+      "epoch_number": 68,
+      "timestamp": "2024-01-15 23:03:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.749,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.095,
+        "N2": 0.749,
+        "N3": 0.085,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 69,
+      "timestamp": "2024-01-15 23:04:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.1,
+        "N1": 0.062,
+        "N2": 0.752,
+        "N3": 0.076,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 70,
+      "timestamp": "2024-01-15 23:04:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.732,
+      "probabilities": {
+        "W": 0.087,
+        "N1": 0.054,
+        "N2": 0.732,
+        "N3": 0.009,
+        "REM": 0.118
+      }
+    },
+    {
+      "epoch_number": 71,
+      "timestamp": "2024-01-15 23:05:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.062,
+        "N1": 0.007,
+        "N2": 0.86,
+        "N3": 0.066,
+        "REM": 0.005
+      }
+    },
+    {
+      "epoch_number": 72,
+      "timestamp": "2024-01-15 23:05:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.91,
+      "probabilities": {
+        "W": 0.018,
+        "N1": 0.013,
+        "N2": 0.91,
+        "N3": 0.022,
+        "REM": 0.037
+      }
+    },
+    {
+      "epoch_number": 73,
+      "timestamp": "2024-01-15 23:06:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.78,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.116,
+        "N2": 0.78,
+        "N3": 0.052,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 74,
+      "timestamp": "2024-01-15 23:06:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.755,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.057,
+        "N2": 0.755,
+        "N3": 0.088,
+        "REM": 0.086
+      }
+    },
+    {
+      "epoch_number": 75,
+      "timestamp": "2024-01-15 23:07:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.887,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.043,
+        "N2": 0.887,
+        "N3": 0.015,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 76,
+      "timestamp": "2024-01-15 23:07:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.723,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.003,
+        "N2": 0.131,
+        "N3": 0.723,
+        "REM": 0.098
+      }
+    },
+    {
+      "epoch_number": 77,
+      "timestamp": "2024-01-15 23:08:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.762,
+      "probabilities": {
+        "W": 0.048,
+        "N1": 0.095,
+        "N2": 0.011,
+        "N3": 0.762,
+        "REM": 0.084
+      }
+    },
+    {
+      "epoch_number": 78,
+      "timestamp": "2024-01-15 23:08:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.815,
+      "probabilities": {
+        "W": 0.041,
+        "N1": 0.069,
+        "N2": 0.033,
+        "N3": 0.815,
+        "REM": 0.042
+      }
+    },
+    {
+      "epoch_number": 79,
+      "timestamp": "2024-01-15 23:09:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.872,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.015,
+        "N2": 0.037,
+        "N3": 0.872,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 80,
+      "timestamp": "2024-01-15 23:09:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.052,
+        "N2": 0.008,
+        "N3": 0.86,
+        "REM": 0.019
+      }
+    },
+    {
+      "epoch_number": 81,
+      "timestamp": "2024-01-15 23:10:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.736,
+      "probabilities": {
+        "W": 0.157,
+        "N1": 0.054,
+        "N2": 0.035,
+        "N3": 0.736,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 82,
+      "timestamp": "2024-01-15 23:10:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.905,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.031,
+        "N2": 0.013,
+        "N3": 0.905,
+        "REM": 0.011
+      }
+    },
+    {
+      "epoch_number": 83,
+      "timestamp": "2024-01-15 23:11:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.784,
+      "probabilities": {
+        "W": 0.075,
+        "N1": 0.026,
+        "N2": 0.072,
+        "N3": 0.784,
+        "REM": 0.043
+      }
+    },
+    {
+      "epoch_number": 84,
+      "timestamp": "2024-01-15 23:11:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.932,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.014,
+        "N2": 0.006,
+        "N3": 0.932,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 85,
+      "timestamp": "2024-01-15 23:12:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.062,
+        "N1": 0.0,
+        "N2": 0.067,
+        "N3": 0.788,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 86,
+      "timestamp": "2024-01-15 23:12:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.088,
+        "N2": 0.001,
+        "N3": 0.83,
+        "REM": 0.046
+      }
+    },
+    {
+      "epoch_number": 87,
+      "timestamp": "2024-01-15 23:13:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.74,
+      "probabilities": {
+        "W": 0.135,
+        "N1": 0.014,
+        "N2": 0.008,
+        "N3": 0.74,
+        "REM": 0.103
+      }
+    },
+    {
+      "epoch_number": 88,
+      "timestamp": "2024-01-15 23:13:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.771,
+      "probabilities": {
+        "W": 0.053,
+        "N1": 0.048,
+        "N2": 0.068,
+        "N3": 0.771,
+        "REM": 0.06
+      }
+    },
+    {
+      "epoch_number": 89,
+      "timestamp": "2024-01-15 23:14:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.878,
+      "probabilities": {
+        "W": 0.042,
+        "N1": 0.018,
+        "N2": 0.015,
+        "N3": 0.878,
+        "REM": 0.047
+      }
+    },
+    {
+      "epoch_number": 90,
+      "timestamp": "2024-01-15 23:14:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.08,
+        "N1": 0.071,
+        "N2": 0.005,
+        "N3": 0.752,
+        "REM": 0.092
+      }
+    },
+    {
+      "epoch_number": 91,
+      "timestamp": "2024-01-15 23:15:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.916,
+      "probabilities": {
+        "W": 0.023,
+        "N1": 0.027,
+        "N2": 0.029,
+        "N3": 0.916,
+        "REM": 0.005
+      }
+    },
+    {
+      "epoch_number": 92,
+      "timestamp": "2024-01-15 23:15:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.046,
+        "N2": 0.045,
+        "N3": 0.835,
+        "REM": 0.046
+      }
+    },
+    {
+      "epoch_number": 93,
+      "timestamp": "2024-01-15 23:16:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.849,
+      "probabilities": {
+        "W": 0.054,
+        "N1": 0.041,
+        "N2": 0.042,
+        "N3": 0.849,
+        "REM": 0.014
+      }
+    },
+    {
+      "epoch_number": 94,
+      "timestamp": "2024-01-15 23:16:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.727,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.069,
+        "N2": 0.02,
+        "N3": 0.727,
+        "REM": 0.159
+      }
+    },
+    {
+      "epoch_number": 95,
+      "timestamp": "2024-01-15 23:17:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.842,
+      "probabilities": {
+        "W": 0.041,
+        "N1": 0.041,
+        "N2": 0.044,
+        "N3": 0.842,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 96,
+      "timestamp": "2024-01-15 23:17:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.721,
+      "probabilities": {
+        "W": 0.086,
+        "N1": 0.081,
+        "N2": 0.054,
+        "N3": 0.721,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 97,
+      "timestamp": "2024-01-15 23:18:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.865,
+      "probabilities": {
+        "W": 0.008,
+        "N1": 0.088,
+        "N2": 0.03,
+        "N3": 0.865,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 98,
+      "timestamp": "2024-01-15 23:18:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.778,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.017,
+        "N2": 0.062,
+        "N3": 0.778,
+        "REM": 0.082
+      }
+    },
+    {
+      "epoch_number": 99,
+      "timestamp": "2024-01-15 23:19:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.829,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.035,
+        "N2": 0.051,
+        "N3": 0.829,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 100,
+      "timestamp": "2024-01-15 23:19:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.855,
+      "probabilities": {
+        "W": 0.083,
+        "N1": 0.01,
+        "N2": 0.019,
+        "N3": 0.855,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 101,
+      "timestamp": "2024-01-15 23:20:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.883,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.07,
+        "N2": 0.002,
+        "N3": 0.883,
+        "REM": 0.007
+      }
+    },
+    {
+      "epoch_number": 102,
+      "timestamp": "2024-01-15 23:20:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.778,
+      "probabilities": {
+        "W": 0.064,
+        "N1": 0.066,
+        "N2": 0.064,
+        "N3": 0.778,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 103,
+      "timestamp": "2024-01-15 23:21:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.833,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.04,
+        "N2": 0.01,
+        "N3": 0.833,
+        "REM": 0.077
+      }
+    },
+    {
+      "epoch_number": 104,
+      "timestamp": "2024-01-15 23:21:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.764,
+      "probabilities": {
+        "W": 0.097,
+        "N1": 0.092,
+        "N2": 0.002,
+        "N3": 0.764,
+        "REM": 0.045
+      }
+    },
+    {
+      "epoch_number": 105,
+      "timestamp": "2024-01-15 23:22:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.051,
+        "N1": 0.024,
+        "N2": 0.014,
+        "N3": 0.9,
+        "REM": 0.011
+      }
+    },
+    {
+      "epoch_number": 106,
+      "timestamp": "2024-01-15 23:22:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.928,
+      "probabilities": {
+        "W": 0.01,
+        "N1": 0.029,
+        "N2": 0.928,
+        "N3": 0.007,
+        "REM": 0.026
+      }
+    },
+    {
+      "epoch_number": 107,
+      "timestamp": "2024-01-15 23:23:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.929,
+      "probabilities": {
+        "W": 0.004,
+        "N1": 0.025,
+        "N2": 0.929,
+        "N3": 0.015,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 108,
+      "timestamp": "2024-01-15 23:23:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.874,
+      "probabilities": {
+        "W": 0.018,
+        "N1": 0.069,
+        "N2": 0.874,
+        "N3": 0.037,
+        "REM": 0.002
+      }
+    },
+    {
+      "epoch_number": 109,
+      "timestamp": "2024-01-15 23:24:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.721,
+      "probabilities": {
+        "W": 0.099,
+        "N1": 0.091,
+        "N2": 0.721,
+        "N3": 0.061,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 110,
+      "timestamp": "2024-01-15 23:24:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.796,
+      "probabilities": {
+        "W": 0.034,
+        "N1": 0.09,
+        "N2": 0.796,
+        "N3": 0.0,
+        "REM": 0.08
+      }
+    },
+    {
+      "epoch_number": 111,
+      "timestamp": "2024-01-15 23:25:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.905,
+      "probabilities": {
+        "W": 0.004,
+        "N1": 0.033,
+        "N2": 0.905,
+        "N3": 0.026,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 112,
+      "timestamp": "2024-01-15 23:25:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.784,
+      "probabilities": {
+        "W": 0.034,
+        "N1": 0.036,
+        "N2": 0.784,
+        "N3": 0.092,
+        "REM": 0.054
+      }
+    },
+    {
+      "epoch_number": 113,
+      "timestamp": "2024-01-15 23:26:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.799,
+      "probabilities": {
+        "W": 0.101,
+        "N1": 0.065,
+        "N2": 0.799,
+        "N3": 0.011,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 114,
+      "timestamp": "2024-01-15 23:26:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.903,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.052,
+        "N2": 0.903,
+        "N3": 0.014,
+        "REM": 0.015
+      }
+    },
+    {
+      "epoch_number": 115,
+      "timestamp": "2024-01-15 23:27:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.832,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.026,
+        "N2": 0.832,
+        "N3": 0.067,
+        "REM": 0.062
+      }
+    },
+    {
+      "epoch_number": 116,
+      "timestamp": "2024-01-15 23:27:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.899,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.031,
+        "N2": 0.031,
+        "N3": 0.018,
+        "REM": 0.899
+      }
+    },
+    {
+      "epoch_number": 117,
+      "timestamp": "2024-01-15 23:28:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.878,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.045,
+        "N2": 0.028,
+        "N3": 0.046,
+        "REM": 0.878
+      }
+    },
+    {
+      "epoch_number": 118,
+      "timestamp": "2024-01-15 23:28:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.862,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.005,
+        "N2": 0.092,
+        "N3": 0.013,
+        "REM": 0.862
+      }
+    },
+    {
+      "epoch_number": 119,
+      "timestamp": "2024-01-15 23:29:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.824,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.022,
+        "N2": 0.055,
+        "N3": 0.073,
+        "REM": 0.824
+      }
+    },
+    {
+      "epoch_number": 120,
+      "timestamp": "2024-01-15 23:29:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.077,
+        "N1": 0.035,
+        "N2": 0.065,
+        "N3": 0.046,
+        "REM": 0.777
+      }
+    },
+    {
+      "epoch_number": 121,
+      "timestamp": "2024-01-15 23:30:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.757,
+      "probabilities": {
+        "W": 0.022,
+        "N1": 0.029,
+        "N2": 0.124,
+        "N3": 0.068,
+        "REM": 0.757
+      }
+    },
+    {
+      "epoch_number": 122,
+      "timestamp": "2024-01-15 23:30:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.768,
+      "probabilities": {
+        "W": 0.084,
+        "N1": 0.093,
+        "N2": 0.042,
+        "N3": 0.013,
+        "REM": 0.768
+      }
+    },
+    {
+      "epoch_number": 123,
+      "timestamp": "2024-01-15 23:31:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.763,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.107,
+        "N2": 0.028,
+        "N3": 0.074,
+        "REM": 0.763
+      }
+    },
+    {
+      "epoch_number": 124,
+      "timestamp": "2024-01-15 23:31:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.776,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.076,
+        "N2": 0.064,
+        "N3": 0.035,
+        "REM": 0.776
+      }
+    },
+    {
+      "epoch_number": 125,
+      "timestamp": "2024-01-15 23:32:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.811,
+      "probabilities": {
+        "W": 0.076,
+        "N1": 0.055,
+        "N2": 0.049,
+        "N3": 0.009,
+        "REM": 0.811
+      }
+    },
+    {
+      "epoch_number": 126,
+      "timestamp": "2024-01-15 23:32:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.781,
+      "probabilities": {
+        "W": 0.095,
+        "N1": 0.012,
+        "N2": 0.05,
+        "N3": 0.062,
+        "REM": 0.781
+      }
+    },
+    {
+      "epoch_number": 127,
+      "timestamp": "2024-01-15 23:33:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.909,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.022,
+        "N2": 0.02,
+        "N3": 0.032,
+        "REM": 0.909
+      }
+    },
+    {
+      "epoch_number": 128,
+      "timestamp": "2024-01-15 23:33:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.819,
+      "probabilities": {
+        "W": 0.064,
+        "N1": 0.057,
+        "N2": 0.059,
+        "N3": 0.001,
+        "REM": 0.819
+      }
+    },
+    {
+      "epoch_number": 129,
+      "timestamp": "2024-01-15 23:34:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.727,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.092,
+        "N2": 0.048,
+        "N3": 0.06,
+        "REM": 0.727
+      }
+    },
+    {
+      "epoch_number": 130,
+      "timestamp": "2024-01-15 23:34:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.719,
+      "probabilities": {
+        "W": 0.037,
+        "N1": 0.087,
+        "N2": 0.077,
+        "N3": 0.08,
+        "REM": 0.719
+      }
+    },
+    {
+      "epoch_number": 131,
+      "timestamp": "2024-01-15 23:35:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.934,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.007,
+        "N2": 0.01,
+        "N3": 0.033,
+        "REM": 0.934
+      }
+    },
+    {
+      "epoch_number": 132,
+      "timestamp": "2024-01-15 23:35:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.871,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.03,
+        "N2": 0.027,
+        "N3": 0.032,
+        "REM": 0.871
+      }
+    },
+    {
+      "epoch_number": 133,
+      "timestamp": "2024-01-15 23:36:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.821,
+      "probabilities": {
+        "W": 0.062,
+        "N1": 0.004,
+        "N2": 0.087,
+        "N3": 0.026,
+        "REM": 0.821
+      }
+    },
+    {
+      "epoch_number": 134,
+      "timestamp": "2024-01-15 23:36:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.922,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.018,
+        "N2": 0.007,
+        "N3": 0.015,
+        "REM": 0.922
+      }
+    },
+    {
+      "epoch_number": 135,
+      "timestamp": "2024-01-15 23:37:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.07,
+        "N1": 0.011,
+        "N2": 0.007,
+        "N3": 0.052,
+        "REM": 0.86
+      }
+    },
+    {
+      "epoch_number": 136,
+      "timestamp": "2024-01-15 23:37:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.848,
+      "probabilities": {
+        "W": 0.848,
+        "N1": 0.048,
+        "N2": 0.028,
+        "N3": 0.075,
+        "REM": 0.001
+      }
+    },
+    {
+      "epoch_number": 137,
+      "timestamp": "2024-01-15 23:38:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.786,
+      "probabilities": {
+        "W": 0.786,
+        "N1": 0.033,
+        "N2": 0.07,
+        "N3": 0.047,
+        "REM": 0.064
+      }
+    },
+    {
+      "epoch_number": 138,
+      "timestamp": "2024-01-15 23:38:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.825,
+      "probabilities": {
+        "W": 0.825,
+        "N1": 0.019,
+        "N2": 0.02,
+        "N3": 0.078,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 139,
+      "timestamp": "2024-01-15 23:39:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.787,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.787,
+        "N2": 0.066,
+        "N3": 0.089,
+        "REM": 0.055
+      }
+    },
+    {
+      "epoch_number": 140,
+      "timestamp": "2024-01-15 23:39:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.08,
+        "N1": 0.777,
+        "N2": 0.112,
+        "N3": 0.027,
+        "REM": 0.004
+      }
+    },
+    {
+      "epoch_number": 141,
+      "timestamp": "2024-01-15 23:40:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.795,
+      "probabilities": {
+        "W": 0.041,
+        "N1": 0.795,
+        "N2": 0.067,
+        "N3": 0.019,
+        "REM": 0.078
+      }
+    },
+    {
+      "epoch_number": 142,
+      "timestamp": "2024-01-15 23:40:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.883,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.883,
+        "N2": 0.012,
+        "N3": 0.057,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 143,
+      "timestamp": "2024-01-15 23:41:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.901,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.901,
+        "N2": 0.015,
+        "N3": 0.05,
+        "REM": 0.019
+      }
+    },
+    {
+      "epoch_number": 144,
+      "timestamp": "2024-01-15 23:41:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.01,
+        "N2": 0.93,
+        "N3": 0.012,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 145,
+      "timestamp": "2024-01-15 23:42:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.866,
+      "probabilities": {
+        "W": 0.075,
+        "N1": 0.011,
+        "N2": 0.866,
+        "N3": 0.031,
+        "REM": 0.017
+      }
+    },
+    {
+      "epoch_number": 146,
+      "timestamp": "2024-01-15 23:42:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.935,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.005,
+        "N2": 0.935,
+        "N3": 0.006,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 147,
+      "timestamp": "2024-01-15 23:43:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.917,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.017,
+        "N2": 0.917,
+        "N3": 0.023,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 148,
+      "timestamp": "2024-01-15 23:43:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.793,
+      "probabilities": {
+        "W": 0.02,
+        "N1": 0.102,
+        "N2": 0.793,
+        "N3": 0.082,
+        "REM": 0.003
+      }
+    },
+    {
+      "epoch_number": 149,
+      "timestamp": "2024-01-15 23:44:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.867,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.04,
+        "N2": 0.867,
+        "N3": 0.035,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 150,
+      "timestamp": "2024-01-15 23:44:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.721,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.057,
+        "N2": 0.721,
+        "N3": 0.156,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 151,
+      "timestamp": "2024-01-15 23:45:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.933,
+      "probabilities": {
+        "W": 0.006,
+        "N1": 0.011,
+        "N2": 0.933,
+        "N3": 0.025,
+        "REM": 0.025
+      }
+    },
+    {
+      "epoch_number": 152,
+      "timestamp": "2024-01-15 23:45:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.815,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.048,
+        "N2": 0.815,
+        "N3": 0.038,
+        "REM": 0.094
+      }
+    },
+    {
+      "epoch_number": 153,
+      "timestamp": "2024-01-15 23:46:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.763,
+      "probabilities": {
+        "W": 0.051,
+        "N1": 0.125,
+        "N2": 0.763,
+        "N3": 0.004,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 154,
+      "timestamp": "2024-01-15 23:46:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.898,
+      "probabilities": {
+        "W": 0.086,
+        "N1": 0.005,
+        "N2": 0.898,
+        "N3": 0.004,
+        "REM": 0.007
+      }
+    },
+    {
+      "epoch_number": 155,
+      "timestamp": "2024-01-15 23:47:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.922,
+      "probabilities": {
+        "W": 0.009,
+        "N1": 0.026,
+        "N2": 0.922,
+        "N3": 0.031,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 156,
+      "timestamp": "2024-01-15 23:47:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.779,
+      "probabilities": {
+        "W": 0.083,
+        "N1": 0.053,
+        "N2": 0.779,
+        "N3": 0.023,
+        "REM": 0.062
+      }
+    },
+    {
+      "epoch_number": 157,
+      "timestamp": "2024-01-15 23:48:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.79,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.0,
+        "N2": 0.79,
+        "N3": 0.081,
+        "REM": 0.099
+      }
+    },
+    {
+      "epoch_number": 158,
+      "timestamp": "2024-01-15 23:48:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.859,
+      "probabilities": {
+        "W": 0.079,
+        "N1": 0.002,
+        "N2": 0.859,
+        "N3": 0.02,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 159,
+      "timestamp": "2024-01-15 23:49:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.013,
+        "N2": 0.93,
+        "N3": 0.009,
+        "REM": 0.015
+      }
+    },
+    {
+      "epoch_number": 160,
+      "timestamp": "2024-01-15 23:49:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.828,
+      "probabilities": {
+        "W": 0.06,
+        "N1": 0.012,
+        "N2": 0.828,
+        "N3": 0.052,
+        "REM": 0.048
+      }
+    },
+    {
+      "epoch_number": 161,
+      "timestamp": "2024-01-15 23:50:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.03,
+        "N2": 0.9,
+        "N3": 0.016,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 162,
+      "timestamp": "2024-01-15 23:50:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.799,
+      "probabilities": {
+        "W": 0.087,
+        "N1": 0.009,
+        "N2": 0.799,
+        "N3": 0.022,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 163,
+      "timestamp": "2024-01-15 23:51:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.774,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.008,
+        "N2": 0.774,
+        "N3": 0.128,
+        "REM": 0.075
+      }
+    },
+    {
+      "epoch_number": 164,
+      "timestamp": "2024-01-15 23:51:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.935,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.029,
+        "N2": 0.935,
+        "N3": 0.008,
+        "REM": 0.002
+      }
+    },
+    {
+      "epoch_number": 165,
+      "timestamp": "2024-01-15 23:52:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.742,
+      "probabilities": {
+        "W": 0.068,
+        "N1": 0.097,
+        "N2": 0.742,
+        "N3": 0.061,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 166,
+      "timestamp": "2024-01-15 23:52:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.812,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.044,
+        "N2": 0.812,
+        "N3": 0.049,
+        "REM": 0.055
+      }
+    },
+    {
+      "epoch_number": 167,
+      "timestamp": "2024-01-15 23:53:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.865,
+      "probabilities": {
+        "W": 0.009,
+        "N1": 0.062,
+        "N2": 0.865,
+        "N3": 0.022,
+        "REM": 0.042
+      }
+    },
+    {
+      "epoch_number": 168,
+      "timestamp": "2024-01-15 23:53:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.802,
+      "probabilities": {
+        "W": 0.102,
+        "N1": 0.028,
+        "N2": 0.802,
+        "N3": 0.034,
+        "REM": 0.034
+      }
+    },
+    {
+      "epoch_number": 169,
+      "timestamp": "2024-01-15 23:54:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.753,
+      "probabilities": {
+        "W": 0.1,
+        "N1": 0.065,
+        "N2": 0.753,
+        "N3": 0.037,
+        "REM": 0.045
+      }
+    },
+    {
+      "epoch_number": 170,
+      "timestamp": "2024-01-15 23:54:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.939,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.006,
+        "N2": 0.939,
+        "N3": 0.023,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 171,
+      "timestamp": "2024-01-15 23:55:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.938,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.013,
+        "N2": 0.938,
+        "N3": 0.023,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 172,
+      "timestamp": "2024-01-15 23:55:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.921,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.036,
+        "N2": 0.921,
+        "N3": 0.015,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 173,
+      "timestamp": "2024-01-15 23:56:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.934,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.022,
+        "N2": 0.934,
+        "N3": 0.009,
+        "REM": 0.021
+      }
+    },
+    {
+      "epoch_number": 174,
+      "timestamp": "2024-01-15 23:56:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.819,
+      "probabilities": {
+        "W": 0.023,
+        "N1": 0.067,
+        "N2": 0.819,
+        "N3": 0.082,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 175,
+      "timestamp": "2024-01-15 23:57:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.851,
+      "probabilities": {
+        "W": 0.068,
+        "N1": 0.024,
+        "N2": 0.851,
+        "N3": 0.041,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 176,
+      "timestamp": "2024-01-15 23:57:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.765,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.082,
+        "N2": 0.765,
+        "N3": 0.09,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 177,
+      "timestamp": "2024-01-15 23:58:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.723,
+      "probabilities": {
+        "W": 0.06,
+        "N1": 0.125,
+        "N2": 0.723,
+        "N3": 0.034,
+        "REM": 0.058
+      }
+    },
+    {
+      "epoch_number": 178,
+      "timestamp": "2024-01-15 23:58:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.765,
+      "probabilities": {
+        "W": 0.124,
+        "N1": 0.085,
+        "N2": 0.765,
+        "N3": 0.01,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 179,
+      "timestamp": "2024-01-15 23:59:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.807,
+      "probabilities": {
+        "W": 0.074,
+        "N1": 0.085,
+        "N2": 0.807,
+        "N3": 0.012,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 180,
+      "timestamp": "2024-01-15 23:59:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.018,
+        "N2": 0.873,
+        "N3": 0.02,
+        "REM": 0.062
+      }
+    },
+    {
+      "epoch_number": 181,
+      "timestamp": "2024-01-16 00:00:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.789,
+      "probabilities": {
+        "W": 0.054,
+        "N1": 0.034,
+        "N2": 0.789,
+        "N3": 0.04,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 182,
+      "timestamp": "2024-01-16 00:00:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.939,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.008,
+        "N2": 0.939,
+        "N3": 0.03,
+        "REM": 0.008
+      }
+    },
+    {
+      "epoch_number": 183,
+      "timestamp": "2024-01-16 00:01:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.722,
+      "probabilities": {
+        "W": 0.098,
+        "N1": 0.046,
+        "N2": 0.722,
+        "N3": 0.09,
+        "REM": 0.044
+      }
+    },
+    {
+      "epoch_number": 184,
+      "timestamp": "2024-01-16 00:01:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.914,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.012,
+        "N2": 0.001,
+        "N3": 0.914,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 185,
+      "timestamp": "2024-01-16 00:02:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.861,
+      "probabilities": {
+        "W": 0.064,
+        "N1": 0.006,
+        "N2": 0.043,
+        "N3": 0.861,
+        "REM": 0.026
+      }
+    },
+    {
+      "epoch_number": 186,
+      "timestamp": "2024-01-16 00:02:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.831,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.026,
+        "N2": 0.047,
+        "N3": 0.831,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 187,
+      "timestamp": "2024-01-16 00:03:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.743,
+      "probabilities": {
+        "W": 0.051,
+        "N1": 0.084,
+        "N2": 0.101,
+        "N3": 0.743,
+        "REM": 0.021
+      }
+    },
+    {
+      "epoch_number": 188,
+      "timestamp": "2024-01-16 00:03:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.748,
+      "probabilities": {
+        "W": 0.097,
+        "N1": 0.1,
+        "N2": 0.05,
+        "N3": 0.748,
+        "REM": 0.005
+      }
+    },
+    {
+      "epoch_number": 189,
+      "timestamp": "2024-01-16 00:04:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.924,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.025,
+        "N2": 0.017,
+        "N3": 0.924,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 190,
+      "timestamp": "2024-01-16 00:04:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.755,
+      "probabilities": {
+        "W": 0.085,
+        "N1": 0.024,
+        "N2": 0.044,
+        "N3": 0.755,
+        "REM": 0.092
+      }
+    },
+    {
+      "epoch_number": 191,
+      "timestamp": "2024-01-16 00:05:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.902,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.016,
+        "N2": 0.03,
+        "N3": 0.902,
+        "REM": 0.038
+      }
+    },
+    {
+      "epoch_number": 192,
+      "timestamp": "2024-01-16 00:05:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.805,
+      "probabilities": {
+        "W": 0.012,
+        "N1": 0.024,
+        "N2": 0.071,
+        "N3": 0.805,
+        "REM": 0.088
+      }
+    },
+    {
+      "epoch_number": 193,
+      "timestamp": "2024-01-16 00:06:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.73,
+      "probabilities": {
+        "W": 0.069,
+        "N1": 0.093,
+        "N2": 0.005,
+        "N3": 0.73,
+        "REM": 0.103
+      }
+    },
+    {
+      "epoch_number": 194,
+      "timestamp": "2024-01-16 00:06:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.747,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.067,
+        "N2": 0.076,
+        "N3": 0.747,
+        "REM": 0.037
+      }
+    },
+    {
+      "epoch_number": 195,
+      "timestamp": "2024-01-16 00:07:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.812,
+      "probabilities": {
+        "W": 0.052,
+        "N1": 0.038,
+        "N2": 0.058,
+        "N3": 0.812,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 196,
+      "timestamp": "2024-01-16 00:07:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.083,
+        "N2": 0.066,
+        "N3": 0.816,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 197,
+      "timestamp": "2024-01-16 00:08:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.888,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.027,
+        "N2": 0.011,
+        "N3": 0.888,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 198,
+      "timestamp": "2024-01-16 00:08:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.743,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.101,
+        "N2": 0.022,
+        "N3": 0.743,
+        "REM": 0.104
+      }
+    },
+    {
+      "epoch_number": 199,
+      "timestamp": "2024-01-16 00:09:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.832,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.072,
+        "N2": 0.009,
+        "N3": 0.832,
+        "REM": 0.082
+      }
+    },
+    {
+      "epoch_number": 200,
+      "timestamp": "2024-01-16 00:09:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.892,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.004,
+        "N2": 0.038,
+        "N3": 0.892,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 201,
+      "timestamp": "2024-01-16 00:10:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.929,
+      "probabilities": {
+        "W": 0.004,
+        "N1": 0.022,
+        "N2": 0.026,
+        "N3": 0.929,
+        "REM": 0.019
+      }
+    },
+    {
+      "epoch_number": 202,
+      "timestamp": "2024-01-16 00:10:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.899,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.038,
+        "N2": 0.019,
+        "N3": 0.899,
+        "REM": 0.037
+      }
+    },
+    {
+      "epoch_number": 203,
+      "timestamp": "2024-01-16 00:11:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.921,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.032,
+        "N2": 0.037,
+        "N3": 0.921,
+        "REM": 0.003
+      }
+    },
+    {
+      "epoch_number": 204,
+      "timestamp": "2024-01-16 00:11:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.798,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.015,
+        "N2": 0.087,
+        "N3": 0.798,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 205,
+      "timestamp": "2024-01-16 00:12:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.008,
+        "N1": 0.028,
+        "N2": 0.052,
+        "N3": 0.9,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 206,
+      "timestamp": "2024-01-16 00:12:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.108,
+        "N1": 0.068,
+        "N2": 0.777,
+        "N3": 0.008,
+        "REM": 0.039
+      }
+    },
+    {
+      "epoch_number": 207,
+      "timestamp": "2024-01-16 00:13:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.756,
+      "probabilities": {
+        "W": 0.085,
+        "N1": 0.062,
+        "N2": 0.756,
+        "N3": 0.082,
+        "REM": 0.015
+      }
+    },
+    {
+      "epoch_number": 208,
+      "timestamp": "2024-01-16 00:13:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.891,
+      "probabilities": {
+        "W": 0.008,
+        "N1": 0.035,
+        "N2": 0.891,
+        "N3": 0.042,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 209,
+      "timestamp": "2024-01-16 00:14:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.912,
+      "probabilities": {
+        "W": 0.023,
+        "N1": 0.024,
+        "N2": 0.912,
+        "N3": 0.037,
+        "REM": 0.004
+      }
+    },
+    {
+      "epoch_number": 210,
+      "timestamp": "2024-01-16 00:14:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.937,
+      "probabilities": {
+        "W": 0.019,
+        "N1": 0.012,
+        "N2": 0.937,
+        "N3": 0.024,
+        "REM": 0.008
+      }
+    },
+    {
+      "epoch_number": 211,
+      "timestamp": "2024-01-16 00:15:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.938,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.01,
+        "N2": 0.938,
+        "N3": 0.022,
+        "REM": 0.013
+      }
+    },
+    {
+      "epoch_number": 212,
+      "timestamp": "2024-01-16 00:15:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.759,
+      "probabilities": {
+        "W": 0.096,
+        "N1": 0.006,
+        "N2": 0.759,
+        "N3": 0.106,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 213,
+      "timestamp": "2024-01-16 00:16:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.861,
+      "probabilities": {
+        "W": 0.054,
+        "N1": 0.032,
+        "N2": 0.861,
+        "N3": 0.036,
+        "REM": 0.017
+      }
+    },
+    {
+      "epoch_number": 214,
+      "timestamp": "2024-01-16 00:16:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.72,
+      "probabilities": {
+        "W": 0.008,
+        "N1": 0.034,
+        "N2": 0.72,
+        "N3": 0.14,
+        "REM": 0.098
+      }
+    },
+    {
+      "epoch_number": 215,
+      "timestamp": "2024-01-16 00:17:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.833,
+      "probabilities": {
+        "W": 0.078,
+        "N1": 0.012,
+        "N2": 0.833,
+        "N3": 0.02,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 216,
+      "timestamp": "2024-01-16 00:17:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.724,
+      "probabilities": {
+        "W": 0.001,
+        "N1": 0.119,
+        "N2": 0.036,
+        "N3": 0.12,
+        "REM": 0.724
+      }
+    },
+    {
+      "epoch_number": 217,
+      "timestamp": "2024-01-16 00:18:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.769,
+      "probabilities": {
+        "W": 0.067,
+        "N1": 0.068,
+        "N2": 0.024,
+        "N3": 0.072,
+        "REM": 0.769
+      }
+    },
+    {
+      "epoch_number": 218,
+      "timestamp": "2024-01-16 00:18:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.825,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.112,
+        "N2": 0.029,
+        "N3": 0.018,
+        "REM": 0.825
+      }
+    },
+    {
+      "epoch_number": 219,
+      "timestamp": "2024-01-16 00:19:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.741,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.084,
+        "N2": 0.075,
+        "N3": 0.039,
+        "REM": 0.741
+      }
+    },
+    {
+      "epoch_number": 220,
+      "timestamp": "2024-01-16 00:19:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.002,
+        "N1": 0.091,
+        "N2": 0.08,
+        "N3": 0.05,
+        "REM": 0.777
+      }
+    },
+    {
+      "epoch_number": 221,
+      "timestamp": "2024-01-16 00:20:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.861,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.055,
+        "N2": 0.043,
+        "N3": 0.015,
+        "REM": 0.861
+      }
+    },
+    {
+      "epoch_number": 222,
+      "timestamp": "2024-01-16 00:20:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.919,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.035,
+        "N2": 0.027,
+        "N3": 0.016,
+        "REM": 0.919
+      }
+    },
+    {
+      "epoch_number": 223,
+      "timestamp": "2024-01-16 00:21:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.734,
+      "probabilities": {
+        "W": 0.091,
+        "N1": 0.001,
+        "N2": 0.064,
+        "N3": 0.11,
+        "REM": 0.734
+      }
+    },
+    {
+      "epoch_number": 224,
+      "timestamp": "2024-01-16 00:21:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.077,
+        "N2": 0.064,
+        "N3": 0.082,
+        "REM": 0.752
+      }
+    },
+    {
+      "epoch_number": 225,
+      "timestamp": "2024-01-16 00:22:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.899,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.038,
+        "N2": 0.036,
+        "N3": 0.006,
+        "REM": 0.899
+      }
+    },
+    {
+      "epoch_number": 226,
+      "timestamp": "2024-01-16 00:22:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.916,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.026,
+        "N2": 0.0,
+        "N3": 0.03,
+        "REM": 0.916
+      }
+    },
+    {
+      "epoch_number": 227,
+      "timestamp": "2024-01-16 00:23:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.883,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.046,
+        "N2": 0.028,
+        "N3": 0.014,
+        "REM": 0.883
+      }
+    },
+    {
+      "epoch_number": 228,
+      "timestamp": "2024-01-16 00:23:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.743,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.007,
+        "N2": 0.064,
+        "N3": 0.142,
+        "REM": 0.743
+      }
+    },
+    {
+      "epoch_number": 229,
+      "timestamp": "2024-01-16 00:24:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.038,
+        "N2": 0.014,
+        "N3": 0.03,
+        "REM": 0.873
+      }
+    },
+    {
+      "epoch_number": 230,
+      "timestamp": "2024-01-16 00:24:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.817,
+      "probabilities": {
+        "W": 0.065,
+        "N1": 0.043,
+        "N2": 0.022,
+        "N3": 0.053,
+        "REM": 0.817
+      }
+    },
+    {
+      "epoch_number": 231,
+      "timestamp": "2024-01-16 00:25:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.932,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.043,
+        "N2": 0.001,
+        "N3": 0.013,
+        "REM": 0.932
+      }
+    },
+    {
+      "epoch_number": 232,
+      "timestamp": "2024-01-16 00:25:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.772,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.078,
+        "N2": 0.062,
+        "N3": 0.027,
+        "REM": 0.772
+      }
+    },
+    {
+      "epoch_number": 233,
+      "timestamp": "2024-01-16 00:26:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.914,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.01,
+        "N2": 0.037,
+        "N3": 0.026,
+        "REM": 0.914
+      }
+    },
+    {
+      "epoch_number": 234,
+      "timestamp": "2024-01-16 00:26:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.042,
+        "N2": 0.02,
+        "N3": 0.036,
+        "REM": 0.873
+      }
+    },
+    {
+      "epoch_number": 235,
+      "timestamp": "2024-01-16 00:27:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.874,
+      "probabilities": {
+        "W": 0.042,
+        "N1": 0.021,
+        "N2": 0.035,
+        "N3": 0.028,
+        "REM": 0.874
+      }
+    },
+    {
+      "epoch_number": 236,
+      "timestamp": "2024-01-16 00:27:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.072,
+        "N2": 0.009,
+        "N3": 0.106,
+        "REM": 0.788
+      }
+    },
+    {
+      "epoch_number": 237,
+      "timestamp": "2024-01-16 00:28:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.751,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.019,
+        "N2": 0.164,
+        "N3": 0.061,
+        "REM": 0.751
+      }
+    },
+    {
+      "epoch_number": 238,
+      "timestamp": "2024-01-16 00:28:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.007,
+        "N2": 0.123,
+        "N3": 0.113,
+        "REM": 0.752
+      }
+    },
+    {
+      "epoch_number": 239,
+      "timestamp": "2024-01-16 00:29:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.053,
+        "N1": 0.005,
+        "N2": 0.043,
+        "N3": 0.026,
+        "REM": 0.873
+      }
+    },
+    {
+      "epoch_number": 240,
+      "timestamp": "2024-01-16 00:29:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.031,
+        "N1": 0.034,
+        "N2": 0.002,
+        "N3": 0.033,
+        "REM": 0.9
+      }
+    },
+    {
+      "epoch_number": 241,
+      "timestamp": "2024-01-16 00:30:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.922,
+      "probabilities": {
+        "W": 0.054,
+        "N1": 0.006,
+        "N2": 0.012,
+        "N3": 0.006,
+        "REM": 0.922
+      }
+    },
+    {
+      "epoch_number": 242,
+      "timestamp": "2024-01-16 00:30:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.728,
+      "probabilities": {
+        "W": 0.074,
+        "N1": 0.071,
+        "N2": 0.055,
+        "N3": 0.072,
+        "REM": 0.728
+      }
+    },
+    {
+      "epoch_number": 243,
+      "timestamp": "2024-01-16 00:31:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.859,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.011,
+        "N2": 0.011,
+        "N3": 0.086,
+        "REM": 0.859
+      }
+    },
+    {
+      "epoch_number": 244,
+      "timestamp": "2024-01-16 00:31:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.765,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.098,
+        "N2": 0.005,
+        "N3": 0.059,
+        "REM": 0.765
+      }
+    },
+    {
+      "epoch_number": 245,
+      "timestamp": "2024-01-16 00:32:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.781,
+      "probabilities": {
+        "W": 0.066,
+        "N1": 0.034,
+        "N2": 0.03,
+        "N3": 0.089,
+        "REM": 0.781
+      }
+    },
+    {
+      "epoch_number": 246,
+      "timestamp": "2024-01-16 00:32:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.075,
+        "N1": 0.055,
+        "N2": 0.003,
+        "N3": 0.037,
+        "REM": 0.83
+      }
+    },
+    {
+      "epoch_number": 247,
+      "timestamp": "2024-01-16 00:33:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.06,
+        "N1": 0.027,
+        "N2": 0.055,
+        "N3": 0.042,
+        "REM": 0.816
+      }
+    },
+    {
+      "epoch_number": 248,
+      "timestamp": "2024-01-16 00:33:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.768,
+      "probabilities": {
+        "W": 0.768,
+        "N1": 0.103,
+        "N2": 0.011,
+        "N3": 0.098,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 249,
+      "timestamp": "2024-01-16 00:34:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.719,
+      "probabilities": {
+        "W": 0.719,
+        "N1": 0.029,
+        "N2": 0.11,
+        "N3": 0.141,
+        "REM": 0.001
+      }
+    },
+    {
+      "epoch_number": 250,
+      "timestamp": "2024-01-16 00:34:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.828,
+      "probabilities": {
+        "W": 0.828,
+        "N1": 0.043,
+        "N2": 0.07,
+        "N3": 0.016,
+        "REM": 0.043
+      }
+    },
+    {
+      "epoch_number": 251,
+      "timestamp": "2024-01-16 00:35:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.796,
+      "probabilities": {
+        "W": 0.796,
+        "N1": 0.073,
+        "N2": 0.023,
+        "N3": 0.083,
+        "REM": 0.025
+      }
+    },
+    {
+      "epoch_number": 252,
+      "timestamp": "2024-01-16 00:35:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.767,
+      "probabilities": {
+        "W": 0.767,
+        "N1": 0.084,
+        "N2": 0.06,
+        "N3": 0.013,
+        "REM": 0.076
+      }
+    },
+    {
+      "epoch_number": 253,
+      "timestamp": "2024-01-16 00:36:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.738,
+      "probabilities": {
+        "W": 0.738,
+        "N1": 0.071,
+        "N2": 0.063,
+        "N3": 0.071,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 254,
+      "timestamp": "2024-01-16 00:36:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.798,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.798,
+        "N2": 0.045,
+        "N3": 0.101,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 255,
+      "timestamp": "2024-01-16 00:37:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.915,
+      "probabilities": {
+        "W": 0.002,
+        "N1": 0.915,
+        "N2": 0.012,
+        "N3": 0.016,
+        "REM": 0.055
+      }
+    },
+    {
+      "epoch_number": 256,
+      "timestamp": "2024-01-16 00:37:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.83,
+        "N2": 0.077,
+        "N3": 0.02,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 257,
+      "timestamp": "2024-01-16 00:38:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.837,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.837,
+        "N2": 0.049,
+        "N3": 0.042,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 258,
+      "timestamp": "2024-01-16 00:38:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.793,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.793,
+        "N2": 0.073,
+        "N3": 0.057,
+        "REM": 0.064
+      }
+    },
+    {
+      "epoch_number": 259,
+      "timestamp": "2024-01-16 00:39:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.757,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.098,
+        "N2": 0.757,
+        "N3": 0.073,
+        "REM": 0.016
+      }
+    },
+    {
+      "epoch_number": 260,
+      "timestamp": "2024-01-16 00:39:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.822,
+      "probabilities": {
+        "W": 0.098,
+        "N1": 0.026,
+        "N2": 0.822,
+        "N3": 0.021,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 261,
+      "timestamp": "2024-01-16 00:40:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.875,
+      "probabilities": {
+        "W": 0.075,
+        "N1": 0.014,
+        "N2": 0.875,
+        "N3": 0.014,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 262,
+      "timestamp": "2024-01-16 00:40:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.791,
+      "probabilities": {
+        "W": 0.091,
+        "N1": 0.028,
+        "N2": 0.791,
+        "N3": 0.057,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 263,
+      "timestamp": "2024-01-16 00:41:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.934,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.004,
+        "N2": 0.934,
+        "N3": 0.033,
+        "REM": 0.004
+      }
+    },
+    {
+      "epoch_number": 264,
+      "timestamp": "2024-01-16 00:41:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.804,
+      "probabilities": {
+        "W": 0.065,
+        "N1": 0.053,
+        "N2": 0.804,
+        "N3": 0.049,
+        "REM": 0.029
+      }
+    },
+    {
+      "epoch_number": 265,
+      "timestamp": "2024-01-16 00:42:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.763,
+      "probabilities": {
+        "W": 0.113,
+        "N1": 0.019,
+        "N2": 0.763,
+        "N3": 0.036,
+        "REM": 0.069
+      }
+    },
+    {
+      "epoch_number": 266,
+      "timestamp": "2024-01-16 00:42:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.728,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.09,
+        "N2": 0.728,
+        "N3": 0.079,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 267,
+      "timestamp": "2024-01-16 00:43:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.012,
+        "N2": 0.86,
+        "N3": 0.053,
+        "REM": 0.035
+      }
+    },
+    {
+      "epoch_number": 268,
+      "timestamp": "2024-01-16 00:43:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.883,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.019,
+        "N2": 0.883,
+        "N3": 0.025,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 269,
+      "timestamp": "2024-01-16 00:44:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.813,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.052,
+        "N2": 0.813,
+        "N3": 0.063,
+        "REM": 0.056
+      }
+    },
+    {
+      "epoch_number": 270,
+      "timestamp": "2024-01-16 00:44:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.041,
+        "N1": 0.033,
+        "N2": 0.873,
+        "N3": 0.031,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 271,
+      "timestamp": "2024-01-16 00:45:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.069,
+        "N1": 0.011,
+        "N2": 0.788,
+        "N3": 0.046,
+        "REM": 0.086
+      }
+    },
+    {
+      "epoch_number": 272,
+      "timestamp": "2024-01-16 00:45:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.876,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.018,
+        "N2": 0.876,
+        "N3": 0.03,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 273,
+      "timestamp": "2024-01-16 00:46:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.856,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.044,
+        "N2": 0.856,
+        "N3": 0.061,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 274,
+      "timestamp": "2024-01-16 00:46:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.865,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.02,
+        "N2": 0.865,
+        "N3": 0.025,
+        "REM": 0.05
+      }
+    },
+    {
+      "epoch_number": 275,
+      "timestamp": "2024-01-16 00:47:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.728,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.018,
+        "N2": 0.728,
+        "N3": 0.088,
+        "REM": 0.105
+      }
+    },
+    {
+      "epoch_number": 276,
+      "timestamp": "2024-01-16 00:47:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.009,
+        "N1": 0.049,
+        "N2": 0.835,
+        "N3": 0.046,
+        "REM": 0.061
+      }
+    },
+    {
+      "epoch_number": 277,
+      "timestamp": "2024-01-16 00:48:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.832,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.058,
+        "N2": 0.832,
+        "N3": 0.036,
+        "REM": 0.029
+      }
+    },
+    {
+      "epoch_number": 278,
+      "timestamp": "2024-01-16 00:48:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.928,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.024,
+        "N2": 0.928,
+        "N3": 0.014,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 279,
+      "timestamp": "2024-01-16 00:49:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.746,
+      "probabilities": {
+        "W": 0.149,
+        "N1": 0.054,
+        "N2": 0.746,
+        "N3": 0.009,
+        "REM": 0.042
+      }
+    },
+    {
+      "epoch_number": 280,
+      "timestamp": "2024-01-16 00:49:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.808,
+      "probabilities": {
+        "W": 0.002,
+        "N1": 0.052,
+        "N2": 0.808,
+        "N3": 0.052,
+        "REM": 0.086
+      }
+    },
+    {
+      "epoch_number": 281,
+      "timestamp": "2024-01-16 00:50:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.797,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.021,
+        "N2": 0.797,
+        "N3": 0.069,
+        "REM": 0.088
+      }
+    },
+    {
+      "epoch_number": 282,
+      "timestamp": "2024-01-16 00:50:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.836,
+      "probabilities": {
+        "W": 0.022,
+        "N1": 0.081,
+        "N2": 0.836,
+        "N3": 0.04,
+        "REM": 0.021
+      }
+    },
+    {
+      "epoch_number": 283,
+      "timestamp": "2024-01-16 00:51:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.748,
+      "probabilities": {
+        "W": 0.073,
+        "N1": 0.076,
+        "N2": 0.748,
+        "N3": 0.059,
+        "REM": 0.044
+      }
+    },
+    {
+      "epoch_number": 284,
+      "timestamp": "2024-01-16 00:51:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.844,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.069,
+        "N2": 0.844,
+        "N3": 0.025,
+        "REM": 0.046
+      }
+    },
+    {
+      "epoch_number": 285,
+      "timestamp": "2024-01-16 00:52:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.022,
+        "N2": 0.9,
+        "N3": 0.014,
+        "REM": 0.026
+      }
+    },
+    {
+      "epoch_number": 286,
+      "timestamp": "2024-01-16 00:52:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.748,
+      "probabilities": {
+        "W": 0.091,
+        "N1": 0.039,
+        "N2": 0.748,
+        "N3": 0.093,
+        "REM": 0.029
+      }
+    },
+    {
+      "epoch_number": 287,
+      "timestamp": "2024-01-16 00:53:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.802,
+      "probabilities": {
+        "W": 0.058,
+        "N1": 0.097,
+        "N2": 0.802,
+        "N3": 0.042,
+        "REM": 0.001
+      }
+    },
+    {
+      "epoch_number": 288,
+      "timestamp": "2024-01-16 00:53:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.879,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.023,
+        "N2": 0.879,
+        "N3": 0.028,
+        "REM": 0.044
+      }
+    },
+    {
+      "epoch_number": 289,
+      "timestamp": "2024-01-16 00:54:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.814,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.047,
+        "N2": 0.814,
+        "N3": 0.026,
+        "REM": 0.067
+      }
+    },
+    {
+      "epoch_number": 290,
+      "timestamp": "2024-01-16 00:54:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.908,
+      "probabilities": {
+        "W": 0.002,
+        "N1": 0.03,
+        "N2": 0.908,
+        "N3": 0.032,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 291,
+      "timestamp": "2024-01-16 00:55:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.75,
+      "probabilities": {
+        "W": 0.139,
+        "N1": 0.106,
+        "N2": 0.75,
+        "N3": 0.003,
+        "REM": 0.002
+      }
+    },
+    {
+      "epoch_number": 292,
+      "timestamp": "2024-01-16 00:55:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.04,
+        "N1": 0.015,
+        "N2": 0.93,
+        "N3": 0.006,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 293,
+      "timestamp": "2024-01-16 00:56:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.772,
+      "probabilities": {
+        "W": 0.081,
+        "N1": 0.036,
+        "N2": 0.772,
+        "N3": 0.016,
+        "REM": 0.095
+      }
+    },
+    {
+      "epoch_number": 294,
+      "timestamp": "2024-01-16 00:56:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.894,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.039,
+        "N2": 0.894,
+        "N3": 0.026,
+        "REM": 0.034
+      }
+    },
+    {
+      "epoch_number": 295,
+      "timestamp": "2024-01-16 00:57:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.866,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.039,
+        "N2": 0.866,
+        "N3": 0.041,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 296,
+      "timestamp": "2024-01-16 00:57:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.873,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.036,
+        "N2": 0.873,
+        "N3": 0.022,
+        "REM": 0.043
+      }
+    },
+    {
+      "epoch_number": 297,
+      "timestamp": "2024-01-16 00:58:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.842,
+      "probabilities": {
+        "W": 0.037,
+        "N1": 0.033,
+        "N2": 0.842,
+        "N3": 0.019,
+        "REM": 0.069
+      }
+    },
+    {
+      "epoch_number": 298,
+      "timestamp": "2024-01-16 00:58:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.733,
+      "probabilities": {
+        "W": 0.078,
+        "N1": 0.024,
+        "N2": 0.733,
+        "N3": 0.082,
+        "REM": 0.083
+      }
+    },
+    {
+      "epoch_number": 299,
+      "timestamp": "2024-01-16 00:59:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.839,
+      "probabilities": {
+        "W": 0.064,
+        "N1": 0.0,
+        "N2": 0.062,
+        "N3": 0.839,
+        "REM": 0.035
+      }
+    },
+    {
+      "epoch_number": 300,
+      "timestamp": "2024-01-16 00:59:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.845,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.057,
+        "N2": 0.025,
+        "N3": 0.845,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 301,
+      "timestamp": "2024-01-16 01:00:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.931,
+      "probabilities": {
+        "W": 0.004,
+        "N1": 0.032,
+        "N2": 0.032,
+        "N3": 0.931,
+        "REM": 0.001
+      }
+    },
+    {
+      "epoch_number": 302,
+      "timestamp": "2024-01-16 01:00:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.855,
+      "probabilities": {
+        "W": 0.034,
+        "N1": 0.046,
+        "N2": 0.016,
+        "N3": 0.855,
+        "REM": 0.049
+      }
+    },
+    {
+      "epoch_number": 303,
+      "timestamp": "2024-01-16 01:01:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.832,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.071,
+        "N2": 0.003,
+        "N3": 0.832,
+        "REM": 0.056
+      }
+    },
+    {
+      "epoch_number": 304,
+      "timestamp": "2024-01-16 01:01:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.857,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.06,
+        "N2": 0.026,
+        "N3": 0.857,
+        "REM": 0.033
+      }
+    },
+    {
+      "epoch_number": 305,
+      "timestamp": "2024-01-16 01:02:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.069,
+        "N1": 0.019,
+        "N2": 0.039,
+        "N3": 0.835,
+        "REM": 0.038
+      }
+    },
+    {
+      "epoch_number": 306,
+      "timestamp": "2024-01-16 01:02:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.841,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.02,
+        "N2": 0.056,
+        "N3": 0.841,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 307,
+      "timestamp": "2024-01-16 01:03:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.019,
+        "N1": 0.036,
+        "N2": 0.069,
+        "N3": 0.83,
+        "REM": 0.046
+      }
+    },
+    {
+      "epoch_number": 308,
+      "timestamp": "2024-01-16 01:03:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.894,
+      "probabilities": {
+        "W": 0.023,
+        "N1": 0.022,
+        "N2": 0.021,
+        "N3": 0.894,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 309,
+      "timestamp": "2024-01-16 01:04:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.002,
+        "N2": 0.042,
+        "N3": 0.86,
+        "REM": 0.051
+      }
+    },
+    {
+      "epoch_number": 310,
+      "timestamp": "2024-01-16 01:04:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.839,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.088,
+        "N2": 0.002,
+        "N3": 0.839,
+        "REM": 0.056
+      }
+    },
+    {
+      "epoch_number": 311,
+      "timestamp": "2024-01-16 01:05:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.922,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.017,
+        "N2": 0.021,
+        "N3": 0.922,
+        "REM": 0.024
+      }
+    },
+    {
+      "epoch_number": 312,
+      "timestamp": "2024-01-16 01:05:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.855,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.036,
+        "N2": 0.04,
+        "N3": 0.855,
+        "REM": 0.034
+      }
+    },
+    {
+      "epoch_number": 313,
+      "timestamp": "2024-01-16 01:06:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.871,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.041,
+        "N2": 0.871,
+        "N3": 0.028,
+        "REM": 0.047
+      }
+    },
+    {
+      "epoch_number": 314,
+      "timestamp": "2024-01-16 01:06:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.741,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.005,
+        "N2": 0.741,
+        "N3": 0.105,
+        "REM": 0.124
+      }
+    },
+    {
+      "epoch_number": 315,
+      "timestamp": "2024-01-16 01:07:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.864,
+      "probabilities": {
+        "W": 0.02,
+        "N1": 0.044,
+        "N2": 0.864,
+        "N3": 0.042,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 316,
+      "timestamp": "2024-01-16 01:07:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.064,
+        "N2": 0.777,
+        "N3": 0.048,
+        "REM": 0.065
+      }
+    },
+    {
+      "epoch_number": 317,
+      "timestamp": "2024-01-16 01:08:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.862,
+      "probabilities": {
+        "W": 0.081,
+        "N1": 0.005,
+        "N2": 0.862,
+        "N3": 0.049,
+        "REM": 0.003
+      }
+    },
+    {
+      "epoch_number": 318,
+      "timestamp": "2024-01-16 01:08:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.746,
+      "probabilities": {
+        "W": 0.075,
+        "N1": 0.053,
+        "N2": 0.746,
+        "N3": 0.085,
+        "REM": 0.041
+      }
+    },
+    {
+      "epoch_number": 319,
+      "timestamp": "2024-01-16 01:09:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.722,
+      "probabilities": {
+        "W": 0.037,
+        "N1": 0.057,
+        "N2": 0.722,
+        "N3": 0.09,
+        "REM": 0.094
+      }
+    },
+    {
+      "epoch_number": 320,
+      "timestamp": "2024-01-16 01:09:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.825,
+      "probabilities": {
+        "W": 0.053,
+        "N1": 0.013,
+        "N2": 0.825,
+        "N3": 0.082,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 321,
+      "timestamp": "2024-01-16 01:10:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.754,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.001,
+        "N2": 0.754,
+        "N3": 0.204,
+        "REM": 0.036
+      }
+    },
+    {
+      "epoch_number": 322,
+      "timestamp": "2024-01-16 01:10:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.933,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.053,
+        "N2": 0.933,
+        "N3": 0.008,
+        "REM": 0.001
+      }
+    },
+    {
+      "epoch_number": 323,
+      "timestamp": "2024-01-16 01:11:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.878,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.074,
+        "N2": 0.019,
+        "N3": 0.005,
+        "REM": 0.878
+      }
+    },
+    {
+      "epoch_number": 324,
+      "timestamp": "2024-01-16 01:11:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.89,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.039,
+        "N2": 0.034,
+        "N3": 0.004,
+        "REM": 0.89
+      }
+    },
+    {
+      "epoch_number": 325,
+      "timestamp": "2024-01-16 01:12:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.043,
+        "N1": 0.028,
+        "N2": 0.056,
+        "N3": 0.015,
+        "REM": 0.858
+      }
+    },
+    {
+      "epoch_number": 326,
+      "timestamp": "2024-01-16 01:12:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.931,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.001,
+        "N2": 0.001,
+        "N3": 0.032,
+        "REM": 0.931
+      }
+    },
+    {
+      "epoch_number": 327,
+      "timestamp": "2024-01-16 01:13:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.9,
+      "probabilities": {
+        "W": 0.006,
+        "N1": 0.024,
+        "N2": 0.057,
+        "N3": 0.013,
+        "REM": 0.9
+      }
+    },
+    {
+      "epoch_number": 328,
+      "timestamp": "2024-01-16 01:13:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.909,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.004,
+        "N2": 0.022,
+        "N3": 0.035,
+        "REM": 0.909
+      }
+    },
+    {
+      "epoch_number": 329,
+      "timestamp": "2024-01-16 01:14:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.063,
+        "N1": 0.013,
+        "N2": 0.074,
+        "N3": 0.034,
+        "REM": 0.816
+      }
+    },
+    {
+      "epoch_number": 330,
+      "timestamp": "2024-01-16 01:14:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.862,
+      "probabilities": {
+        "W": 0.039,
+        "N1": 0.026,
+        "N2": 0.024,
+        "N3": 0.049,
+        "REM": 0.862
+      }
+    },
+    {
+      "epoch_number": 331,
+      "timestamp": "2024-01-16 01:15:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.928,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.024,
+        "N2": 0.012,
+        "N3": 0.003,
+        "REM": 0.928
+      }
+    },
+    {
+      "epoch_number": 332,
+      "timestamp": "2024-01-16 01:15:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.934,
+      "probabilities": {
+        "W": 0.019,
+        "N1": 0.022,
+        "N2": 0.009,
+        "N3": 0.016,
+        "REM": 0.934
+      }
+    },
+    {
+      "epoch_number": 333,
+      "timestamp": "2024-01-16 01:16:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.935,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.018,
+        "N2": 0.009,
+        "N3": 0.013,
+        "REM": 0.935
+      }
+    },
+    {
+      "epoch_number": 334,
+      "timestamp": "2024-01-16 01:16:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.915,
+      "probabilities": {
+        "W": 0.012,
+        "N1": 0.023,
+        "N2": 0.02,
+        "N3": 0.03,
+        "REM": 0.915
+      }
+    },
+    {
+      "epoch_number": 335,
+      "timestamp": "2024-01-16 01:17:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.897,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.0,
+        "N2": 0.028,
+        "N3": 0.045,
+        "REM": 0.897
+      }
+    },
+    {
+      "epoch_number": 336,
+      "timestamp": "2024-01-16 01:17:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.849,
+      "probabilities": {
+        "W": 0.048,
+        "N1": 0.052,
+        "N2": 0.002,
+        "N3": 0.049,
+        "REM": 0.849
+      }
+    },
+    {
+      "epoch_number": 337,
+      "timestamp": "2024-01-16 01:18:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.898,
+      "probabilities": {
+        "W": 0.034,
+        "N1": 0.023,
+        "N2": 0.011,
+        "N3": 0.034,
+        "REM": 0.898
+      }
+    },
+    {
+      "epoch_number": 338,
+      "timestamp": "2024-01-16 01:18:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.897,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.046,
+        "N2": 0.018,
+        "N3": 0.004,
+        "REM": 0.897
+      }
+    },
+    {
+      "epoch_number": 339,
+      "timestamp": "2024-01-16 01:19:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.842,
+      "probabilities": {
+        "W": 0.047,
+        "N1": 0.012,
+        "N2": 0.044,
+        "N3": 0.055,
+        "REM": 0.842
+      }
+    },
+    {
+      "epoch_number": 340,
+      "timestamp": "2024-01-16 01:19:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.772,
+      "probabilities": {
+        "W": 0.071,
+        "N1": 0.079,
+        "N2": 0.054,
+        "N3": 0.024,
+        "REM": 0.772
+      }
+    },
+    {
+      "epoch_number": 341,
+      "timestamp": "2024-01-16 01:20:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.777,
+      "probabilities": {
+        "W": 0.08,
+        "N1": 0.085,
+        "N2": 0.049,
+        "N3": 0.009,
+        "REM": 0.777
+      }
+    },
+    {
+      "epoch_number": 342,
+      "timestamp": "2024-01-16 01:20:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.897,
+      "probabilities": {
+        "W": 0.032,
+        "N1": 0.01,
+        "N2": 0.024,
+        "N3": 0.037,
+        "REM": 0.897
+      }
+    },
+    {
+      "epoch_number": 343,
+      "timestamp": "2024-01-16 01:21:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.915,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.023,
+        "N2": 0.028,
+        "N3": 0.009,
+        "REM": 0.915
+      }
+    },
+    {
+      "epoch_number": 344,
+      "timestamp": "2024-01-16 01:21:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.762,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.092,
+        "N2": 0.048,
+        "N3": 0.074,
+        "REM": 0.762
+      }
+    },
+    {
+      "epoch_number": 345,
+      "timestamp": "2024-01-16 01:22:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.808,
+      "probabilities": {
+        "W": 0.058,
+        "N1": 0.017,
+        "N2": 0.005,
+        "N3": 0.112,
+        "REM": 0.808
+      }
+    },
+    {
+      "epoch_number": 346,
+      "timestamp": "2024-01-16 01:22:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.803,
+      "probabilities": {
+        "W": 0.012,
+        "N1": 0.074,
+        "N2": 0.093,
+        "N3": 0.018,
+        "REM": 0.803
+      }
+    },
+    {
+      "epoch_number": 347,
+      "timestamp": "2024-01-16 01:23:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.852,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.084,
+        "N2": 0.003,
+        "N3": 0.005,
+        "REM": 0.852
+      }
+    },
+    {
+      "epoch_number": 348,
+      "timestamp": "2024-01-16 01:23:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.938,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.014,
+        "N2": 0.016,
+        "N3": 0.007,
+        "REM": 0.938
+      }
+    },
+    {
+      "epoch_number": 349,
+      "timestamp": "2024-01-16 01:24:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.891,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.035,
+        "N2": 0.028,
+        "N3": 0.03,
+        "REM": 0.891
+      }
+    },
+    {
+      "epoch_number": 350,
+      "timestamp": "2024-01-16 01:24:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.932,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.004,
+        "N2": 0.02,
+        "N3": 0.018,
+        "REM": 0.932
+      }
+    },
+    {
+      "epoch_number": 351,
+      "timestamp": "2024-01-16 01:25:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.738,
+      "probabilities": {
+        "W": 0.007,
+        "N1": 0.075,
+        "N2": 0.118,
+        "N3": 0.062,
+        "REM": 0.738
+      }
+    },
+    {
+      "epoch_number": 352,
+      "timestamp": "2024-01-16 01:25:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.929,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.002,
+        "N2": 0.022,
+        "N3": 0.014,
+        "REM": 0.929
+      }
+    },
+    {
+      "epoch_number": 353,
+      "timestamp": "2024-01-16 01:26:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.747,
+      "probabilities": {
+        "W": 0.1,
+        "N1": 0.027,
+        "N2": 0.059,
+        "N3": 0.067,
+        "REM": 0.747
+      }
+    },
+    {
+      "epoch_number": 354,
+      "timestamp": "2024-01-16 01:26:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.016,
+        "N2": 0.019,
+        "N3": 0.007,
+        "REM": 0.93
+      }
+    },
+    {
+      "epoch_number": 355,
+      "timestamp": "2024-01-16 01:27:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.933,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.01,
+        "N2": 0.002,
+        "N3": 0.011,
+        "REM": 0.933
+      }
+    },
+    {
+      "epoch_number": 356,
+      "timestamp": "2024-01-16 01:27:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.797,
+      "probabilities": {
+        "W": 0.068,
+        "N1": 0.068,
+        "N2": 0.063,
+        "N3": 0.004,
+        "REM": 0.797
+      }
+    },
+    {
+      "epoch_number": 357,
+      "timestamp": "2024-01-16 01:28:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.893,
+      "probabilities": {
+        "W": 0.032,
+        "N1": 0.029,
+        "N2": 0.044,
+        "N3": 0.002,
+        "REM": 0.893
+      }
+    },
+    {
+      "epoch_number": 358,
+      "timestamp": "2024-01-16 01:28:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.07,
+        "N1": 0.087,
+        "N2": 0.063,
+        "N3": 0.028,
+        "REM": 0.752
+      }
+    },
+    {
+      "epoch_number": 359,
+      "timestamp": "2024-01-16 01:29:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.849,
+      "probabilities": {
+        "W": 0.079,
+        "N1": 0.011,
+        "N2": 0.034,
+        "N3": 0.027,
+        "REM": 0.849
+      }
+    },
+    {
+      "epoch_number": 360,
+      "timestamp": "2024-01-16 01:29:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.748,
+      "probabilities": {
+        "W": 0.118,
+        "N1": 0.041,
+        "N2": 0.058,
+        "N3": 0.035,
+        "REM": 0.748
+      }
+    },
+    {
+      "epoch_number": 361,
+      "timestamp": "2024-01-16 01:30:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.868,
+      "probabilities": {
+        "W": 0.002,
+        "N1": 0.098,
+        "N2": 0.027,
+        "N3": 0.005,
+        "REM": 0.868
+      }
+    },
+    {
+      "epoch_number": 362,
+      "timestamp": "2024-01-16 01:30:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.924,
+      "probabilities": {
+        "W": 0.006,
+        "N1": 0.024,
+        "N2": 0.023,
+        "N3": 0.023,
+        "REM": 0.924
+      }
+    },
+    {
+      "epoch_number": 363,
+      "timestamp": "2024-01-16 01:31:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.751,
+      "probabilities": {
+        "W": 0.048,
+        "N1": 0.01,
+        "N2": 0.1,
+        "N3": 0.091,
+        "REM": 0.751
+      }
+    },
+    {
+      "epoch_number": 364,
+      "timestamp": "2024-01-16 01:31:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.031,
+        "N1": 0.023,
+        "N2": 0.056,
+        "N3": 0.032,
+        "REM": 0.858
+      }
+    },
+    {
+      "epoch_number": 365,
+      "timestamp": "2024-01-16 01:32:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.018,
+        "N1": 0.028,
+        "N2": 0.007,
+        "N3": 0.089,
+        "REM": 0.858
+      }
+    },
+    {
+      "epoch_number": 366,
+      "timestamp": "2024-01-16 01:32:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.842,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.081,
+        "N2": 0.025,
+        "N3": 0.038,
+        "REM": 0.842
+      }
+    },
+    {
+      "epoch_number": 367,
+      "timestamp": "2024-01-16 01:33:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.754,
+      "probabilities": {
+        "W": 0.754,
+        "N1": 0.041,
+        "N2": 0.128,
+        "N3": 0.051,
+        "REM": 0.026
+      }
+    },
+    {
+      "epoch_number": 368,
+      "timestamp": "2024-01-16 01:33:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.828,
+      "probabilities": {
+        "W": 0.828,
+        "N1": 0.024,
+        "N2": 0.067,
+        "N3": 0.008,
+        "REM": 0.073
+      }
+    },
+    {
+      "epoch_number": 369,
+      "timestamp": "2024-01-16 01:34:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.733,
+      "probabilities": {
+        "W": 0.733,
+        "N1": 0.106,
+        "N2": 0.079,
+        "N3": 0.025,
+        "REM": 0.057
+      }
+    },
+    {
+      "epoch_number": 370,
+      "timestamp": "2024-01-16 01:34:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.782,
+      "probabilities": {
+        "W": 0.782,
+        "N1": 0.031,
+        "N2": 0.024,
+        "N3": 0.044,
+        "REM": 0.119
+      }
+    },
+    {
+      "epoch_number": 371,
+      "timestamp": "2024-01-16 01:35:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.939,
+      "probabilities": {
+        "W": 0.939,
+        "N1": 0.025,
+        "N2": 0.003,
+        "N3": 0.008,
+        "REM": 0.025
+      }
+    },
+    {
+      "epoch_number": 372,
+      "timestamp": "2024-01-16 01:35:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.733,
+      "probabilities": {
+        "W": 0.733,
+        "N1": 0.096,
+        "N2": 0.039,
+        "N3": 0.13,
+        "REM": 0.002
+      }
+    },
+    {
+      "epoch_number": 373,
+      "timestamp": "2024-01-16 01:36:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.897,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.897,
+        "N2": 0.011,
+        "N3": 0.0,
+        "REM": 0.065
+      }
+    },
+    {
+      "epoch_number": 374,
+      "timestamp": "2024-01-16 01:36:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.837,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.837,
+        "N2": 0.041,
+        "N3": 0.085,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 375,
+      "timestamp": "2024-01-16 01:37:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.846,
+      "probabilities": {
+        "W": 0.012,
+        "N1": 0.846,
+        "N2": 0.015,
+        "N3": 0.066,
+        "REM": 0.061
+      }
+    },
+    {
+      "epoch_number": 376,
+      "timestamp": "2024-01-16 01:37:30",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.764,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.764,
+        "N2": 0.016,
+        "N3": 0.113,
+        "REM": 0.092
+      }
+    },
+    {
+      "epoch_number": 377,
+      "timestamp": "2024-01-16 01:38:00",
+      "predicted_stage_code": 1,
+      "predicted_stage_name": "N1",
+      "confidence": 0.78,
+      "probabilities": {
+        "W": 0.019,
+        "N1": 0.78,
+        "N2": 0.058,
+        "N3": 0.067,
+        "REM": 0.076
+      }
+    },
+    {
+      "epoch_number": 378,
+      "timestamp": "2024-01-16 01:38:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.848,
+      "probabilities": {
+        "W": 0.022,
+        "N1": 0.007,
+        "N2": 0.848,
+        "N3": 0.079,
+        "REM": 0.044
+      }
+    },
+    {
+      "epoch_number": 379,
+      "timestamp": "2024-01-16 01:39:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.879,
+      "probabilities": {
+        "W": 0.003,
+        "N1": 0.048,
+        "N2": 0.879,
+        "N3": 0.02,
+        "REM": 0.05
+      }
+    },
+    {
+      "epoch_number": 380,
+      "timestamp": "2024-01-16 01:39:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.91,
+      "probabilities": {
+        "W": 0.023,
+        "N1": 0.001,
+        "N2": 0.91,
+        "N3": 0.043,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 381,
+      "timestamp": "2024-01-16 01:40:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.912,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.01,
+        "N2": 0.912,
+        "N3": 0.044,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 382,
+      "timestamp": "2024-01-16 01:40:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.756,
+      "probabilities": {
+        "W": 0.061,
+        "N1": 0.097,
+        "N2": 0.756,
+        "N3": 0.001,
+        "REM": 0.085
+      }
+    },
+    {
+      "epoch_number": 383,
+      "timestamp": "2024-01-16 01:41:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.818,
+      "probabilities": {
+        "W": 0.043,
+        "N1": 0.01,
+        "N2": 0.818,
+        "N3": 0.06,
+        "REM": 0.069
+      }
+    },
+    {
+      "epoch_number": 384,
+      "timestamp": "2024-01-16 01:41:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.911,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.029,
+        "N2": 0.911,
+        "N3": 0.016,
+        "REM": 0.031
+      }
+    },
+    {
+      "epoch_number": 385,
+      "timestamp": "2024-01-16 01:42:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.733,
+      "probabilities": {
+        "W": 0.082,
+        "N1": 0.09,
+        "N2": 0.733,
+        "N3": 0.047,
+        "REM": 0.048
+      }
+    },
+    {
+      "epoch_number": 386,
+      "timestamp": "2024-01-16 01:42:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.837,
+      "probabilities": {
+        "W": 0.05,
+        "N1": 0.002,
+        "N2": 0.837,
+        "N3": 0.09,
+        "REM": 0.021
+      }
+    },
+    {
+      "epoch_number": 387,
+      "timestamp": "2024-01-16 01:43:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.76,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.05,
+        "N2": 0.76,
+        "N3": 0.163,
+        "REM": 0.006
+      }
+    },
+    {
+      "epoch_number": 388,
+      "timestamp": "2024-01-16 01:43:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.741,
+      "probabilities": {
+        "W": 0.12,
+        "N1": 0.033,
+        "N2": 0.741,
+        "N3": 0.003,
+        "REM": 0.103
+      }
+    },
+    {
+      "epoch_number": 389,
+      "timestamp": "2024-01-16 01:44:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.847,
+      "probabilities": {
+        "W": 0.036,
+        "N1": 0.049,
+        "N2": 0.847,
+        "N3": 0.007,
+        "REM": 0.061
+      }
+    },
+    {
+      "epoch_number": 390,
+      "timestamp": "2024-01-16 01:44:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.877,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.013,
+        "N2": 0.877,
+        "N3": 0.052,
+        "REM": 0.053
+      }
+    },
+    {
+      "epoch_number": 391,
+      "timestamp": "2024-01-16 01:45:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.781,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.071,
+        "N2": 0.781,
+        "N3": 0.024,
+        "REM": 0.103
+      }
+    },
+    {
+      "epoch_number": 392,
+      "timestamp": "2024-01-16 01:45:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.91,
+      "probabilities": {
+        "W": 0.008,
+        "N1": 0.032,
+        "N2": 0.91,
+        "N3": 0.041,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 393,
+      "timestamp": "2024-01-16 01:46:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.901,
+      "probabilities": {
+        "W": 0.036,
+        "N1": 0.015,
+        "N2": 0.901,
+        "N3": 0.016,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 394,
+      "timestamp": "2024-01-16 01:46:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.063,
+        "N2": 0.835,
+        "N3": 0.052,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 395,
+      "timestamp": "2024-01-16 01:47:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.773,
+      "probabilities": {
+        "W": 0.03,
+        "N1": 0.039,
+        "N2": 0.773,
+        "N3": 0.087,
+        "REM": 0.071
+      }
+    },
+    {
+      "epoch_number": 396,
+      "timestamp": "2024-01-16 01:47:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.921,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.03,
+        "N2": 0.921,
+        "N3": 0.002,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 397,
+      "timestamp": "2024-01-16 01:48:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.93,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.008,
+        "N2": 0.93,
+        "N3": 0.013,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 398,
+      "timestamp": "2024-01-16 01:48:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.8,
+      "probabilities": {
+        "W": 0.069,
+        "N1": 0.009,
+        "N2": 0.8,
+        "N3": 0.056,
+        "REM": 0.066
+      }
+    },
+    {
+      "epoch_number": 399,
+      "timestamp": "2024-01-16 01:49:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.724,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.095,
+        "N2": 0.724,
+        "N3": 0.076,
+        "REM": 0.091
+      }
+    },
+    {
+      "epoch_number": 400,
+      "timestamp": "2024-01-16 01:49:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.048,
+        "N2": 0.858,
+        "N3": 0.048,
+        "REM": 0.002
+      }
+    },
+    {
+      "epoch_number": 401,
+      "timestamp": "2024-01-16 01:50:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.054,
+        "N2": 0.86,
+        "N3": 0.022,
+        "REM": 0.043
+      }
+    },
+    {
+      "epoch_number": 402,
+      "timestamp": "2024-01-16 01:50:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.923,
+      "probabilities": {
+        "W": 0.026,
+        "N1": 0.011,
+        "N2": 0.923,
+        "N3": 0.022,
+        "REM": 0.018
+      }
+    },
+    {
+      "epoch_number": 403,
+      "timestamp": "2024-01-16 01:51:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.929,
+      "probabilities": {
+        "W": 0.015,
+        "N1": 0.016,
+        "N2": 0.929,
+        "N3": 0.034,
+        "REM": 0.006
+      }
+    },
+    {
+      "epoch_number": 404,
+      "timestamp": "2024-01-16 01:51:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.85,
+      "probabilities": {
+        "W": 0.065,
+        "N1": 0.035,
+        "N2": 0.85,
+        "N3": 0.018,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 405,
+      "timestamp": "2024-01-16 01:52:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.837,
+      "probabilities": {
+        "W": 0.035,
+        "N1": 0.029,
+        "N2": 0.837,
+        "N3": 0.031,
+        "REM": 0.068
+      }
+    },
+    {
+      "epoch_number": 406,
+      "timestamp": "2024-01-16 01:52:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.81,
+      "probabilities": {
+        "W": 0.047,
+        "N1": 0.04,
+        "N2": 0.81,
+        "N3": 0.014,
+        "REM": 0.089
+      }
+    },
+    {
+      "epoch_number": 407,
+      "timestamp": "2024-01-16 01:53:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.905,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.027,
+        "N2": 0.905,
+        "N3": 0.03,
+        "REM": 0.009
+      }
+    },
+    {
+      "epoch_number": 408,
+      "timestamp": "2024-01-16 01:53:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.877,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.032,
+        "N2": 0.877,
+        "N3": 0.036,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 409,
+      "timestamp": "2024-01-16 01:54:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.787,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.035,
+        "N2": 0.787,
+        "N3": 0.08,
+        "REM": 0.06
+      }
+    },
+    {
+      "epoch_number": 410,
+      "timestamp": "2024-01-16 01:54:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.849,
+      "probabilities": {
+        "W": 0.001,
+        "N1": 0.036,
+        "N2": 0.849,
+        "N3": 0.089,
+        "REM": 0.025
+      }
+    },
+    {
+      "epoch_number": 411,
+      "timestamp": "2024-01-16 01:55:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.841,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.022,
+        "N2": 0.841,
+        "N3": 0.076,
+        "REM": 0.023
+      }
+    },
+    {
+      "epoch_number": 412,
+      "timestamp": "2024-01-16 01:55:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.89,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.005,
+        "N2": 0.89,
+        "N3": 0.062,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 413,
+      "timestamp": "2024-01-16 01:56:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.734,
+      "probabilities": {
+        "W": 0.062,
+        "N1": 0.07,
+        "N2": 0.734,
+        "N3": 0.117,
+        "REM": 0.017
+      }
+    },
+    {
+      "epoch_number": 414,
+      "timestamp": "2024-01-16 01:56:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.77,
+      "probabilities": {
+        "W": 0.101,
+        "N1": 0.078,
+        "N2": 0.77,
+        "N3": 0.016,
+        "REM": 0.035
+      }
+    },
+    {
+      "epoch_number": 415,
+      "timestamp": "2024-01-16 01:57:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.798,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.042,
+        "N2": 0.798,
+        "N3": 0.058,
+        "REM": 0.056
+      }
+    },
+    {
+      "epoch_number": 416,
+      "timestamp": "2024-01-16 01:57:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.045,
+        "N2": 0.835,
+        "N3": 0.046,
+        "REM": 0.029
+      }
+    },
+    {
+      "epoch_number": 417,
+      "timestamp": "2024-01-16 01:58:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.893,
+      "probabilities": {
+        "W": 0.029,
+        "N1": 0.037,
+        "N2": 0.893,
+        "N3": 0.005,
+        "REM": 0.036
+      }
+    },
+    {
+      "epoch_number": 418,
+      "timestamp": "2024-01-16 01:58:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.721,
+      "probabilities": {
+        "W": 0.076,
+        "N1": 0.058,
+        "N2": 0.049,
+        "N3": 0.721,
+        "REM": 0.096
+      }
+    },
+    {
+      "epoch_number": 419,
+      "timestamp": "2024-01-16 01:59:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.846,
+      "probabilities": {
+        "W": 0.024,
+        "N1": 0.045,
+        "N2": 0.05,
+        "N3": 0.846,
+        "REM": 0.035
+      }
+    },
+    {
+      "epoch_number": 420,
+      "timestamp": "2024-01-16 01:59:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.803,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.047,
+        "N2": 0.074,
+        "N3": 0.803,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 421,
+      "timestamp": "2024-01-16 02:00:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.806,
+      "probabilities": {
+        "W": 0.053,
+        "N1": 0.036,
+        "N2": 0.03,
+        "N3": 0.806,
+        "REM": 0.075
+      }
+    },
+    {
+      "epoch_number": 422,
+      "timestamp": "2024-01-16 02:00:30",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.907,
+      "probabilities": {
+        "W": 0.032,
+        "N1": 0.029,
+        "N2": 0.012,
+        "N3": 0.907,
+        "REM": 0.02
+      }
+    },
+    {
+      "epoch_number": 423,
+      "timestamp": "2024-01-16 02:01:00",
+      "predicted_stage_code": 3,
+      "predicted_stage_name": "N3",
+      "confidence": 0.752,
+      "probabilities": {
+        "W": 0.066,
+        "N1": 0.067,
+        "N2": 0.01,
+        "N3": 0.752,
+        "REM": 0.105
+      }
+    },
+    {
+      "epoch_number": 424,
+      "timestamp": "2024-01-16 02:01:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.791,
+      "probabilities": {
+        "W": 0.062,
+        "N1": 0.062,
+        "N2": 0.791,
+        "N3": 0.07,
+        "REM": 0.015
+      }
+    },
+    {
+      "epoch_number": 425,
+      "timestamp": "2024-01-16 02:02:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.813,
+      "probabilities": {
+        "W": 0.111,
+        "N1": 0.001,
+        "N2": 0.813,
+        "N3": 0.006,
+        "REM": 0.069
+      }
+    },
+    {
+      "epoch_number": 426,
+      "timestamp": "2024-01-16 02:02:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.829,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.041,
+        "N2": 0.829,
+        "N3": 0.028,
+        "REM": 0.053
+      }
+    },
+    {
+      "epoch_number": 427,
+      "timestamp": "2024-01-16 02:03:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.835,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.058,
+        "N2": 0.835,
+        "N3": 0.033,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 428,
+      "timestamp": "2024-01-16 02:03:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.851,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.057,
+        "N2": 0.851,
+        "N3": 0.04,
+        "REM": 0.031
+      }
+    },
+    {
+      "epoch_number": 429,
+      "timestamp": "2024-01-16 02:04:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.741,
+      "probabilities": {
+        "W": 0.051,
+        "N1": 0.054,
+        "N2": 0.741,
+        "N3": 0.076,
+        "REM": 0.078
+      }
+    },
+    {
+      "epoch_number": 430,
+      "timestamp": "2024-01-16 02:04:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.914,
+      "probabilities": {
+        "W": 0.033,
+        "N1": 0.017,
+        "N2": 0.914,
+        "N3": 0.015,
+        "REM": 0.021
+      }
+    },
+    {
+      "epoch_number": 431,
+      "timestamp": "2024-01-16 02:05:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.939,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.017,
+        "N2": 0.939,
+        "N3": 0.027,
+        "REM": 0.006
+      }
+    },
+    {
+      "epoch_number": 432,
+      "timestamp": "2024-01-16 02:05:30",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.79,
+      "probabilities": {
+        "W": 0.085,
+        "N1": 0.071,
+        "N2": 0.79,
+        "N3": 0.044,
+        "REM": 0.01
+      }
+    },
+    {
+      "epoch_number": 433,
+      "timestamp": "2024-01-16 02:06:00",
+      "predicted_stage_code": 2,
+      "predicted_stage_name": "N2",
+      "confidence": 0.917,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.02,
+        "N2": 0.917,
+        "N3": 0.024,
+        "REM": 0.022
+      }
+    },
+    {
+      "epoch_number": 434,
+      "timestamp": "2024-01-16 02:06:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.812,
+      "probabilities": {
+        "W": 0.02,
+        "N1": 0.037,
+        "N2": 0.066,
+        "N3": 0.065,
+        "REM": 0.812
+      }
+    },
+    {
+      "epoch_number": 435,
+      "timestamp": "2024-01-16 02:07:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.761,
+      "probabilities": {
+        "W": 0.025,
+        "N1": 0.085,
+        "N2": 0.081,
+        "N3": 0.048,
+        "REM": 0.761
+      }
+    },
+    {
+      "epoch_number": 436,
+      "timestamp": "2024-01-16 02:07:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.939,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.001,
+        "N2": 0.013,
+        "N3": 0.026,
+        "REM": 0.939
+      }
+    },
+    {
+      "epoch_number": 437,
+      "timestamp": "2024-01-16 02:08:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.08,
+        "N1": 0.0,
+        "N2": 0.035,
+        "N3": 0.097,
+        "REM": 0.788
+      }
+    },
+    {
+      "epoch_number": 438,
+      "timestamp": "2024-01-16 02:08:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.848,
+      "probabilities": {
+        "W": 0.053,
+        "N1": 0.016,
+        "N2": 0.039,
+        "N3": 0.044,
+        "REM": 0.848
+      }
+    },
+    {
+      "epoch_number": 439,
+      "timestamp": "2024-01-16 02:09:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.779,
+      "probabilities": {
+        "W": 0.052,
+        "N1": 0.043,
+        "N2": 0.08,
+        "N3": 0.046,
+        "REM": 0.779
+      }
+    },
+    {
+      "epoch_number": 440,
+      "timestamp": "2024-01-16 02:09:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.81,
+      "probabilities": {
+        "W": 0.02,
+        "N1": 0.026,
+        "N2": 0.126,
+        "N3": 0.018,
+        "REM": 0.81
+      }
+    },
+    {
+      "epoch_number": 441,
+      "timestamp": "2024-01-16 02:10:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.742,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.063,
+        "N2": 0.1,
+        "N3": 0.074,
+        "REM": 0.742
+      }
+    },
+    {
+      "epoch_number": 442,
+      "timestamp": "2024-01-16 02:10:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.898,
+      "probabilities": {
+        "W": 0.005,
+        "N1": 0.001,
+        "N2": 0.068,
+        "N3": 0.028,
+        "REM": 0.898
+      }
+    },
+    {
+      "epoch_number": 443,
+      "timestamp": "2024-01-16 02:11:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.877,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.023,
+        "N2": 0.037,
+        "N3": 0.014,
+        "REM": 0.877
+      }
+    },
+    {
+      "epoch_number": 444,
+      "timestamp": "2024-01-16 02:11:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.918,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.016,
+        "N2": 0.021,
+        "N3": 0.018,
+        "REM": 0.918
+      }
+    },
+    {
+      "epoch_number": 445,
+      "timestamp": "2024-01-16 02:12:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.732,
+      "probabilities": {
+        "W": 0.083,
+        "N1": 0.054,
+        "N2": 0.09,
+        "N3": 0.041,
+        "REM": 0.732
+      }
+    },
+    {
+      "epoch_number": 446,
+      "timestamp": "2024-01-16 02:12:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.857,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.003,
+        "N2": 0.064,
+        "N3": 0.059,
+        "REM": 0.857
+      }
+    },
+    {
+      "epoch_number": 447,
+      "timestamp": "2024-01-16 02:13:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.79,
+      "probabilities": {
+        "W": 0.072,
+        "N1": 0.066,
+        "N2": 0.024,
+        "N3": 0.048,
+        "REM": 0.79
+      }
+    },
+    {
+      "epoch_number": 448,
+      "timestamp": "2024-01-16 02:13:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.932,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.031,
+        "N2": 0.008,
+        "N3": 0.013,
+        "REM": 0.932
+      }
+    },
+    {
+      "epoch_number": 449,
+      "timestamp": "2024-01-16 02:14:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.879,
+      "probabilities": {
+        "W": 0.014,
+        "N1": 0.02,
+        "N2": 0.056,
+        "N3": 0.031,
+        "REM": 0.879
+      }
+    },
+    {
+      "epoch_number": 450,
+      "timestamp": "2024-01-16 02:14:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.895,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.019,
+        "N2": 0.039,
+        "N3": 0.02,
+        "REM": 0.895
+      }
+    },
+    {
+      "epoch_number": 451,
+      "timestamp": "2024-01-16 02:15:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.933,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.025,
+        "N2": 0.005,
+        "N3": 0.024,
+        "REM": 0.933
+      }
+    },
+    {
+      "epoch_number": 452,
+      "timestamp": "2024-01-16 02:15:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.804,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.009,
+        "N2": 0.017,
+        "N3": 0.114,
+        "REM": 0.804
+      }
+    },
+    {
+      "epoch_number": 453,
+      "timestamp": "2024-01-16 02:16:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.797,
+      "probabilities": {
+        "W": 0.052,
+        "N1": 0.041,
+        "N2": 0.06,
+        "N3": 0.05,
+        "REM": 0.797
+      }
+    },
+    {
+      "epoch_number": 454,
+      "timestamp": "2024-01-16 02:16:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.727,
+      "probabilities": {
+        "W": 0.097,
+        "N1": 0.05,
+        "N2": 0.023,
+        "N3": 0.103,
+        "REM": 0.727
+      }
+    },
+    {
+      "epoch_number": 455,
+      "timestamp": "2024-01-16 02:17:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.74,
+      "probabilities": {
+        "W": 0.042,
+        "N1": 0.129,
+        "N2": 0.02,
+        "N3": 0.069,
+        "REM": 0.74
+      }
+    },
+    {
+      "epoch_number": 456,
+      "timestamp": "2024-01-16 02:17:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.904,
+      "probabilities": {
+        "W": 0.038,
+        "N1": 0.007,
+        "N2": 0.017,
+        "N3": 0.034,
+        "REM": 0.904
+      }
+    },
+    {
+      "epoch_number": 457,
+      "timestamp": "2024-01-16 02:18:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.803,
+      "probabilities": {
+        "W": 0.072,
+        "N1": 0.016,
+        "N2": 0.071,
+        "N3": 0.038,
+        "REM": 0.803
+      }
+    },
+    {
+      "epoch_number": 458,
+      "timestamp": "2024-01-16 02:18:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.77,
+      "probabilities": {
+        "W": 0.067,
+        "N1": 0.019,
+        "N2": 0.105,
+        "N3": 0.039,
+        "REM": 0.77
+      }
+    },
+    {
+      "epoch_number": 459,
+      "timestamp": "2024-01-16 02:19:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.917,
+      "probabilities": {
+        "W": 0.027,
+        "N1": 0.017,
+        "N2": 0.011,
+        "N3": 0.028,
+        "REM": 0.917
+      }
+    },
+    {
+      "epoch_number": 460,
+      "timestamp": "2024-01-16 02:19:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.767,
+      "probabilities": {
+        "W": 0.099,
+        "N1": 0.014,
+        "N2": 0.058,
+        "N3": 0.062,
+        "REM": 0.767
+      }
+    },
+    {
+      "epoch_number": 461,
+      "timestamp": "2024-01-16 02:20:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.779,
+      "probabilities": {
+        "W": 0.071,
+        "N1": 0.036,
+        "N2": 0.061,
+        "N3": 0.053,
+        "REM": 0.779
+      }
+    },
+    {
+      "epoch_number": 462,
+      "timestamp": "2024-01-16 02:20:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.055,
+        "N1": 0.012,
+        "N2": 0.025,
+        "N3": 0.12,
+        "REM": 0.788
+      }
+    },
+    {
+      "epoch_number": 463,
+      "timestamp": "2024-01-16 02:21:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.791,
+      "probabilities": {
+        "W": 0.082,
+        "N1": 0.013,
+        "N2": 0.069,
+        "N3": 0.045,
+        "REM": 0.791
+      }
+    },
+    {
+      "epoch_number": 464,
+      "timestamp": "2024-01-16 02:21:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.83,
+      "probabilities": {
+        "W": 0.056,
+        "N1": 0.012,
+        "N2": 0.059,
+        "N3": 0.043,
+        "REM": 0.83
+      }
+    },
+    {
+      "epoch_number": 465,
+      "timestamp": "2024-01-16 02:22:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.748,
+      "probabilities": {
+        "W": 0.078,
+        "N1": 0.031,
+        "N2": 0.044,
+        "N3": 0.099,
+        "REM": 0.748
+      }
+    },
+    {
+      "epoch_number": 466,
+      "timestamp": "2024-01-16 02:22:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.89,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.044,
+        "N2": 0.007,
+        "N3": 0.014,
+        "REM": 0.89
+      }
+    },
+    {
+      "epoch_number": 467,
+      "timestamp": "2024-01-16 02:23:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.726,
+      "probabilities": {
+        "W": 0.088,
+        "N1": 0.086,
+        "N2": 0.046,
+        "N3": 0.054,
+        "REM": 0.726
+      }
+    },
+    {
+      "epoch_number": 468,
+      "timestamp": "2024-01-16 02:23:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.865,
+      "probabilities": {
+        "W": 0.044,
+        "N1": 0.016,
+        "N2": 0.053,
+        "N3": 0.022,
+        "REM": 0.865
+      }
+    },
+    {
+      "epoch_number": 469,
+      "timestamp": "2024-01-16 02:24:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.013,
+        "N1": 0.008,
+        "N2": 0.067,
+        "N3": 0.054,
+        "REM": 0.858
+      }
+    },
+    {
+      "epoch_number": 470,
+      "timestamp": "2024-01-16 02:24:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.878,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.011,
+        "N2": 0.045,
+        "N3": 0.055,
+        "REM": 0.878
+      }
+    },
+    {
+      "epoch_number": 471,
+      "timestamp": "2024-01-16 02:25:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.788,
+      "probabilities": {
+        "W": 0.059,
+        "N1": 0.006,
+        "N2": 0.048,
+        "N3": 0.099,
+        "REM": 0.788
+      }
+    },
+    {
+      "epoch_number": 472,
+      "timestamp": "2024-01-16 02:25:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.759,
+      "probabilities": {
+        "W": 0.085,
+        "N1": 0.058,
+        "N2": 0.072,
+        "N3": 0.026,
+        "REM": 0.759
+      }
+    },
+    {
+      "epoch_number": 473,
+      "timestamp": "2024-01-16 02:26:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.068,
+        "N1": 0.034,
+        "N2": 0.0,
+        "N3": 0.082,
+        "REM": 0.816
+      }
+    },
+    {
+      "epoch_number": 474,
+      "timestamp": "2024-01-16 02:26:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.891,
+      "probabilities": {
+        "W": 0.017,
+        "N1": 0.003,
+        "N2": 0.052,
+        "N3": 0.037,
+        "REM": 0.891
+      }
+    },
+    {
+      "epoch_number": 475,
+      "timestamp": "2024-01-16 02:27:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.73,
+      "probabilities": {
+        "W": 0.049,
+        "N1": 0.022,
+        "N2": 0.157,
+        "N3": 0.042,
+        "REM": 0.73
+      }
+    },
+    {
+      "epoch_number": 476,
+      "timestamp": "2024-01-16 02:27:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.921,
+      "probabilities": {
+        "W": 0.031,
+        "N1": 0.004,
+        "N2": 0.028,
+        "N3": 0.016,
+        "REM": 0.921
+      }
+    },
+    {
+      "epoch_number": 477,
+      "timestamp": "2024-01-16 02:28:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.884,
+      "probabilities": {
+        "W": 0.045,
+        "N1": 0.015,
+        "N2": 0.005,
+        "N3": 0.051,
+        "REM": 0.884
+      }
+    },
+    {
+      "epoch_number": 478,
+      "timestamp": "2024-01-16 02:28:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.814,
+      "probabilities": {
+        "W": 0.054,
+        "N1": 0.04,
+        "N2": 0.043,
+        "N3": 0.049,
+        "REM": 0.814
+      }
+    },
+    {
+      "epoch_number": 479,
+      "timestamp": "2024-01-16 02:29:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.039,
+        "N1": 0.005,
+        "N2": 0.061,
+        "N3": 0.037,
+        "REM": 0.858
+      }
+    },
+    {
+      "epoch_number": 480,
+      "timestamp": "2024-01-16 02:29:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.833,
+      "probabilities": {
+        "W": 0.083,
+        "N1": 0.011,
+        "N2": 0.069,
+        "N3": 0.004,
+        "REM": 0.833
+      }
+    },
+    {
+      "epoch_number": 481,
+      "timestamp": "2024-01-16 02:30:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.874,
+      "probabilities": {
+        "W": 0.039,
+        "N1": 0.013,
+        "N2": 0.027,
+        "N3": 0.047,
+        "REM": 0.874
+      }
+    },
+    {
+      "epoch_number": 482,
+      "timestamp": "2024-01-16 02:30:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.86,
+      "probabilities": {
+        "W": 0.063,
+        "N1": 0.029,
+        "N2": 0.007,
+        "N3": 0.041,
+        "REM": 0.86
+      }
+    },
+    {
+      "epoch_number": 483,
+      "timestamp": "2024-01-16 02:31:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.811,
+      "probabilities": {
+        "W": 0.028,
+        "N1": 0.043,
+        "N2": 0.019,
+        "N3": 0.099,
+        "REM": 0.811
+      }
+    },
+    {
+      "epoch_number": 484,
+      "timestamp": "2024-01-16 02:31:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.868,
+      "probabilities": {
+        "W": 0.022,
+        "N1": 0.022,
+        "N2": 0.047,
+        "N3": 0.041,
+        "REM": 0.868
+      }
+    },
+    {
+      "epoch_number": 485,
+      "timestamp": "2024-01-16 02:32:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.926,
+      "probabilities": {
+        "W": 0.016,
+        "N1": 0.013,
+        "N2": 0.039,
+        "N3": 0.006,
+        "REM": 0.926
+      }
+    },
+    {
+      "epoch_number": 486,
+      "timestamp": "2024-01-16 02:32:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.844,
+      "probabilities": {
+        "W": 0.021,
+        "N1": 0.052,
+        "N2": 0.035,
+        "N3": 0.048,
+        "REM": 0.844
+      }
+    },
+    {
+      "epoch_number": 487,
+      "timestamp": "2024-01-16 02:33:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.757,
+      "probabilities": {
+        "W": 0.065,
+        "N1": 0.058,
+        "N2": 0.045,
+        "N3": 0.075,
+        "REM": 0.757
+      }
+    },
+    {
+      "epoch_number": 488,
+      "timestamp": "2024-01-16 02:33:30",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.903,
+      "probabilities": {
+        "W": 0.011,
+        "N1": 0.029,
+        "N2": 0.036,
+        "N3": 0.021,
+        "REM": 0.903
+      }
+    },
+    {
+      "epoch_number": 489,
+      "timestamp": "2024-01-16 02:34:00",
+      "predicted_stage_code": 4,
+      "predicted_stage_name": "REM",
+      "confidence": 0.734,
+      "probabilities": {
+        "W": 0.046,
+        "N1": 0.032,
+        "N2": 0.115,
+        "N3": 0.073,
+        "REM": 0.734
+      }
+    },
+    {
+      "epoch_number": 490,
+      "timestamp": "2024-01-16 02:34:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.745,
+      "probabilities": {
+        "W": 0.745,
+        "N1": 0.063,
+        "N2": 0.09,
+        "N3": 0.07,
+        "REM": 0.032
+      }
+    },
+    {
+      "epoch_number": 491,
+      "timestamp": "2024-01-16 02:35:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.735,
+      "probabilities": {
+        "W": 0.735,
+        "N1": 0.002,
+        "N2": 0.143,
+        "N3": 0.108,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 492,
+      "timestamp": "2024-01-16 02:35:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.878,
+      "probabilities": {
+        "W": 0.878,
+        "N1": 0.056,
+        "N2": 0.032,
+        "N3": 0.006,
+        "REM": 0.028
+      }
+    },
+    {
+      "epoch_number": 493,
+      "timestamp": "2024-01-16 02:36:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.816,
+        "N1": 0.021,
+        "N2": 0.06,
+        "N3": 0.001,
+        "REM": 0.102
+      }
+    },
+    {
+      "epoch_number": 494,
+      "timestamp": "2024-01-16 02:36:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.862,
+      "probabilities": {
+        "W": 0.862,
+        "N1": 0.035,
+        "N2": 0.052,
+        "N3": 0.037,
+        "REM": 0.014
+      }
+    },
+    {
+      "epoch_number": 495,
+      "timestamp": "2024-01-16 02:37:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.773,
+      "probabilities": {
+        "W": 0.773,
+        "N1": 0.018,
+        "N2": 0.004,
+        "N3": 0.098,
+        "REM": 0.107
+      }
+    },
+    {
+      "epoch_number": 496,
+      "timestamp": "2024-01-16 02:37:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.785,
+      "probabilities": {
+        "W": 0.785,
+        "N1": 0.015,
+        "N2": 0.053,
+        "N3": 0.07,
+        "REM": 0.077
+      }
+    },
+    {
+      "epoch_number": 497,
+      "timestamp": "2024-01-16 02:38:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.757,
+      "probabilities": {
+        "W": 0.757,
+        "N1": 0.071,
+        "N2": 0.075,
+        "N3": 0.067,
+        "REM": 0.03
+      }
+    },
+    {
+      "epoch_number": 498,
+      "timestamp": "2024-01-16 02:38:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.76,
+      "probabilities": {
+        "W": 0.76,
+        "N1": 0.096,
+        "N2": 0.037,
+        "N3": 0.043,
+        "REM": 0.064
+      }
+    },
+    {
+      "epoch_number": 499,
+      "timestamp": "2024-01-16 02:39:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.802,
+      "probabilities": {
+        "W": 0.802,
+        "N1": 0.098,
+        "N2": 0.028,
+        "N3": 0.005,
+        "REM": 0.067
+      }
+    },
+    {
+      "epoch_number": 500,
+      "timestamp": "2024-01-16 02:39:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.858,
+      "probabilities": {
+        "W": 0.858,
+        "N1": 0.034,
+        "N2": 0.03,
+        "N3": 0.038,
+        "REM": 0.04
+      }
+    },
+    {
+      "epoch_number": 501,
+      "timestamp": "2024-01-16 02:40:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.828,
+      "probabilities": {
+        "W": 0.828,
+        "N1": 0.056,
+        "N2": 0.018,
+        "N3": 0.033,
+        "REM": 0.065
+      }
+    },
+    {
+      "epoch_number": 502,
+      "timestamp": "2024-01-16 02:40:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.738,
+      "probabilities": {
+        "W": 0.738,
+        "N1": 0.08,
+        "N2": 0.019,
+        "N3": 0.051,
+        "REM": 0.112
+      }
+    },
+    {
+      "epoch_number": 503,
+      "timestamp": "2024-01-16 02:41:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.74,
+      "probabilities": {
+        "W": 0.74,
+        "N1": 0.007,
+        "N2": 0.082,
+        "N3": 0.036,
+        "REM": 0.135
+      }
+    },
+    {
+      "epoch_number": 504,
+      "timestamp": "2024-01-16 02:41:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.72,
+      "probabilities": {
+        "W": 0.72,
+        "N1": 0.081,
+        "N2": 0.082,
+        "N3": 0.076,
+        "REM": 0.041
+      }
+    },
+    {
+      "epoch_number": 505,
+      "timestamp": "2024-01-16 02:42:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.783,
+      "probabilities": {
+        "W": 0.783,
+        "N1": 0.074,
+        "N2": 0.058,
+        "N3": 0.047,
+        "REM": 0.038
+      }
+    },
+    {
+      "epoch_number": 506,
+      "timestamp": "2024-01-16 02:42:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.816,
+      "probabilities": {
+        "W": 0.816,
+        "N1": 0.048,
+        "N2": 0.059,
+        "N3": 0.065,
+        "REM": 0.012
+      }
+    },
+    {
+      "epoch_number": 507,
+      "timestamp": "2024-01-16 02:43:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.786,
+      "probabilities": {
+        "W": 0.786,
+        "N1": 0.061,
+        "N2": 0.078,
+        "N3": 0.048,
+        "REM": 0.027
+      }
+    },
+    {
+      "epoch_number": 508,
+      "timestamp": "2024-01-16 02:43:30",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.739,
+      "probabilities": {
+        "W": 0.739,
+        "N1": 0.032,
+        "N2": 0.045,
+        "N3": 0.095,
+        "REM": 0.089
+      }
+    },
+    {
+      "epoch_number": 509,
+      "timestamp": "2024-01-16 02:44:00",
+      "predicted_stage_code": 0,
+      "predicted_stage_name": "W",
+      "confidence": 0.91,
+      "probabilities": {
+        "W": 0.91,
+        "N1": 0.026,
+        "N2": 0.026,
+        "N3": 0.016,
+        "REM": 0.022
+      }
+    }
+  ]
+}

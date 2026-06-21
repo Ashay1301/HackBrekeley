@@ -1,0 +1,1995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SleepSense AI</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --border:   #30363d;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --accent:   #58a6ff;
+      --green:    #3fb950;
+      --yellow:   #d29922;
+      --red:      #f85149;
+      --purple:   #bc8cff;
+      --W:        #6e7681;
+      --N1:       #388bfd;
+      --N2:       #1f6feb;
+      --N3:       #1158c7;
+      --REM:      #bc8cff;
+      --Wake:     #6e7681;
+      --Light:    #388bfd;
+      --Deep:     #1158c7;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 32px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+    .logo { font-size: 1.3rem; font-weight: 700; color: var(--accent); letter-spacing: -0.5px; }
+    .logo span { color: var(--text); }
+    .status-pill {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .status-pill.ready { color: var(--green); border-color: var(--green); }
+
+    /* ── Layout ── */
+    .app { display: flex; height: calc(100vh - 57px); }
+
+    /* ── Left panel ── */
+    .left-panel {
+      width: 340px;
+      flex-shrink: 0;
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* ── Main area ── */
+    .main { flex: 1; overflow-y: auto; padding: 24px; }
+
+    /* ── Upload zone ── */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 32px 16px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .upload-zone:hover, .upload-zone.drag-over {
+      border-color: var(--accent);
+      background: rgba(88,166,255,0.05);
+    }
+    .upload-icon { font-size: 2rem; margin-bottom: 8px; }
+    .upload-zone h3 { font-size: 0.95rem; color: var(--text); margin-bottom: 4px; }
+    .upload-zone p  { font-size: 0.78rem; color: var(--muted); }
+    #file-input { display: none; }
+
+    /* ── Buttons ── */
+    .btn {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.85; }
+    .btn-primary { background: var(--accent); color: #0d1117; }
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+    }
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-fitbit {
+      background: #00B0B9;
+      color: #fff;
+      border: none;
+      width: 100%;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    .btn-fitbit:hover { background: #009aa3; }
+
+    /* ── Format badges ── */
+    .format-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .badge {
+      font-size: 0.72rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(88,166,255,0.1);
+      color: var(--accent);
+      border: 1px solid rgba(88,166,255,0.2);
+    }
+    .section-label {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    /* ── Loading ── */
+    .loader {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px;
+    }
+    .loader.active { display: flex; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .progress-text { font-size: 0.85rem; color: var(--muted); }
+
+    /* ── Results welcome ── */
+    .welcome {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      gap: 16px;
+      text-align: center;
+    }
+    .welcome h2 { font-size: 1.8rem; color: var(--text); }
+    .welcome p  { color: var(--muted); max-width: 400px; line-height: 1.6; }
+    .welcome-icon { font-size: 4rem; }
+
+    /* ── Score card ── */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    @media (max-width: 900px) { .results-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .card-title {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .score-circle {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .score-big { font-size: 3.5rem; font-weight: 800; line-height: 1; }
+    .score-grade {
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+    .grade-A { background: rgba(63,185,80,0.15);  color: var(--green); }
+    .grade-B { background: rgba(88,166,255,0.15); color: var(--accent); }
+    .grade-C { background: rgba(210,153,34,0.15); color: var(--yellow); }
+    .grade-D { background: rgba(248,81,73,0.15);  color: var(--red); }
+
+    .metrics-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .metric-item { }
+    .metric-value { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .metric-label { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Stage bars ── */
+    .stage-bars { display: flex; flex-direction: column; gap: 8px; }
+    .stage-row { display: flex; align-items: center; gap: 10px; font-size: 0.8rem; }
+    .stage-name { width: 44px; color: var(--muted); }
+    .stage-bar-wrap { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+    .stage-bar { height: 100%; border-radius: 4px; transition: width 0.6s ease; }
+    .stage-time { width: 50px; text-align: right; color: var(--muted); }
+
+    /* Stage colours */
+    .bar-W    { background: var(--W); }
+    .bar-Wake { background: var(--Wake); }
+    .bar-N1   { background: var(--N1); }
+    .bar-N2   { background: var(--N2); }
+    .bar-N3   { background: var(--N3); }
+    .bar-Light { background: var(--Light); }
+    .bar-Deep  { background: var(--Deep); }
+    .bar-REM  { background: var(--REM); }
+
+    /* ── Analysis type badge ── */
+    .analysis-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+    }
+    .badge-eeg   { background: rgba(63,185,80,0.15);  color: var(--green);  border: 1px solid rgba(63,185,80,0.3); }
+    .badge-wrist { background: rgba(188,140,255,0.15); color: var(--purple); border: 1px solid rgba(188,140,255,0.3); }
+
+    /* ── Hypnogram ── */
+    .chart-card { margin-bottom: 20px; }
+    .chart-wrap { position: relative; height: 180px; }
+
+    /* ── Apnea alert ── */
+    .apnea-alert {
+      display: none;
+      background: rgba(210,153,34,0.1);
+      border: 1px solid rgba(210,153,34,0.4);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: var(--yellow);
+    }
+    .apnea-alert.visible { display: block; }
+
+    /* ── Chat ── */
+    .chat-panel {
+      display: none;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      height: 420px;
+    }
+    .chat-panel.visible { display: flex; }
+    .chat-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .ai-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+    .msg-user {
+      align-self: flex-end;
+      background: var(--accent);
+      color: #0d1117;
+      border-bottom-right-radius: 3px;
+    }
+    .msg-ai {
+      align-self: flex-start;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 3px;
+    }
+    .msg-typing { color: var(--muted); font-style: italic; }
+
+    .chat-footer {
+      padding: 12px 16px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+    }
+    .chat-input {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .chat-input:focus { border-color: var(--accent); }
+
+    /* ── Suggested questions ── */
+    .suggestions { display: flex; flex-direction: column; gap: 6px; }
+    .suggestion-chip {
+      font-size: 0.78rem;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .suggestion-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Error toast ── */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #3d1a1a;
+      color: var(--red);
+      border: 1px solid rgba(248,81,73,0.4);
+      border-radius: 8px;
+      padding: 12px 18px;
+      font-size: 0.85rem;
+      max-width: 360px;
+      display: none;
+      z-index: 1000;
+    }
+    .toast.visible { display: block; animation: fadein 0.2s; }
+    @keyframes fadein { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ── Voice Check ── */
+    .voice-section {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .voice-section h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .voice-passage {
+      background: rgba(88,166,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-style: italic;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    .voice-controls { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    #voiceRecordBtn {
+      padding: 9px 18px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: background 0.15s, color 0.15s;
+    }
+    #voiceRecordBtn:disabled { opacity: 0.5; cursor: default; }
+    #voiceRecordBtn.recording { border-color: var(--red); color: var(--red); }
+    #voiceTimer { font-size: 0.78rem; color: var(--muted); min-width: 70px; }
+
+    .voice-gauges {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .voice-gauge {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 12px;
+      text-align: center;
+    }
+    .gauge-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .gauge-value { font-size: 2.2rem; font-weight: 800; line-height: 1; }
+    .gauge-unit  { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+    .gauge-bar   { height: 3px; background: var(--border); border-radius: 2px; margin-top: 8px; }
+    .gauge-fill  { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+
+    .voice-interpretation {
+      font-size: 0.82rem;
+      color: var(--text);
+      line-height: 1.7;
+      background: rgba(88,166,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Sleep<span>Sense</span> AI</div>
+  <div style="display:flex;align-items:center;gap:10px">
+    <button id="historyBtn" style="
+      padding:6px 14px; background:#172032; border:1px solid #253347;
+      color:#D4DDE8; border-radius:2px; cursor:pointer; font-size:12px;
+      font-weight:600; display:none;
+    ">📅 History</button>
+    <div id="model-status" class="status-pill">Checking models…</div>
+    <!-- Auth UI -->
+    <div id="auth-logged-out" style="display:flex;gap:6px">
+      <button onclick="openAuthModal('login')" style="padding:5px 12px;background:transparent;border:1px solid var(--border);color:var(--text);border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:600">Log in</button>
+      <button onclick="openAuthModal('register')" style="padding:5px 12px;background:var(--accent);border:none;color:#0d1117;border-radius:6px;cursor:pointer;font-size:0.78rem;font-weight:600">Sign up</button>
+    </div>
+    <div id="auth-logged-in" style="display:none;align-items:center;gap:8px">
+      <span id="auth-user-name" style="font-size:0.78rem;color:var(--muted)"></span>
+      <a id="provider-link" href="/provider" style="display:none;padding:4px 10px;background:rgba(188,140,255,0.12);border:1px solid rgba(188,140,255,0.3);color:#bc8cff;border-radius:6px;font-size:0.72rem;font-weight:600;text-decoration:none">Provider View</a>
+      <button onclick="logout()" style="padding:4px 10px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:6px;cursor:pointer;font-size:0.72rem">Log out</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── Email verify banner (shown after register until verification) ── -->
+<div id="verify-banner" style="display:none;background:rgba(210,153,34,0.12);border-bottom:1px solid rgba(210,153,34,0.3);color:#d29922;padding:10px 20px;font-size:0.83rem;align-items:center;justify-content:center;gap:8px;text-align:center"></div>
+
+<!-- ── Auth Modal ── -->
+<div id="auth-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:1000;align-items:center;justify-content:center">
+  <div style="background:var(--surface);border:1px solid var(--border);border-radius:14px;width:400px;max-width:calc(100vw - 32px);padding:28px">
+    <!-- Tabs -->
+    <div style="display:flex;gap:0;margin-bottom:22px;border-bottom:1px solid var(--border)">
+      <button id="tab-login" onclick="switchAuthTab('login')" style="flex:1;padding:8px;background:none;border:none;border-bottom:2px solid var(--accent);color:var(--text);font-size:0.9rem;font-weight:600;cursor:pointer">Log in</button>
+      <button id="tab-register" onclick="switchAuthTab('register')" style="flex:1;padding:8px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-size:0.9rem;font-weight:600;cursor:pointer">Sign up</button>
+    </div>
+
+    <div id="auth-error" style="display:none;background:rgba(248,81,73,0.12);border:1px solid rgba(248,81,73,0.3);color:#f85149;padding:8px 12px;border-radius:6px;font-size:0.8rem;margin-bottom:14px"></div>
+
+    <!-- Login form -->
+    <form id="form-login" onsubmit="submitLogin(event)">
+      <div style="margin-bottom:14px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Email</label>
+        <input id="login-email" type="email" required placeholder="you@example.com"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Password</label>
+        <input id="login-password" type="password" required placeholder="••••••••"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <button type="submit" style="width:100%;padding:10px;background:var(--accent);border:none;color:#0d1117;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer">Log in</button>
+      <p style="text-align:center;margin-top:12px;margin-bottom:0">
+        <a href="#" onclick="showForgotPassword();return false" style="font-size:0.78rem;color:var(--muted);text-decoration:none">Forgot password?</a>
+      </p>
+    </form>
+
+    <!-- Forgot-password / reset-password sub-form (replaces login form) -->
+    <div id="forgot-section" style="display:none">
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:14px">Enter your email to receive a reset link:</p>
+      <form onsubmit="submitForgotPassword(event)">
+        <input id="forgot-email" type="email" required placeholder="you@example.com"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none;margin-bottom:14px">
+        <button type="submit" style="width:100%;padding:10px;background:var(--accent);border:none;color:#0d1117;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer">Send reset link</button>
+      </form>
+      <p style="text-align:center;margin-top:12px;margin-bottom:0">
+        <a href="#" onclick="switchAuthTab('login');return false" style="font-size:0.78rem;color:var(--muted);text-decoration:none">← Back to login</a>
+      </p>
+    </div>
+
+    <!-- Register form (hidden initially) -->
+    <form id="form-register" style="display:none" onsubmit="submitRegister(event)">
+      <div style="margin-bottom:14px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Full name</label>
+        <input id="reg-name" type="text" required placeholder="Your name"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <div style="margin-bottom:14px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Email</label>
+        <input id="reg-email" type="email" required placeholder="you@example.com"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <div style="margin-bottom:14px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">Password</label>
+        <input id="reg-password" type="password" required minlength="8" placeholder="Min. 8 characters"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none">
+      </div>
+      <div style="margin-bottom:20px">
+        <label style="font-size:0.78rem;color:var(--muted);display:block;margin-bottom:5px">I am a…</label>
+        <div style="display:flex;gap:8px">
+          <label style="flex:1;display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:0.83rem">
+            <input type="radio" name="reg-role" value="patient" checked style="accent-color:var(--accent)"> Patient
+          </label>
+          <label style="flex:1;display:flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:0.83rem">
+            <input type="radio" name="reg-role" value="provider" style="accent-color:var(--purple)"> Provider
+          </label>
+        </div>
+      </div>
+      <button type="submit" style="width:100%;padding:10px;background:var(--accent);border:none;color:#0d1117;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer">Create account</button>
+    </form>
+
+    <button onclick="closeAuthModal()" style="position:absolute;top:16px;right:18px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.1rem">✕</button>
+  </div>
+</div>
+
+<div class="app">
+  <!-- ── LEFT PANEL ── -->
+  <aside class="left-panel">
+    <div>
+      <p class="section-label">Upload Sleep Data</p>
+      <div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
+        <div class="upload-icon">💤</div>
+        <h3>Drop file or click to browse</h3>
+        <p>EDF · Apple Health · Fitbit · Garmin · CSV</p>
+        <input type="file" id="file-input"
+               accept=".edf,.xml,.json,.fit,.csv" />
+      </div>
+    </div>
+
+    <div class="format-list">
+      <span class="badge">.edf EEG</span>
+      <span class="badge">.xml Apple Health</span>
+      <span class="badge">.json Fitbit</span>
+      <span class="badge">.fit Garmin</span>
+      <span class="badge">.csv Generic</span>
+    </div>
+
+    <!-- Fitbit Live Connect -->
+    <div id="health-connect-section" style="margin:14px 0 4px">
+      <div id="health-disconnected">
+        <button class="btn btn-fitbit" onclick="connectHealth()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:middle;margin-right:6px"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+          Connect Google Health
+        </button>
+        <p style="font-size:0.72rem;color:var(--muted);margin:5px 0 0;text-align:center">Fitbit · Wear OS · Samsung Health</p>
+      </div>
+      <div id="health-connected" style="display:none">
+        <div style="display:flex;align-items:center;gap:8px;background:rgba(0,200,100,0.08);border:1px solid rgba(0,200,100,0.25);border-radius:8px;padding:8px 12px">
+          <img id="health-avatar" src="" width="28" height="28" style="border-radius:50%;display:none">
+          <div style="flex:1;min-width:0">
+            <div style="font-size:0.8rem;font-weight:600;color:var(--text)" id="health-user-name">Google Health Connected</div>
+            <div style="font-size:0.7rem;color:var(--muted)" id="health-user-email"></div>
+          </div>
+          <button class="btn btn-ghost" style="padding:4px 10px;font-size:0.72rem" onclick="syncHealth()" id="health-sync-btn">Sync</button>
+        </div>
+        <div id="health-export-upload" style="display:none;margin-top:10px">
+          <p style="font-size:0.72rem;color:var(--muted);margin-bottom:6px">No live data found. Upload your Fitbit export:</p>
+          <label style="display:block;cursor:pointer;border:1px dashed var(--border);border-radius:8px;padding:8px 12px;font-size:0.78rem;color:var(--accent);text-align:center" for="fitbit-export-input">
+            📂 Upload sleep-YYYY-MM-DD.json
+          </label>
+          <input type="file" id="fitbit-export-input" accept=".json" style="display:none" onchange="uploadFitbitExport(this)">
+          <p style="font-size:0.68rem;color:var(--muted);margin-top:4px">From Google Takeout → Google Health → Global Export Data</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px;margin:10px 0">
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+      <span style="font-size:0.7rem;color:var(--muted)">or</span>
+      <div style="flex:1;height:1px;background:var(--border)"></div>
+    </div>
+
+    <button class="btn btn-outline" onclick="loadDemo()">⚡ Try Demo</button>
+
+    <div class="loader" id="loader">
+      <div class="spinner"></div>
+      <p class="progress-text" id="loader-msg">Analysing sleep data…</p>
+    </div>
+
+    <div id="suggestions-section" style="display:none">
+      <p class="section-label">Ask the AI</p>
+      <div class="suggestions" id="suggestions"></div>
+    </div>
+
+    <div style="margin-top:auto">
+      <a href="/api/csv-template" download style="text-decoration:none">
+        <button class="btn btn-ghost" style="font-size:0.78rem">⬇ CSV Template</button>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── MAIN PANEL ── -->
+  <main class="main" id="main-panel">
+    <!-- Welcome state -->
+    <div class="welcome" id="welcome">
+      <div class="welcome-icon">🌙</div>
+      <h2>Analyse Your Sleep</h2>
+      <p>Upload an EDF file from a clinical sleep study, or your wearable export from Apple Health, Fitbit, or Garmin. Get a full hypnogram, stage breakdown, and AI-powered insights.</p>
+      <button class="btn btn-primary" style="width:auto;padding:12px 28px" onclick="loadDemo()">Try a Demo →</button>
+    </div>
+
+    <!-- Results (hidden until analysis) -->
+    <div id="results" style="display:none">
+      <div id="analysis-badge" class="analysis-badge badge-eeg">EEG Analysis · 5-class</div>
+
+      <!-- Score + Metrics -->
+      <div class="results-grid">
+        <div class="card">
+          <p class="card-title">Sleep Quality</p>
+          <div class="score-circle">
+            <div class="score-big" id="score-num">—</div>
+            <div class="score-grade" id="score-grade">—</div>
+          </div>
+          <p id="score-sub" style="font-size:0.78rem;color:var(--muted);margin-top:8px"></p>
+        </div>
+
+        <div class="card">
+          <p class="card-title">Key Metrics</p>
+          <div class="metrics-row">
+            <div class="metric-item">
+              <div class="metric-value" id="m-efficiency">—</div>
+              <div class="metric-label">Efficiency</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" id="m-latency">—</div>
+              <div class="metric-label">Latency</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" id="m-awakenings">—</div>
+              <div class="metric-label">Awakenings</div>
+            </div>
+            <div class="metric-item">
+              <div class="metric-value" id="m-total">—</div>
+              <div class="metric-label">Total Sleep</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <p class="card-title">Stage Breakdown</p>
+          <div class="stage-bars" id="stage-bars"></div>
+        </div>
+
+        <div class="card">
+          <p class="card-title">Stage Distribution</p>
+          <div class="chart-wrap" style="height:160px">
+            <canvas id="pie-chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disorder risk flags -->
+      <div id="disorderAlerts" style="display:none; margin-bottom:20px;"></div>
+
+      <!-- Apnea alert -->
+      <div class="apnea-alert" id="apnea-alert">
+        ⚠️ <strong>Possible sleep-disordered breathing detected</strong> —
+        Fragmented sleep patterns may indicate apnea or hypopnea events.
+        This is not a diagnosis. Please consult a sleep specialist.
+      </div>
+
+      <!-- Wellness Signals (psychiatric risk — patient-facing, soft framing) -->
+      <div class="card" id="wellnessCard" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+          <p class="card-title" style="margin:0">Wellness Signals</p>
+          <a href="/provider" target="_blank" style="font-size:0.72rem;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:4px 10px;border-radius:6px">Provider View →</a>
+        </div>
+        <div id="wellnessBadge" style="margin-bottom:10px"></div>
+        <div id="wellnessNote" style="font-size:0.8rem;color:var(--muted);line-height:1.6;margin-bottom:12px"></div>
+        <ul id="wellnessSignals" style="list-style:none;display:flex;flex-direction:column;gap:6px;margin-bottom:12px"></ul>
+        <p style="font-size:0.7rem;color:var(--border-color,#253347);color:#3a4a5e;line-height:1.5">
+          These signals are for informational purposes only and are not a clinical diagnosis.
+          If you notice persistent patterns, consider discussing them with your healthcare provider.
+        </p>
+      </div>
+
+      <!-- Hypnogram -->
+      <div class="card chart-card">
+        <p class="card-title" style="margin-bottom:12px">Hypnogram</p>
+        <div class="chart-wrap">
+          <canvas id="hypnogram"></canvas>
+        </div>
+      </div>
+
+      <!-- Weekly Trends -->
+      <div class="card chart-card" id="weekly-section" style="display:none">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+          <p class="card-title" style="margin:0">7-Night Trends</p>
+          <button onclick="loadWeeklyTrends()" style="background:var(--accent);color:#fff;border:none;border-radius:6px;padding:5px 12px;cursor:pointer;font-size:0.75rem">Refresh</button>
+        </div>
+        <div class="chart-wrap" style="height:180px">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+        <div id="weekly-stats" style="display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:0.75rem;color:var(--muted)"></div>
+      </div>
+
+      <!-- Voice Health Check -->
+      <div class="voice-section" id="voice-section">
+        <h3>🎙️ Voice Health Check</h3>
+        <p style="font-size:0.78rem;color:var(--muted);margin-bottom:12px">
+          Read the passage aloud for 20–30 s. We'll score your fatigue, stress, and cognitive load.
+        </p>
+        <div class="voice-passage">
+          "When the sunlight strikes raindrops in the air, they act as a prism and form a
+          rainbow. The rainbow is a division of white light into many beautiful colors.
+          These take the shape of a long round arch, with its path high above, and its
+          two ends apparently beyond the horizon."
+        </div>
+        <div class="voice-controls">
+          <button id="voiceRecordBtn">⏺ Start Recording</button>
+          <span id="voiceTimer"></span>
+        </div>
+        <div id="voiceResults" style="display:none">
+          <div class="voice-gauges">
+            <div class="voice-gauge" id="fatigueGauge">
+              <div class="gauge-label">Fatigue</div>
+              <div class="gauge-value" id="fatigueVal">—</div>
+              <div class="gauge-unit">/100</div>
+              <div class="gauge-bar"><div class="gauge-fill" id="fatigueFill"></div></div>
+            </div>
+            <div class="voice-gauge" id="stressGauge">
+              <div class="gauge-label">Stress</div>
+              <div class="gauge-value" id="stressVal">—</div>
+              <div class="gauge-unit">/100</div>
+              <div class="gauge-bar"><div class="gauge-fill" id="stressFill"></div></div>
+            </div>
+            <div class="voice-gauge" id="cogLoadGauge">
+              <div class="gauge-label">Cog. Load</div>
+              <div class="gauge-value" id="cogLoadVal">—</div>
+              <div class="gauge-unit">/100</div>
+              <div class="gauge-bar"><div class="gauge-fill" id="cogLoadFill"></div></div>
+            </div>
+          </div>
+          <div class="voice-interpretation" id="voiceInterpretation"></div>
+        </div>
+      </div>
+
+      <!-- Dream Journal -->
+      <div id="dreamSection" style="display:none; margin-top:28px; padding-top:24px; border-top:1px solid var(--border);">
+        <h3 style="font-size:15px; color:#fff; margin-bottom:6px;">🌙 Dream Journal</h3>
+        <p style="font-size:12px; color:var(--muted); margin-bottom:14px;">
+          Describe what you dreamed. Claude correlates it with your REM data
+          <span id="dreamVoiceHint" style="display:none"> and morning voice biomarkers</span>.
+        </p>
+        <div id="dreamInputArea">
+          <textarea id="dreamText" rows="4" placeholder="I was standing in a house I didn't recognise, and the rooms kept changing…"
+            style="width:100%; box-sizing:border-box; background:#0E1929; border:1px solid var(--border);
+                   color:var(--text); padding:12px; font-size:13px; border-radius:2px;
+                   resize:vertical; font-family:inherit; line-height:1.5;"></textarea>
+          <div style="display:flex; gap:10px; margin-top:10px;">
+            <button id="dreamMicBtn" type="button" style="
+              padding:8px 14px; background:#172032; border:1px solid var(--border);
+              color:var(--text); border-radius:2px; cursor:pointer; font-size:12px;">🎤 Speak</button>
+            <button id="dreamSubmitBtn" type="button" style="
+              flex:1; padding:8px 16px; background:var(--accent); color:#0B1120;
+              border:none; border-radius:2px; font-weight:700; cursor:pointer; font-size:13px;">
+              Analyse Dream
+            </button>
+          </div>
+        </div>
+        <div id="dreamResult" style="display:none; margin-top:16px;">
+          <div id="dreamOriginalText" style="
+            font-size:12px; color:var(--muted); font-style:italic;
+            border-left:2px solid var(--border); padding-left:12px; margin-bottom:14px;"></div>
+          <div id="dreamAnalysisText" style="
+            font-size:13px; color:var(--text); line-height:1.7;
+            background:rgba(77,255,210,0.04); border:1px solid var(--border);
+            border-radius:2px; padding:16px;"></div>
+          <button id="dreamNewEntry" style="
+            margin-top:10px; padding:6px 14px; background:none;
+            border:1px solid var(--border); color:var(--muted);
+            border-radius:2px; cursor:pointer; font-size:12px;">Write another entry</button>
+        </div>
+      </div>
+
+      <!-- Chat -->
+      <div class="chat-panel visible" id="chat-panel">
+        <div class="chat-header">
+          <div class="ai-dot"></div>
+          Sleep AI Assistant
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="msg msg-ai">
+            Hi! I've analysed your sleep data. Ask me anything about your results —
+            sleep quality, stage breakdown, or how to improve your sleep.
+          </div>
+        </div>
+        <div class="chat-footer">
+          <input class="chat-input" id="chat-input" type="text"
+                 placeholder="Ask about your sleep…"
+                 onkeydown="if(event.key==='Enter')sendChat()" />
+          <button class="btn btn-primary" style="width:auto;padding:8px 16px" onclick="sendChat()">↑</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ───────────────────────────────────────────────────────────────────────
+let currentAnalysis = null;
+let hypnogramChart  = null;
+let pieChart        = null;
+let weeklyChart     = null;
+
+// ── On load: check model status ─────────────────────────────────────────────────
+async function checkStatus() {
+  try {
+    const r = await fetch('/api/status');
+    const s = await r.json();
+    const pill = document.getElementById('model-status');
+    if (s.eeg_model_ready) {
+      pill.textContent = 'Models Ready';
+      pill.classList.add('ready');
+    } else {
+      pill.textContent = 'Model Loading…';
+    }
+  } catch {}
+}
+checkStatus();
+
+// ── File upload handling ─────────────────────────────────────────────────────────
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) analyzeFile(file);
+});
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0]) analyzeFile(fileInput.files[0]);
+});
+
+async function analyzeFile(file) {
+  showLoader(`Analysing ${file.name}…`);
+  const form = new FormData();
+  form.append('file', file);
+  try {
+    const r = await fetch('/api/analyze', { method: 'POST', body: form });
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.detail || 'Analysis failed');
+    }
+    const analysis = await r.json();
+    hideLoader();
+    renderResults(analysis);
+  } catch (e) {
+    hideLoader();
+    showToast(e.message);
+  }
+}
+
+// ── Google Health OAuth + Sync ────────────────────────────────────────────
+
+function connectHealth() {
+  window.location.href = '/api/health/auth';
+}
+
+async function checkHealthStatus() {
+  try {
+    const r = await fetch('/api/health/status');
+    const d = await r.json();
+    if (d.connected) {
+      document.getElementById('health-disconnected').style.display = 'none';
+      document.getElementById('health-connected').style.display = 'block';
+      if (d.display_name) document.getElementById('health-user-name').textContent = d.display_name;
+      if (d.email)        document.getElementById('health-user-email').textContent = d.email;
+      if (d.avatar) {
+        const img = document.getElementById('health-avatar');
+        img.src = d.avatar; img.style.display = 'block';
+      }
+    }
+  } catch (e) { /* server may not be up yet */ }
+}
+
+async function syncHealth() {
+  const btn = document.getElementById('health-sync-btn');
+  btn.textContent = 'Syncing…';
+  btn.disabled = true;
+  showLoader('Fetching sleep from Google Health…');
+  try {
+    const r = await fetch('/api/health/sync', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: '{}'
+    });
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.detail || 'Sync failed');
+    }
+    const analysis = await r.json();
+    hideLoader();
+    if (!analysis.sleep_summary || !analysis.sleep_summary.quality_score) {
+      document.getElementById('health-export-upload').style.display = 'block';
+      showToast('No live data in Google Fit — upload your Fitbit export JSON below.');
+      return;
+    }
+    document.getElementById('health-export-upload').style.display = 'none';
+    renderResults(analysis);
+    showToast('Google Health data synced!');
+    loadWeeklyTrends();
+  } catch (e) {
+    hideLoader();
+    showToast('Sync error: ' + e.message);
+  } finally {
+    btn.textContent = 'Sync';
+    btn.disabled = false;
+  }
+}
+
+async function uploadFitbitExport(input) {
+  const file = input.files[0];
+  if (!file) return;
+  showLoader('Parsing Fitbit export…');
+  const form = new FormData();
+  form.append('file', file);
+  try {
+    const r = await fetch('/api/health/upload', { method: 'POST', body: form });
+    if (!r.ok) {
+      const err = await r.json();
+      throw new Error(err.detail || 'Upload failed');
+    }
+    const analysis = await r.json();
+    hideLoader();
+    document.getElementById('health-export-upload').style.display = 'none';
+    renderResults(analysis);
+    showToast('Fitbit export loaded — ' + (analysis.date || '') + ' sleep data ready!');
+  } catch (e) {
+    hideLoader();
+    showToast('Upload error: ' + e.message);
+  }
+  input.value = '';
+}
+
+// Handle OAuth callback params on page load
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('health') === 'connected') {
+    checkHealthStatus();
+    showToast('Google Health connected! Click Sync to load your latest sleep.');
+    history.replaceState({}, '', '/');
+  } else if (params.get('health') === 'error') {
+    showToast('Connection failed: ' + (params.get('reason') || 'unknown error'));
+    history.replaceState({}, '', '/');
+  } else {
+    checkHealthStatus();
+  }
+})();
+
+async function loadDemo() {
+  showLoader('Loading demo sleep data…');
+  try {
+    const r = await fetch('/api/demo');
+    if (!r.ok) throw new Error('Demo data not found');
+    const analysis = await r.json();
+    hideLoader();
+    renderResults(analysis);
+  } catch (e) {
+    hideLoader();
+    showToast(e.message);
+  }
+}
+
+// ── Render results ───────────────────────────────────────────────────────────────
+function renderResults(analysis) {
+  currentAnalysis = analysis;
+  document.getElementById('welcome').style.display  = 'none';
+  document.getElementById('results').style.display  = 'block';
+
+  // Persist session ID so voice-check can cross-reference sleep data
+  if (analysis.session_id) {
+    localStorage.setItem('sleepSessionId', analysis.session_id);
+    history.replaceState({}, '', `?session=${analysis.session_id}`);
+  }
+
+  const s    = analysis.sleep_summary;
+  const meta = analysis.metadata || {};
+  const type = meta.analysis_type || 'eeg';
+
+  // Badge
+  const badge = document.getElementById('analysis-badge');
+  if (type === 'wrist') {
+    badge.textContent = `Wearable Analysis · 4-class · ${meta.source || 'Unknown device'}`;
+    badge.className   = 'analysis-badge badge-wrist';
+  } else {
+    badge.textContent = `EEG Analysis · 5-class`;
+    badge.className   = 'analysis-badge badge-eeg';
+  }
+
+  // Score
+  const scoreEl = document.getElementById('score-num');
+  const gradeEl = document.getElementById('score-grade');
+  scoreEl.textContent = s.quality_score;
+  scoreEl.style.color = scoreColor(s.quality_score);
+  gradeEl.textContent = s.quality_grade;
+  gradeEl.className   = `score-grade grade-${s.quality_grade}`;
+  document.getElementById('score-sub').textContent =
+    `Based on efficiency, REM %, deep sleep, latency & awakenings`;
+
+  // Metrics
+  document.getElementById('m-efficiency').textContent  = `${s.efficiency_pct}%`;
+  document.getElementById('m-latency').textContent     = `${s.latency_min}m`;
+  document.getElementById('m-awakenings').textContent  = s.awakenings;
+  document.getElementById('m-total').textContent       = `${Math.round(s.total_sleep_min)}m`;
+
+  // Stage bars
+  renderStageBars(s);
+
+  // Hypnogram — prefer detailed epoch_by_epoch_data; fall back to simple hypnogram array
+  let epochData = analysis.epoch_by_epoch_data;
+  if (!epochData || epochData.length === 0) {
+    const raw = analysis.hypnogram || [];
+    const stageMap = {W:'Wake', N1:'N1', N2:'Light', N3:'Deep', REM:'REM', Light:'Light', Deep:'Deep', Wake:'Wake'};
+    const startMs = analysis.metadata && analysis.metadata.recording_start
+      ? new Date(analysis.metadata.recording_start).getTime()
+      : Date.now() - raw.length * 30000;
+    epochData = raw.map((s, i) => ({
+      predicted_stage_name: stageMap[s] || s,
+      timestamp: new Date(startMs + i * 30000).toISOString(),
+    }));
+  }
+  renderHypnogram(epochData);
+
+  // Pie chart
+  renderPie(s);
+
+  // Apnea heuristic: >15% of epochs uncertain OR >5 awakenings
+  if (s.awakenings > 5 || s.efficiency_pct < 70) {
+    document.getElementById('apnea-alert').classList.add('visible');
+  }
+
+  // Smart questions
+  loadSmartQuestions(analysis);
+
+  // Disorder risk flags
+  renderDisorderFlags(analysis.disorder_flags);
+
+  // Wellness signals (psychiatric risk)
+  if (analysis.session_id) loadWellnessSignals(analysis.session_id);
+
+  // Dream journal
+  showDreamSection(analysis.session_id, analysis);
+
+  // Show history button once we have a result
+  document.getElementById('historyBtn').style.display = 'block';
+}
+
+function scoreColor(score) {
+  if (score >= 85) return 'var(--green)';
+  if (score >= 70) return 'var(--accent)';
+  if (score >= 55) return 'var(--yellow)';
+  return 'var(--red)';
+}
+
+function renderStageBars(s) {
+  const container = document.getElementById('stage-bars');
+  container.innerHTML = '';
+  const times = s.time_in_stage_min || {};
+  const pcts  = s.pct_in_stage || {};
+  const total = Object.values(times).reduce((a, b) => a + b, 0) || 1;
+
+  for (const [stage, mins] of Object.entries(times)) {
+    const pct = pcts[stage] || 0;
+    const row = document.createElement('div');
+    row.className = 'stage-row';
+    row.innerHTML = `
+      <span class="stage-name">${stage}</span>
+      <div class="stage-bar-wrap">
+        <div class="stage-bar bar-${stage}" style="width:${pct}%"></div>
+      </div>
+      <span class="stage-time">${Math.round(mins)}m</span>`;
+    container.appendChild(row);
+  }
+}
+
+function renderHypnogram(epochs) {
+  const STAGE_Y = { 'W':4,'Wake':4,'N1':3,'Light':2,'N2':2,'N3':1,'Deep':1,'REM':5 };
+  const STAGE_COLOR = {
+    'W':'#6e7681','Wake':'#6e7681','N1':'#388bfd','N2':'#1f6feb',
+    'N3':'#1158c7','Light':'#388bfd','Deep':'#1158c7','REM':'#bc8cff'
+  };
+
+  const labels = epochs.map((_, i) => {
+    if (i === 0 || i % 60 === 0) return epochs[i].timestamp.slice(11, 16);
+    return '';
+  });
+
+  const data   = epochs.map(e => STAGE_Y[e.predicted_stage_name] ?? 4);
+  const colors = epochs.map(e => STAGE_COLOR[e.predicted_stage_name] ?? '#6e7681');
+
+  if (hypnogramChart) hypnogramChart.destroy();
+
+  hypnogramChart = new Chart(document.getElementById('hypnogram'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{
+        data,
+        borderColor: ctx => colors[ctx.p0DataIndex] ?? '#6e7681',
+        borderWidth: 2,
+        pointRadius: 0,
+        tension: 0,
+        segment: { borderColor: ctx => colors[ctx.p0DataIndex] ?? '#6e7681' },
+      }]
+    },
+    options: {
+      animation: { duration: 600 },
+      scales: {
+        x: {
+          ticks: { color: '#8b949e', font: { size: 10 },
+                   maxRotation: 0,
+                   callback: (v, i) => labels[i] },
+          grid: { color: '#21262d' }
+        },
+        y: {
+          min: 0, max: 6,
+          ticks: {
+            color: '#8b949e', font: { size: 10 },
+            callback: v => (['','Deep','N3→Deep','Light','Wake','','REM'])[v] || ''
+          },
+          grid: { color: '#21262d' }
+        }
+      },
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: {
+          label: ctx => {
+            const ep = epochs[ctx.dataIndex];
+            return [`Stage: ${ep.predicted_stage_name}`, `Confidence: ${(ep.confidence*100).toFixed(0)}%`];
+          }
+        }
+      }}
+    }
+  });
+}
+
+function renderPie(s) {
+  const times  = s.time_in_stage_min || {};
+  const labels = Object.keys(times);
+  const data   = Object.values(times);
+  const COLORS = {
+    'W':'#6e7681','Wake':'#6e7681','N1':'#388bfd','N2':'#1f6feb',
+    'N3':'#1158c7','Light':'#388bfd','Deep':'#1158c7','REM':'#bc8cff'
+  };
+
+  if (pieChart) pieChart.destroy();
+  pieChart = new Chart(document.getElementById('pie-chart'), {
+    type: 'doughnut',
+    data: {
+      labels,
+      datasets: [{ data, backgroundColor: labels.map(l => COLORS[l] || '#8b949e'), borderWidth: 0 }]
+    },
+    options: {
+      cutout: '65%',
+      plugins: {
+        legend: { position: 'right', labels: { color: '#8b949e', font: { size: 11 } } }
+      }
+    }
+  });
+}
+
+// ── Smart questions ──────────────────────────────────────────────────────────────
+async function loadSmartQuestions(analysis) {
+  document.getElementById('suggestions-section').style.display = 'block';
+  const container = document.getElementById('suggestions');
+  container.innerHTML = '<p style="color:var(--muted);font-size:0.78rem">Loading suggestions…</p>';
+
+  try {
+    const r = await fetch('/api/smart-questions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(analysis)
+    });
+    const { questions } = await r.json();
+    container.innerHTML = '';
+    questions.forEach(q => {
+      const btn = document.createElement('button');
+      btn.className = 'suggestion-chip';
+      btn.textContent = q;
+      btn.onclick = () => { document.getElementById('chat-input').value = q; sendChat(); };
+      container.appendChild(btn);
+    });
+  } catch {
+    container.innerHTML = '';
+    ['How was my sleep overall?','What does my REM % tell you?','How can I improve deep sleep?']
+      .forEach(q => {
+        const btn = document.createElement('button');
+        btn.className = 'suggestion-chip';
+        btn.textContent = q;
+        btn.onclick = () => { document.getElementById('chat-input').value = q; sendChat(); };
+        container.appendChild(btn);
+      });
+  }
+}
+
+// ── Chat ─────────────────────────────────────────────────────────────────────────
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg   = input.value.trim();
+  if (!msg || !currentAnalysis) return;
+  input.value = '';
+
+  appendMessage(msg, 'user');
+  const typingEl = appendMessage('Thinking…', 'ai typing');
+
+  try {
+    const r = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, analysis: currentAnalysis })
+    });
+    const data = await r.json();
+    typingEl.remove();
+    appendMessage(data.reply || 'Sorry, I could not respond.', 'ai');
+  } catch (e) {
+    typingEl.remove();
+    appendMessage('Connection error. Check that ANTHROPIC_API_KEY is set.', 'ai');
+  }
+}
+
+function appendMessage(text, type) {
+  const msgs = document.getElementById('chat-messages');
+  const div  = document.createElement('div');
+  div.className = `msg msg-${type.split(' ')[0]}${type.includes('typing') ? ' msg-typing' : ''}`;
+  div.textContent = text;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+  return div;
+}
+
+// ── Wellness Signals ───────────────────────────────────────────────────────────────
+async function loadWellnessSignals(sessionId) {
+  const card = document.getElementById('wellnessCard');
+  card.style.display = 'none';
+  try {
+    const r = await fetch(`/api/psychiatric-risk/${sessionId}`);
+    if (!r.ok) return;
+    const risk = await r.json();
+
+    const COLORS = { none: '#3fb950', low: '#388bfd', moderate: '#d29922', high: '#f85149' };
+    const LABELS = { none: 'No Concerns', low: 'Low', moderate: 'Moderate', high: 'High' };
+    const color  = COLORS[risk.risk_level] || '#6e7681';
+
+    document.getElementById('wellnessBadge').innerHTML =
+      `<span style="display:inline-flex;align-items:center;gap:8px">
+        <span style="width:8px;height:8px;border-radius:50%;background:${color};display:inline-block"></span>
+        <span style="font-size:0.8rem;font-weight:700;color:${color}">${LABELS[risk.risk_level] || risk.risk_level}</span>
+        <span style="font-size:0.75rem;color:var(--muted)">${risk.risk_score} signal${risk.risk_score !== 1 ? 's' : ''} detected</span>
+      </span>`;
+
+    document.getElementById('wellnessNote').textContent = risk.wellness_note || '';
+
+    const ul = document.getElementById('wellnessSignals');
+    ul.innerHTML = '';
+    if (risk.signals && risk.signals.length > 0) {
+      risk.signals.forEach(s => {
+        const li = document.createElement('li');
+        li.style.cssText = 'font-size:0.78rem;color:var(--text);padding-left:14px;position:relative;line-height:1.5';
+        li.innerHTML = `<span style="position:absolute;left:0;color:var(--muted)">↳</span>${s}`;
+        ul.appendChild(li);
+      });
+    }
+
+    card.style.display = risk.risk_score > 0 ? 'block' : 'none';
+  } catch (_) {}
+}
+
+// ── Weekly Trends ──────────────────────────────────────────────────────────────────
+async function loadWeeklyTrends() {
+  const section = document.getElementById('weekly-section');
+  section.style.display = 'block';
+  const statsEl = document.getElementById('weekly-stats');
+  statsEl.textContent = 'Loading 7-night history…';
+
+  let data;
+  try {
+    const r = await fetch('/api/health/weekly?days=7');
+    if (!r.ok) { statsEl.textContent = ''; section.style.display = 'none'; return; }
+    data = await r.json();
+  } catch { statsEl.textContent = ''; section.style.display = 'none'; return; }
+
+  const days = data.days || [];
+  if (days.length === 0) { statsEl.textContent = 'No data found for the last 7 nights.'; return; }
+
+  const labels     = days.map(d => d.date.slice(5));   // MM-DD
+  const quality    = days.map(d => d.sleep_summary.quality_score || 0);
+  const totalSleep = days.map(d => Math.round((d.sleep_summary.total_sleep_min || 0) / 60 * 10) / 10);
+  const deep       = days.map(d => d.sleep_summary.time_in_stage_min?.Deep || 0);
+  const rem        = days.map(d => d.sleep_summary.time_in_stage_min?.REM  || 0);
+
+  if (weeklyChart) weeklyChart.destroy();
+  weeklyChart = new Chart(document.getElementById('weeklyChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: 'Quality', data: quality, borderColor: '#bc8cff', backgroundColor: 'rgba(188,140,255,0.1)', tension: 0.4, yAxisID: 'y' },
+        { label: 'Total Sleep (h)', data: totalSleep, borderColor: '#388bfd', backgroundColor: 'rgba(56,139,253,0.1)', tension: 0.4, yAxisID: 'y2' },
+        { label: 'Deep (min)', data: deep, borderColor: '#1158c7', borderDash: [4,3], tension: 0.4, yAxisID: 'y2' },
+        { label: 'REM (min)',  data: rem,  borderColor: '#ff7b72', borderDash: [4,3], tension: 0.4, yAxisID: 'y2' },
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      interaction: { mode: 'index', intersect: false },
+      plugins: { legend: { labels: { color: '#b0b8c1', font: { size: 11 } } } },
+      scales: {
+        x:  { ticks: { color: '#6e7681' }, grid: { color: '#21262d' } },
+        y:  { position: 'left',  min: 0, max: 100, title: { display: true, text: 'Score', color: '#6e7681' }, ticks: { color: '#6e7681' }, grid: { color: '#21262d' } },
+        y2: { position: 'right', min: 0, title: { display: true, text: 'Hours / Min', color: '#6e7681' }, ticks: { color: '#6e7681' }, grid: { display: false } },
+      }
+    }
+  });
+
+  const avgQ = Math.round(quality.reduce((a,b)=>a+b,0)/quality.length);
+  const avgH = (totalSleep.reduce((a,b)=>a+b,0)/totalSleep.length).toFixed(1);
+  const avgD = Math.round(deep.reduce((a,b)=>a+b,0)/deep.length);
+  const avgR = Math.round(rem.reduce((a,b)=>a+b,0)/rem.length);
+  statsEl.innerHTML = `
+    <span>Avg quality <strong style="color:#bc8cff">${avgQ}</strong></span>
+    <span>Avg sleep <strong style="color:#388bfd">${avgH}h</strong></span>
+    <span>Avg deep <strong style="color:#1158c7">${avgD}m</strong></span>
+    <span>Avg REM <strong style="color:#ff7b72">${avgR}m</strong></span>
+    <span style="color:#6e7681">${days.length} nights tracked</span>`;
+}
+
+// ── Voice Health Check ────────────────────────────────────────────────────────────
+let voiceRecorder, voiceChunks = [], voiceTimerInterval, isVoiceRecording = false;
+
+document.getElementById('voiceRecordBtn').addEventListener('click', async () => {
+  if (!isVoiceRecording) {
+    let stream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch {
+      showToast('Microphone access denied. Allow microphone in browser settings.');
+      return;
+    }
+    voiceChunks = [];
+    voiceRecorder = new MediaRecorder(stream);
+    voiceRecorder.ondataavailable = e => voiceChunks.push(e.data);
+    voiceRecorder.onstop = () => submitVoiceCheck(stream);
+    voiceRecorder.start();
+    isVoiceRecording = true;
+
+    const btn = document.getElementById('voiceRecordBtn');
+    btn.textContent = '⏹ Stop & Analyse';
+    btn.classList.add('recording');
+
+    let secs = 0;
+    voiceTimerInterval = setInterval(() => {
+      secs++;
+      document.getElementById('voiceTimer').textContent = `${secs}s recorded`;
+      if (secs >= 60) voiceRecorder.stop();
+    }, 1000);
+  } else {
+    voiceRecorder.stop();
+  }
+});
+
+async function submitVoiceCheck(stream) {
+  clearInterval(voiceTimerInterval);
+  isVoiceRecording = false;
+  stream.getTracks().forEach(t => t.stop());
+
+  const btn = document.getElementById('voiceRecordBtn');
+  btn.textContent = 'Analysing voice…';
+  btn.disabled = true;
+  btn.classList.remove('recording');
+
+  const blob = new Blob(voiceChunks, { type: 'audio/webm' });
+  const fd = new FormData();
+  fd.append('file', blob, 'voice.webm');
+
+  const sid = localStorage.getItem('sleepSessionId') || '';
+  const url = `/api/voice-check${sid ? `?session_id=${encodeURIComponent(sid)}` : ''}`;
+
+  try {
+    const r = await fetch(url, { method: 'POST', body: fd });
+    if (!r.ok) throw new Error((await r.json()).detail || 'Voice analysis failed');
+    renderVoiceResults(await r.json());
+  } catch (e) {
+    showToast(e.message);
+  } finally {
+    btn.textContent = '⏺ Record Again';
+    btn.disabled = false;
+    document.getElementById('voiceTimer').textContent = '';
+  }
+}
+
+function renderVoiceResults(data) {
+  const scores = data.scores || {};
+  const colorFor = v => v > 65 ? 'var(--red)' : v > 40 ? 'var(--yellow)' : 'var(--green)';
+
+  const gauges = [
+    { val: 'fatigueVal',  fill: 'fatigueFill',  key: 'fatigue' },
+    { val: 'stressVal',   fill: 'stressFill',   key: 'stress' },
+    { val: 'cogLoadVal',  fill: 'cogLoadFill',  key: 'cognitive_load' },
+  ];
+  gauges.forEach(g => {
+    const v = scores[g.key] ?? 0;
+    const c = colorFor(v);
+    document.getElementById(g.val).textContent = v;
+    document.getElementById(g.val).style.color = c;
+    document.getElementById(g.fill).style.width = `${v}%`;
+    document.getElementById(g.fill).style.background = c;
+  });
+
+  const interp = document.getElementById('voiceInterpretation');
+  interp.textContent = data.interpretation || 'Analysis complete.';
+  document.getElementById('voiceResults').style.display = 'block';
+}
+
+// ── Disorder risk flags ───────────────────────────────────────────────────────────
+function renderDisorderFlags(flags) {
+  const container = document.getElementById('disorderAlerts');
+  if (!flags || flags.length === 0) { container.style.display = 'none'; return; }
+  const colorMap = { high: '#FF7059', moderate: '#FFB347', info: '#4DFFD2' };
+  const iconMap  = { high: '⚠️', moderate: '⚡', info: 'ℹ️' };
+  container.innerHTML = flags.map(f => `
+    <div style="border-left:3px solid ${colorMap[f.risk_level]||'#FFB347'};
+                background:rgba(255,255,255,0.03); border-radius:2px;
+                padding:14px 18px; margin-bottom:10px;">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+        <span>${iconMap[f.risk_level]||'⚡'}</span>
+        <strong style="color:#fff;font-size:13px;">${f.condition}</strong>
+        <span style="font-size:10px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+                     color:${colorMap[f.risk_level]};padding:2px 6px;
+                     border:1px solid ${colorMap[f.risk_level]};border-radius:2px;">${f.risk_level}</span>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:6px;">${f.indicators.join(' · ')}</div>
+      <div style="font-size:12px;color:#aab;line-height:1.55;">${f.recommendation}</div>
+    </div>
+  `).join('');
+  container.style.display = 'block';
+}
+
+// ── History panel ─────────────────────────────────────────────────────────────────
+let historyChartInstance = null;
+
+document.getElementById('historyBtn').addEventListener('click', openHistory);
+
+function openHistory() {
+  document.getElementById('historyPanel').style.right = '0';
+  document.getElementById('historyOverlay').style.display = 'block';
+  loadHistory();
+}
+function closeHistory() {
+  document.getElementById('historyPanel').style.right = '-440px';
+  document.getElementById('historyOverlay').style.display = 'none';
+}
+
+async function loadHistory() {
+  document.getElementById('historyTable').innerHTML =
+    '<p style="color:var(--muted);font-size:12px;">Loading…</p>';
+  document.getElementById('weeklySummary').textContent = '';
+  const res   = await fetch('/api/history?limit=10');
+  const data  = await res.json();
+  const nights = data.nights || [];
+
+  if (!nights.length) {
+    document.getElementById('historyTable').innerHTML =
+      '<p style="color:var(--muted);font-size:12px;">No history yet. Analyse a file first.</p>';
+    return;
+  }
+
+  // Chart
+  const labels = nights.map(n => n.date || n.session_id.slice(0,8));
+  if (historyChartInstance) historyChartInstance.destroy();
+  historyChartInstance = new Chart(document.getElementById('historyChart'), {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label:'Quality Score', data: nights.map(n=>n.quality_score),
+          borderColor:'#4DFFD2', backgroundColor:'rgba(77,255,210,0.08)',
+          tension:0.3, fill:true, pointRadius:4 },
+        { label:'Efficiency %', data: nights.map(n=>n.efficiency_pct),
+          borderColor:'#FFB347', backgroundColor:'transparent',
+          tension:0.3, pointRadius:3, borderDash:[4,3] },
+        { label:'REM %', data: nights.map(n=>n.rem_pct||0),
+          borderColor:'#c792ea', backgroundColor:'transparent',
+          tension:0.3, pointRadius:3, borderDash:[2,3] },
+      ],
+    },
+    options: {
+      responsive:true,
+      plugins:{ legend:{ labels:{ color:'#6E8099', font:{size:10} } } },
+      scales:{
+        x:{ ticks:{color:'#6E8099',font:{size:10}}, grid:{color:'#1A2840'} },
+        y:{ ticks:{color:'#6E8099',font:{size:10}}, grid:{color:'#1A2840'}, min:0, max:100 },
+      },
+    },
+  });
+
+  // Table
+  document.getElementById('historyTable').innerHTML = `
+    <table style="width:100%;border-collapse:collapse;font-size:11px;">
+      <thead><tr style="border-bottom:1px solid #253347;color:var(--muted);">
+        <th style="padding:5px 6px;text-align:left;">Date</th>
+        <th style="padding:5px 6px;text-align:right;">Score</th>
+        <th style="padding:5px 6px;text-align:right;">Eff%</th>
+        <th style="padding:5px 6px;text-align:right;">REM%</th>
+        <th style="padding:5px 6px;text-align:right;">Awk</th>
+      </tr></thead>
+      <tbody>${nights.map(n => `
+        <tr style="border-bottom:1px solid rgba(37,51,71,0.4);cursor:pointer;"
+            onclick="loadSession('${n.session_id}');closeHistory();">
+          <td style="padding:7px 6px;color:var(--text);">${n.date||'—'}</td>
+          <td style="padding:7px 6px;text-align:right;color:#4DFFD2;font-weight:700;">${n.quality_score||'—'} <span style="color:var(--muted);font-weight:400;">${n.quality_grade||''}</span></td>
+          <td style="padding:7px 6px;text-align:right;color:#aab;">${n.efficiency_pct||'—'}%</td>
+          <td style="padding:7px 6px;text-align:right;color:#aab;">${n.rem_pct!=null?n.rem_pct+'%':'—'}</td>
+          <td style="padding:7px 6px;text-align:right;color:#aab;">${n.awakenings!=null?n.awakenings:'—'}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>`;
+
+  // Weekly narrative
+  document.getElementById('weeklySummary').textContent = 'Generating weekly summary…';
+  try {
+    const sr = await fetch('/api/weekly-summary', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ nights }),
+    });
+    const sd = await sr.json();
+    document.getElementById('weeklySummary').textContent = sd.summary || '';
+  } catch(_) {
+    document.getElementById('weeklySummary').textContent = '';
+  }
+}
+
+async function loadSession(sessionId) {
+  const res = await fetch(`/api/session/${sessionId}`);
+  if (!res.ok) return;
+  const data = await res.json();
+  renderResults(data);
+  if (data.chat_history) {
+    document.getElementById('chat-messages').innerHTML =
+      '<div class="msg msg-ai">Hi! I\'ve analysed your sleep data. Ask me anything about your results — sleep quality, stage breakdown, or how to improve your sleep.</div>';
+    data.chat_history.forEach(m => appendMessage(m.text, m.role === 'ai' ? 'msg-ai' : 'msg-user'));
+  }
+}
+
+// ── Dream Journal ─────────────────────────────────────────────────────────────────
+function showDreamSection(sessionId, analysis) {
+  const section = document.getElementById('dreamSection');
+  section.style.display = 'block';
+  section.dataset.sessionId = sessionId;
+
+  // Show voice hint if voice check was done this session
+  const hasVoice = localStorage.getItem('lastVoiceSession') === sessionId;
+  document.getElementById('dreamVoiceHint').style.display = hasVoice ? 'inline' : 'none';
+
+  // Restore prior dream if saved
+  fetch(`/api/dream/${sessionId}`)
+    .then(r => r.json())
+    .then(data => { if (data && data.dream) showDreamResult(data.dream, data.analysis); })
+    .catch(() => {});
+
+  // Reset form state
+  document.getElementById('dreamInputArea').style.display = 'block';
+  document.getElementById('dreamResult').style.display = 'none';
+  document.getElementById('dreamText').value = '';
+}
+
+document.getElementById('dreamSubmitBtn').addEventListener('click', async () => {
+  const text      = document.getElementById('dreamText').value.trim();
+  const sessionId = document.getElementById('dreamSection').dataset.sessionId;
+  if (!text) return;
+  const btn = document.getElementById('dreamSubmitBtn');
+  btn.textContent = 'Analysing…';
+  btn.disabled = true;
+  try {
+    const res = await fetch('/api/dream', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({ session_id: sessionId, text }),
+    });
+    if (!res.ok) { showToast('Dream analysis failed — check server logs.'); return; }
+    const data = await res.json();
+    showDreamResult(text, data.analysis);
+  } catch(e) {
+    showToast('Dream analysis failed.');
+  } finally {
+    btn.textContent = 'Analyse Dream';
+    btn.disabled = false;
+  }
+});
+
+function showDreamResult(dreamText, analysisText) {
+  document.getElementById('dreamInputArea').style.display = 'none';
+  document.getElementById('dreamResult').style.display = 'block';
+  document.getElementById('dreamOriginalText').textContent = '“' + dreamText + '”';
+  document.getElementById('dreamAnalysisText').textContent = analysisText;
+}
+
+document.getElementById('dreamNewEntry').addEventListener('click', () => {
+  document.getElementById('dreamInputArea').style.display = 'block';
+  document.getElementById('dreamResult').style.display = 'none';
+  document.getElementById('dreamText').value = '';
+});
+
+// Dream mic — transcribe via Deepgram then fill textarea
+document.getElementById('dreamMicBtn').addEventListener('click', async () => {
+  const btn = document.getElementById('dreamMicBtn');
+  if (btn.dataset.recording === '1') return;
+  const stream = await navigator.mediaDevices.getUserMedia({ audio: true }).catch(() => null);
+  if (!stream) { showToast('Microphone access denied.'); return; }
+  const chunks = [];
+  const rec = new MediaRecorder(stream);
+  rec.ondataavailable = e => chunks.push(e.data);
+  rec.onstop = async () => {
+    btn.textContent = '🎤 Speak';
+    btn.dataset.recording = '0';
+    stream.getTracks().forEach(t => t.stop());
+    const fd = new FormData();
+    fd.append('file', new Blob(chunks, { type:'audio/webm' }), 'dream.webm');
+    try {
+      const res = await fetch('/api/transcribe', { method:'POST', body:fd });
+      if (res.ok) {
+        const { transcript } = await res.json();
+        if (transcript) document.getElementById('dreamText').value = transcript;
+      }
+    } catch(_) {}
+  };
+  rec.start();
+  btn.textContent = '⏹ Stop';
+  btn.dataset.recording = '1';
+  btn.onclick = () => rec.stop();
+});
+
+// Mark session when voice check is done (so dream journal shows the voice hint)
+// Patch into the existing voice submit flow
+const _origSubmitVoice = window.submitVoiceCheck;
+if (typeof submitVoiceCheck === 'function') {
+  const _orig = submitVoiceCheck;
+  window.submitVoiceCheck = async function(stream) {
+    await _orig(stream);
+    const sid = localStorage.getItem('sleepSessionId');
+    if (sid) localStorage.setItem('lastVoiceSession', sid);
+    const hint = document.getElementById('dreamVoiceHint');
+    if (hint) hint.style.display = 'inline';
+  };
+}
+
+// ── Auth ──────────────────────────────────────────────────────────────────────────
+function getToken() { return localStorage.getItem('sleepToken'); }
+function authHeaders() {
+  const t = getToken();
+  return t ? { Authorization: `Bearer ${t}` } : {};
+}
+
+// Global 401 interceptor — patch fetch so any 401 anywhere shows the login modal
+const _origFetch = window.fetch.bind(window);
+window.fetch = async function(...args) {
+  const res = await _origFetch(...args);
+  if (res.status === 401) {
+    const url = typeof args[0] === 'string' ? args[0] : (args[0]?.url || '');
+    if (!url.includes('/api/auth/')) {
+      setCurrentUser(null);
+      openAuthModal('login');
+    }
+  }
+  return res;
+};
+
+function setCurrentUser(user) {
+  if (user) {
+    localStorage.setItem('sleepUser', JSON.stringify(user));
+    document.getElementById('auth-logged-out').style.display = 'none';
+    document.getElementById('auth-logged-in').style.display = 'flex';
+    document.getElementById('auth-user-name').textContent = user.name;
+    document.getElementById('provider-link').style.display =
+      user.role === 'provider' ? 'inline-block' : 'none';
+  } else {
+    localStorage.removeItem('sleepToken');
+    localStorage.removeItem('sleepUser');
+    document.getElementById('auth-logged-out').style.display = 'flex';
+    document.getElementById('auth-logged-in').style.display = 'none';
+    document.getElementById('provider-link').style.display = 'none';
+  }
+}
+
+function openAuthModal(tab = 'login') {
+  document.getElementById('auth-modal').style.display = 'flex';
+  switchAuthTab(tab);
+  document.getElementById('auth-error').style.display = 'none';
+}
+function closeAuthModal() {
+  document.getElementById('auth-modal').style.display = 'none';
+  // Reset forgot-password subform if open
+  document.getElementById('forgot-section').style.display = 'none';
+  document.getElementById('form-login').style.display = 'block';
+}
+function switchAuthTab(tab) {
+  const isLogin = tab === 'login';
+  document.getElementById('form-login').style.display    = isLogin ? 'block' : 'none';
+  document.getElementById('form-register').style.display = isLogin ? 'none'  : 'block';
+  document.getElementById('forgot-section').style.display = 'none';
+  document.getElementById('tab-login').style.borderBottomColor    = isLogin ? 'var(--accent)' : 'transparent';
+  document.getElementById('tab-login').style.color                = isLogin ? 'var(--text)'   : 'var(--muted)';
+  document.getElementById('tab-register').style.borderBottomColor = isLogin ? 'transparent' : 'var(--accent)';
+  document.getElementById('tab-register').style.color             = isLogin ? 'var(--muted)'  : 'var(--text)';
+  document.getElementById('auth-error').style.display = 'none';
+}
+document.getElementById('auth-modal').addEventListener('click', e => {
+  if (e.target === document.getElementById('auth-modal')) closeAuthModal();
+});
+
+function showAuthError(msg, isWarning = false) {
+  const el = document.getElementById('auth-error');
+  el.textContent = msg;
+  el.style.display = 'block';
+  el.style.background = isWarning ? 'rgba(210,153,34,0.12)' : 'rgba(248,81,73,0.12)';
+  el.style.borderColor = isWarning ? 'rgba(210,153,34,0.3)' : 'rgba(248,81,73,0.3)';
+  el.style.color = isWarning ? '#d29922' : '#f85149';
+}
+
+// ── Login ─────────────────────────────────────────────────────────────────────
+async function submitLogin(e) {
+  e.preventDefault();
+  const email = document.getElementById('login-email').value;
+  const pw    = document.getElementById('login-password').value;
+  const body  = new URLSearchParams({ username: email, password: pw });
+  try {
+    const r = await _origFetch('/api/auth/login', { method: 'POST', body });
+    const d = await r.json();
+    if (r.status === 403 && d.detail === 'check_email') {
+      // Email not verified — show banner with resend option
+      document.getElementById('auth-error').innerHTML =
+        `Check your inbox to verify your email. ` +
+        `<a href="#" onclick="resendVerification('${email}');return false" ` +
+        `style="color:inherit;text-decoration:underline">Resend email</a>`;
+      document.getElementById('auth-error').style.display = 'block';
+      document.getElementById('auth-error').style.background = 'rgba(210,153,34,0.12)';
+      document.getElementById('auth-error').style.borderColor = 'rgba(210,153,34,0.3)';
+      document.getElementById('auth-error').style.color = '#d29922';
+      return;
+    }
+    if (!r.ok) { showAuthError(d.detail || 'Login failed'); return; }
+    localStorage.setItem('sleepToken', d.access_token);
+    setCurrentUser(d.user);
+    closeAuthModal();
+    showToast(`Welcome back, ${d.user.name}!`);
+    const next = new URLSearchParams(location.search).get('next');
+    if (next) window.location.href = next;
+    else if (d.user.role === 'provider') window.location.href = '/provider';
+  } catch { showAuthError('Network error — is the server running?'); }
+}
+
+async function resendVerification(email) {
+  await _origFetch('/api/auth/resend-verification', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  showAuthError('Verification email sent! Check your inbox.', true);
+}
+
+// ── Register ──────────────────────────────────────────────────────────────────
+async function submitRegister(e) {
+  e.preventDefault();
+  const role = document.querySelector('input[name="reg-role"]:checked').value;
+  const body = {
+    name:     document.getElementById('reg-name').value,
+    email:    document.getElementById('reg-email').value,
+    password: document.getElementById('reg-password').value,
+    role,
+  };
+  try {
+    const r = await _origFetch('/api/auth/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+    const d = await r.json();
+    if (!r.ok) { showAuthError(d.detail || 'Registration failed'); return; }
+    localStorage.setItem('sleepToken', d.access_token);
+    // Don't call setCurrentUser yet — email unverified
+    closeAuthModal();
+    showVerifyBanner(body.email);
+  } catch { showAuthError('Network error — is the server running?'); }
+}
+
+function showVerifyBanner(email) {
+  const b = document.getElementById('verify-banner');
+  if (!b) return;
+  b.innerHTML = `📧 Check <strong>${email}</strong> to verify your account before logging in. ` +
+    `<a href="#" onclick="resendVerificationBanner('${email}');return false" ` +
+    `style="color:#d29922;text-decoration:underline">Resend</a>`;
+  b.style.display = 'flex';
+}
+
+async function resendVerificationBanner(email) {
+  await _origFetch('/api/auth/resend-verification', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  showToast('Verification email re-sent!');
+}
+
+// ── Forgot password ───────────────────────────────────────────────────────────
+function showForgotPassword() {
+  document.getElementById('form-login').style.display = 'none';
+  document.getElementById('forgot-section').style.display = 'block';
+  document.getElementById('auth-error').style.display = 'none';
+}
+
+async function submitForgotPassword(e) {
+  e.preventDefault();
+  const email = document.getElementById('forgot-email').value;
+  await _origFetch('/api/auth/forgot-password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email }),
+  });
+  document.getElementById('forgot-section').innerHTML =
+    `<p style="color:var(--green);font-size:0.85rem;text-align:center;padding:8px 0">
+      ✓ If that email is registered, a reset link is on its way.
+    </p>
+    <button onclick="switchAuthTab('login')" style="width:100%;margin-top:8px;padding:8px;background:transparent;border:1px solid var(--border);color:var(--muted);border-radius:7px;cursor:pointer;font-size:0.82rem">
+      ← Back to login
+    </button>`;
+}
+
+// ── Reset password (from ?reset=<token> URL param) ────────────────────────────
+function checkResetParam() {
+  const params = new URLSearchParams(location.search);
+  const token  = params.get('reset');
+  const verified = params.get('verified');
+
+  if (verified === '1') {
+    showToast('Email verified! You can now log in.');
+    openAuthModal('login');
+    history.replaceState({}, '', '/');
+  } else if (verified === 'error') {
+    openAuthModal('login');
+    showAuthError('Verification link is invalid or expired. Request a new one.');
+    history.replaceState({}, '', '/');
+  }
+
+  if (token) {
+    openAuthModal('login');
+    document.getElementById('form-login').style.display = 'none';
+    document.getElementById('forgot-section').style.display = 'block';
+    document.getElementById('forgot-section').innerHTML = `
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:14px">Enter your new password:</p>
+      <form onsubmit="submitResetPassword(event,'${token}')">
+        <input id="reset-pw" type="password" required minlength="8" placeholder="New password (min 8 chars)"
+          style="width:100%;padding:9px 12px;background:var(--bg);border:1px solid var(--border);color:var(--text);border-radius:7px;font-size:0.88rem;outline:none;margin-bottom:14px">
+        <button type="submit" style="width:100%;padding:10px;background:var(--accent);border:none;color:#0d1117;border-radius:8px;font-size:0.9rem;font-weight:700;cursor:pointer">
+          Set new password
+        </button>
+      </form>`;
+    history.replaceState({}, '', '/');
+  }
+}
+
+async function submitResetPassword(e, token) {
+  e.preventDefault();
+  const pw = document.getElementById('reset-pw').value;
+  const r  = await _origFetch('/api/auth/reset-password', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token, password: pw }),
+  });
+  const d = await r.json();
+  if (!r.ok) { showAuthError(d.detail || 'Reset failed'); return; }
+  document.getElementById('forgot-section').style.display = 'none';
+  document.getElementById('form-login').style.display = 'block';
+  showAuthError('Password updated! You can now log in.', true);
+}
+
+// ── Logout ────────────────────────────────────────────────────────────────────
+async function logout() {
+  const token = getToken();
+  if (token) {
+    await _origFetch('/api/auth/logout', {
+      method: 'POST',
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch(() => {});
+  }
+  setCurrentUser(null);
+  document.getElementById('verify-banner').style.display = 'none';
+  showToast('Logged out.');
+}
+
+// Restore session on page load
+(async () => {
+  checkResetParam();
+  const token = getToken();
+  if (!token) return;
+  try {
+    const r = await _origFetch('/api/auth/me', { headers: { Authorization: `Bearer ${token}` } });
+    if (r.ok) setCurrentUser(await r.json());
+    else setCurrentUser(null);
+  } catch { /* server offline */ }
+})();
+
+// ── Loader / Toast ────────────────────────────────────────────────────────────────
+function showLoader(msg) {
+  document.getElementById('loader').classList.add('active');
+  document.getElementById('loader-msg').textContent = msg;
+}
+function hideLoader() {
+  document.getElementById('loader').classList.remove('active');
+}
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('visible');
+  setTimeout(() => t.classList.remove('visible'), 5000);
+}
+</script>
+
+<!-- History slide-in panel -->
+<div id="historyOverlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:999;" onclick="closeHistory()"></div>
+<div id="historyPanel" style="
+  position:fixed;top:0;right:-440px;width:420px;height:100vh;
+  background:#131E30;border-left:1px solid #253347;
+  overflow-y:auto;transition:right 0.3s ease;z-index:1000;padding:28px 22px;
+  box-sizing:border-box;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+    <h3 style="color:#fff;font-size:16px;margin:0;">Sleep History</h3>
+    <button onclick="closeHistory()" style="background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;">✕</button>
+  </div>
+  <canvas id="historyChart" height="150" style="margin-bottom:18px;"></canvas>
+  <div id="historyTable" style="margin-bottom:18px;"></div>
+  <div id="weeklySummary" style="
+    background:rgba(77,255,210,0.05);border:1px solid #253347;
+    border-radius:2px;padding:14px;font-size:12px;color:#aab;line-height:1.6;
+    min-height:40px;"></div>
+</div>
+
+</body>
+</html>
